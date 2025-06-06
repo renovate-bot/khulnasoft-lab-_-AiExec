@@ -4414,7 +4414,7 @@ wheels = [
 
 [[package]]
 name = "langchain-mistralai"
-version = "0.2.3"
+version = "0.2.10"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -4423,9 +4423,9 @@ dependencies = [
     { name = "pydantic" },
     { name = "tokenizers" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2e/3e/2af1ffae70385ebc50e385b34bed6b115660142d355a8bb64a4334dfd5b1/langchain_mistralai-0.2.3.tar.gz", hash = "sha256:2033af92fd82ac7915664885a94579edec19feb3122525fff8dd2787e174c087", size = 14010, upload-time = "2024-12-02T16:32:05.9Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/dc/04/cd75dd40f55925b5fdcc96b0f9a22cc05e3711c2d270cf8b7948d5f389f0/langchain_mistralai-0.2.10.tar.gz", hash = "sha256:698620c7dee8ae85bf1ca1ed5b544285c0764c453efead9a4ae34ab884704ce1", size = 21560, upload-time = "2025-03-27T16:07:51.872Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/65/b2/657427f7216613af99bf1ca1171f348151c1408bd1a41b331a957a908aeb/langchain_mistralai-0.2.3-py3-none-any.whl", hash = "sha256:960abdd540af527da7e4d68b9316355ece6a740a60d145f32e4e19c1a9fe4d3a", size = 15000, upload-time = "2024-12-02T16:32:04.734Z" },
+    { url = "https://files.pythonhosted.org/packages/dd/d2/d1238951c6f522b7442558cb860dbde9658b8c5d766c6d5d7f7fde0b7f76/langchain_mistralai-0.2.10-py3-none-any.whl", hash = "sha256:fc3bc813eab034335236a3b01ba189cd00bcf2b7e6ac57628d0409438bd13425", size = 16526, upload-time = "2025-03-27T16:07:50.538Z" },
 ]
 
 [[package]]
@@ -4809,7 +4809,7 @@ requires-dist = [
     { name = "langchain-groq", specifier = "==0.2.1" },
     { name = "langchain-ibm", specifier = ">=0.3.8" },
     { name = "langchain-milvus", specifier = "==0.1.7" },
-    { name = "langchain-mistralai", specifier = "==0.2.3" },
+    { name = "langchain-mistralai", specifier = "==0.2.10" },
     { name = "langchain-mongodb", specifier = "==0.2.0" },
     { name = "langchain-nvidia-ai-endpoints", specifier = "==0.3.8" },
     { name = "langchain-ollama", specifier = "==0.2.1" },
