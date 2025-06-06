@@ -385,8 +385,8 @@ importers:
         specifier: 8.5.0
         version: 8.5.0(storybook@8.5.0)
       '@storybook/addon-themes':
-        specifier: 8.5.0
-        version: 8.5.0(storybook@8.5.0)
+        specifier: 8.6.14
+        version: 8.6.14(storybook@8.5.0)
       '@storybook/blocks':
         specifier: 8.5.0
         version: 8.5.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.5.0)
@@ -2611,10 +2611,10 @@ packages:
     peerDependencies:
       storybook: ^8.5.0
 
-  '@storybook/addon-themes@8.5.0':
-    resolution: {integrity: sha512-pBNut4sLfcOeLBvWdNAJ3cxv/BfMSTmJcUtSzE4G+1pVNsBbGF+T2f/GM0IjaM0K8Ft03VDzeEAB64nluDS4RA==}
+  '@storybook/addon-themes@8.6.14':
+    resolution: {integrity: sha512-/HJCgskA3OFGectuoLEBQ3JX1nQhE7lnpSv5gH13CWyyaMEk/mP8JYF1uO25YQqwGuSgL2gaEox+aK7UmglAmQ==}
     peerDependencies:
-      storybook: ^8.5.0
+      storybook: ^8.6.14
 
   '@storybook/addon-toolbars@8.5.0':
     resolution: {integrity: sha512-q3yYYO2WX8K2DYNM++FzixGDjzYaeREincgsl2WXYXrcuGb5hkOoOgRiAQL8Nz9NQ1Eo+B/yZxrhG/5VoVhUUQ==}
@@ -11079,7 +11079,7 @@ snapshots:
       storybook: 8.5.0
       ts-dedent: 2.2.0
 
-  '@storybook/addon-themes@8.5.0(storybook@8.5.0)':
+  '@storybook/addon-themes@8.6.14(storybook@8.5.0)':
     dependencies:
       storybook: 8.5.0
       ts-dedent: 2.2.0
