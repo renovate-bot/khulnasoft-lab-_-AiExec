@@ -77,7 +77,7 @@ dependencies = [
     "ragstack-ai-knowledge-store==0.2.1",
     "duckduckgo_search==7.2.1",
     "opensearch-py==2.8.0",
-    "langchain-google-genai==2.0.6",
+    "langchain-google-genai==2.1.5",
     "langchain-cohere==0.3.3",
     "langchain-anthropic==0.3.14",
     "langchain-astradb~=0.6.0",
