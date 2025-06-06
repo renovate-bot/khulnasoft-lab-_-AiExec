@@ -88,7 +88,7 @@ dependencies = [
     "langchain-mistralai==0.2.3",
     "langchain-chroma==0.1.4",
     "langchain-aws==0.2.7",
-    "langchain-unstructured==0.1.5",
+    "langchain-unstructured==0.1.6",
     "langchain-milvus==0.1.7",
     "langchain-mongodb==0.2.0",
     "langchain-nvidia-ai-endpoints==0.3.8",
