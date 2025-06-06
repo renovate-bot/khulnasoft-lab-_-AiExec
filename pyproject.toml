@@ -25,7 +25,7 @@ dependencies = [
     "huggingface-hub[inference]>=0.23.2,<1.0.0",
     "networkx==3.4.2",
     "fake-useragent==1.5.1",
-    "pyarrow==19.0.0",
+    "pyarrow==19.0.1",
     "wikipedia==1.4.0",
     "qdrant-client==1.9.2",
     "weaviate-client==4.10.2",
