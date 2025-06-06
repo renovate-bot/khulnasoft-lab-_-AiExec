@@ -162,7 +162,7 @@ storage = [
     "azure-storage-blob==12.13.0",
     "bce-python-sdk~=0.9.23",
     "cos-python-sdk-v5==1.9.30",
-    "esdk-obs-python==3.24.6.1",
+    "esdk-obs-python==3.25.3",
     "google-cloud-storage==2.16.0",
     "opendal~=0.45.16",
     "oss2==2.18.5",
