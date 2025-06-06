@@ -3002,7 +3002,7 @@ wheels = [
 
 [[package]]
 name = "graph-retriever"
-version = "0.6.1"
+version = "0.8.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "immutabledict" },
@@ -3010,9 +3010,9 @@ dependencies = [
     { name = "pytest" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/49/5b/be49d4e2367ea6eea9b456b9ede7e366d944a2a9cbdeb0dd3b7b8aceb03e/graph_retriever-0.6.1.tar.gz", hash = "sha256:d1acff607c6a2a215769ec07e9811298c19673d13ed4212c51cb55fe5ed9f0db", size = 34977, upload-time = "2025-03-12T12:57:50.535Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ef/d2/7821dfc262c3cecfad3e61eb16d425189eac68a780e2386fd50b04b24f53/graph_retriever-0.8.0.tar.gz", hash = "sha256:e61f1cb27184e8d4559ece6de0a6ea18920908ffbae945051f9a01380af73347", size = 35728, upload-time = "2025-04-04T12:55:56.638Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/70/17/ba6c8692dc275ce616d7deaa27ddb23ee5b5af1ee8404fff92cbcabaa107/graph_retriever-0.6.1-py3-none-any.whl", hash = "sha256:30ac9f80b12db6b8c3442bc7fa57d5528817d5331d84ff4f5b430d503e2740f4", size = 36713, upload-time = "2025-03-12T12:57:49.362Z" },
+    { url = "https://files.pythonhosted.org/packages/fd/ff/89506882321b0f1e2c720aff109ec46c7c74ef1e4aafbb62298fb8a387a0/graph_retriever-0.8.0-py3-none-any.whl", hash = "sha256:030bfd1976fd4eda358e3296670dc9a6c2209fcca5ad6c0281534a73d5346d01", size = 37141, upload-time = "2025-04-04T12:55:55.675Z" },
 ]
 
 [[package]]
@@ -4787,7 +4787,7 @@ requires-dist = [
     { name = "gitpython", specifier = "==3.1.43" },
     { name = "google-api-python-client", specifier = "==2.154.0" },
     { name = "google-search-results", specifier = ">=2.4.1,<3.0.0" },
-    { name = "graph-retriever", specifier = "==0.6.1" },
+    { name = "graph-retriever", specifier = "==0.8.0" },
     { name = "huggingface-hub", extras = ["inference"], specifier = ">=0.23.2,<1.0.0" },
     { name = "ibm-watsonx-ai", specifier = ">=1.3.1" },
     { name = "jq", specifier = "==1.8.0" },
