@@ -2018,7 +2018,7 @@ vectorstore-mmr = [
 
 [[package]]
 name = "elevenlabs"
-version = "1.58.1"
+version = "1.59.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version >= '3.12.4' and python_full_version < '3.13'",
@@ -2032,9 +2032,9 @@ dependencies = [
     { name = "typing-extensions", marker = "python_full_version == '3.12.*'" },
     { name = "websockets", marker = "python_full_version == '3.12.*'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/db/83/fd165b38a69a4a40746926a908ea92e456a0e0dd5b6038836c9cc94a3487/elevenlabs-1.58.1.tar.gz", hash = "sha256:e9f723a528c1bbd80605e639e858f7a58f204860faa9417305a4083508c7c0fb", size = 185830, upload-time = "2025-05-07T13:54:37.814Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/73/5f/01197145be5be258abdce254010eb300868b85fbf6cf1c6c1538a68caef4/elevenlabs-1.59.0.tar.gz", hash = "sha256:16e735bd594e86d415dd445d249c8cc28b09996cfd627fbc10102c0a84698859", size = 200549, upload-time = "2025-05-15T12:19:28.868Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1e/1f/95e2e56e6c139c497b4f1d2a546093e90cecbdf156766260f9220ba6c4f7/elevenlabs-1.58.1-py3-none-any.whl", hash = "sha256:2163054cb36b0aa70079f47ef7c046bf8668d5d183fd616b1c1c11d3996a50ce", size = 473568, upload-time = "2025-05-07T13:54:36.17Z" },
+    { url = "https://files.pythonhosted.org/packages/b0/1f/eaf5dc72edad9124f16daf36b9226c57893e21280d25e94b6b5c7011c86b/elevenlabs-1.59.0-py3-none-any.whl", hash = "sha256:468145db81a0bc867708b4a8619699f75583e9481b395ec1339d0b443da771ed", size = 523205, upload-time = "2025-05-15T12:19:27.568Z" },
 ]
 
 [[package]]
@@ -4712,7 +4712,7 @@ dev = [
     { name = "blockbuster" },
     { name = "codeflash" },
     { name = "dictdiffer" },
-    { name = "elevenlabs", version = "1.58.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.12.*'" },
+    { name = "elevenlabs", version = "1.59.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.12.*'" },
     { name = "elevenlabs", version = "2.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version != '3.12.*'" },
     { name = "faker" },
     { name = "httpx" },
@@ -4884,7 +4884,7 @@ dev = [
     { name = "codeflash", specifier = ">=0.8.4" },
     { name = "dictdiffer", specifier = ">=0.9.0" },
     { name = "elevenlabs", marker = "python_full_version != '3.12.*'", specifier = ">=1.52.0" },
-    { name = "elevenlabs", marker = "python_full_version == '3.12.*'", specifier = "==1.58.1" },
+    { name = "elevenlabs", marker = "python_full_version == '3.12.*'", specifier = "==1.59.0" },
     { name = "faker", specifier = ">=37.0.0" },
     { name = "httpx", specifier = ">=0.27.0" },
     { name = "hypothesis", specifier = ">=6.123.17" },
@@ -4945,7 +4945,7 @@ dependencies = [
     { name = "diskcache" },
     { name = "docstring-parser" },
     { name = "duckdb" },
-    { name = "elevenlabs", version = "1.58.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.12.*'" },
+    { name = "elevenlabs", version = "1.59.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.12.*'" },
     { name = "elevenlabs", version = "2.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version != '3.12.*'" },
     { name = "emoji" },
     { name = "fastapi" },
@@ -5077,7 +5077,7 @@ requires-dist = [
     { name = "docstring-parser", specifier = ">=0.16,<1.0.0" },
     { name = "duckdb", specifier = ">=1.0.0,<2.0.0" },
     { name = "elevenlabs", marker = "python_full_version != '3.12.*'", specifier = ">=1.52.0" },
-    { name = "elevenlabs", marker = "python_full_version == '3.12.*'", specifier = "==1.58.1" },
+    { name = "elevenlabs", marker = "python_full_version == '3.12.*'", specifier = "==1.59.0" },
     { name = "emoji", specifier = ">=2.12.0,<3.0.0" },
     { name = "fastapi", specifier = ">=0.115.2,<1.0.0" },
     { name = "fastapi-pagination", specifier = ">=0.13.1,<1.0.0" },
