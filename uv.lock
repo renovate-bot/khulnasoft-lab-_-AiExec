@@ -1340,7 +1340,7 @@ wheels = [
 
 [[package]]
 name = "composio-langchain"
-version = "0.7.15"
+version = "0.7.16"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "composio-core" },
@@ -1349,9 +1349,9 @@ dependencies = [
     { name = "langchainhub" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a3/7a/e127ea858ceda35341ee399480d2d5705bd4a2dbbabadf8f0bc35d05c48d/composio_langchain-0.7.15.tar.gz", hash = "sha256:cb75c460289ecdf9590caf7ddc0d7888b0a6622ca4f800c9358abe90c25d055e", size = 4477, upload-time = "2025-04-07T21:50:19.224Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/00/f8/5657457d85e75db2f8127ffd082ab3af6c64a03749491c1021edea077497/composio_langchain-0.7.16.tar.gz", hash = "sha256:6e2136381790e63f21d2e47ba4c1ee449d85463abca29d616ba281ff9d6b603c", size = 4480, upload-time = "2025-05-27T08:29:52.562Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/40/67/324cb0d8ce29c6689d41751b8e29c2600ac89028fd2e69440526929cb422/composio_langchain-0.7.15-py3-none-any.whl", hash = "sha256:a71b5371ad6c3ee4d4289c7a994fad1424e24c29a38e820b6b2ed259056abb65", size = 4897, upload-time = "2025-04-07T21:50:01.291Z" },
+    { url = "https://files.pythonhosted.org/packages/27/3b/13fbbcacd342247b5905ad54775530af412118b766dd0a8656d60952258d/composio_langchain-0.7.16-py3-none-any.whl", hash = "sha256:0964972a24be6741b77fd941859f7adba331a6df70324157793cfccb21b6de02", size = 4900, upload-time = "2025-05-27T08:29:34.539Z" },
 ]
 
 [[package]]
@@ -4771,7 +4771,7 @@ requires-dist = [
     { name = "chromadb", specifier = "==0.5.23" },
     { name = "clickhouse-connect", marker = "extra == 'clickhouse-connect'", specifier = "==0.7.19" },
     { name = "composio-core", specifier = "==0.7.15" },
-    { name = "composio-langchain", specifier = "==0.7.15" },
+    { name = "composio-langchain", specifier = "==0.7.16" },
     { name = "couchbase", marker = "extra == 'couchbase'", specifier = ">=4.2.1" },
     { name = "crewai", specifier = "==0.102.0" },
     { name = "ctransformers", marker = "extra == 'local'", specifier = ">=0.2.10" },
