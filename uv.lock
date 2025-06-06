@@ -369,7 +369,7 @@ wheels = [
 
 [[package]]
 name = "assemblyai"
-version = "0.35.1"
+version = "0.41.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -377,9 +377,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "websockets" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6e/9f/d080822cc8822fe3e36bfa7ecce928490c3091dc6c3f2ad8415c145bef02/assemblyai-0.35.1.tar.gz", hash = "sha256:784425e8ed94453d2a45d1b2533f2676c64fc4ea5cf041a740c4e47e5e9fb965", size = 47679, upload-time = "2024-11-07T16:23:27.314Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/25/d6/40cf860a00c4b73b5e929543f26b3a820355b8040841672642127c6bb861/assemblyai-0.41.1.tar.gz", hash = "sha256:7a46f57b3dc1122f9bd480c9a5d105d54ae45ecd36756e29e5057d42f1ca0f5e", size = 53491, upload-time = "2025-06-02T13:52:11.13Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/28/4a/875ea9fd3c8e93d3b74e458449a501c9fd5bd90901e3d72077ffc9d6a29a/assemblyai-0.35.1-py3-none-any.whl", hash = "sha256:de303ee48187c7308eb573bec75b89586903cd91c0ec694942cbcf0873de7206", size = 43139, upload-time = "2024-11-07T16:23:26.247Z" },
+    { url = "https://files.pythonhosted.org/packages/3e/6e/f0221619879bcddc78f0115a9859ce9ae5ed5782026d07547d8bd4d290c8/assemblyai-0.41.1-py3-none-any.whl", hash = "sha256:fe001eef2ce03b93fa4b6eadcb3d05bc0c27fa72112e1e3e00e63410db40de2a", size = 49262, upload-time = "2025-06-02T13:52:09.591Z" },
 ]
 
 [[package]]
@@ -4760,7 +4760,7 @@ requires-dist = [
     { name = "aiofile", specifier = ">=3.9.0,<4.0.0" },
     { name = "apify-client", specifier = ">=1.8.1" },
     { name = "arize-phoenix-otel", specifier = ">=0.6.1" },
-    { name = "assemblyai", specifier = "==0.35.1" },
+    { name = "assemblyai", specifier = "==0.41.1" },
     { name = "astra-assistants", extras = ["tools"], specifier = "~=2.2.12" },
     { name = "atlassian-python-api", specifier = "==3.41.16" },
     { name = "beautifulsoup4", specifier = "==4.12.3" },
