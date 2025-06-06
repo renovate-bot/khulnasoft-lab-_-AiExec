@@ -4857,7 +4857,7 @@ requires-dist = [
     { name = "scrapegraph-py", specifier = ">=1.12.0" },
     { name = "sentence-transformers", marker = "extra == 'local'", specifier = ">=2.3.1" },
     { name = "smolagents", specifier = ">=1.8.0" },
-    { name = "spider-client", specifier = "==0.1.24" },
+    { name = "spider-client", specifier = "==0.1.36" },
     { name = "sqlalchemy", extras = ["aiosqlite"], specifier = ">=2.0.38,<3.0.0" },
     { name = "sqlalchemy", extras = ["postgresql-psycopg"], marker = "extra == 'postgresql'" },
     { name = "sqlalchemy", extras = ["postgresql-psycopg2binary"], marker = "extra == 'postgresql'" },
@@ -9740,7 +9740,7 @@ wheels = [
 
 [[package]]
 name = "spider-client"
-version = "0.1.24"
+version = "0.1.36"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
@@ -9748,7 +9748,10 @@ dependencies = [
     { name = "requests" },
     { name = "tenacity" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/df/71/ae4f11b001b5792e1441f5da30899e8d59ac02e04c3a19a379d3814f60bb/spider-client-0.1.24.tar.gz", hash = "sha256:bf82f2c56b140e450421a4a88c665436a313108235e5a3626cdb237076425d29", size = 15383, upload-time = "2024-12-05T22:12:10.381Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4f/fd/82124744e8a79a7f9ff674de3dea5d291bc9c017847e08222719e109c485/spider_client-0.1.36.tar.gz", hash = "sha256:a4f7db7100e605a24bbfa0ce103f3aca1a939c43513c8f8887c3a3ba82bf8cf5", size = 15534, upload-time = "2025-05-18T19:44:42.719Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/da/4c/cbcbaaba117ca5ae5837f7cc81f83a2a2cd0ed74392dca68abe214a6cb14/spider_client-0.1.36-py3-none-any.whl", hash = "sha256:8b7e04121df1894a72827acae5fea49d1231bc2a3abf8296347a80d4c4705fdb", size = 13203, upload-time = "2025-05-18T19:44:41.451Z" },
+]
 
 [[package]]
 name = "sqlalchemy"

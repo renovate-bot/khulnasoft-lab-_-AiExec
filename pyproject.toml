@@ -69,7 +69,7 @@ dependencies = [
     "astra-assistants[tools]~=2.2.12",
     "composio-langchain==0.7.15",
     "composio-core==0.7.15",
-    "spider-client==0.1.24",
+    "spider-client==0.1.36",
     "nltk==3.9.1",
     "lark==1.2.2",
     "jq==1.8.0",
