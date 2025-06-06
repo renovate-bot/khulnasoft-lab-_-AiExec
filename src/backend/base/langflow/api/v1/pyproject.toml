@@ -184,7 +184,7 @@ vdb = [
     "alibabacloud_tea_openapi~=0.3.9",
     "chromadb==0.5.20",
     "clickhouse-connect~=0.7.16",
-    "couchbase~=4.3.0",
+    "couchbase~=4.4.0",
     "elasticsearch==8.14.0",
     "opensearch-py==2.4.0",
     "oracledb==3.0.0",
