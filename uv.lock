@@ -2000,14 +2000,16 @@ wheels = [
 
 [[package]]
 name = "elasticsearch"
-version = "8.16.0"
+version = "8.18.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "elastic-transport" },
+    { name = "python-dateutil" },
+    { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/04/56/9720d27888279f6aa1b436ff4b843ba4477a1cb088634a29786dffe52137/elasticsearch-8.16.0.tar.gz", hash = "sha256:d2aaa92f44ebea3c4147389aeba038c0b42a017f8c52ff35b1e7ebc34c49adb7", size = 433139, upload-time = "2024-11-13T11:25:31.441Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/2a/e4/40fc0e8d9a646889ac3f865cd35e41835f3cf888c716c7aae82248e022f0/elasticsearch-8.18.1.tar.gz", hash = "sha256:998035f17a8c1fba7ae26b183dca797dcf95db86da6a7ecba56d31afc40f07c7", size = 750746, upload-time = "2025-04-29T09:32:16.361Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/87/f4/5418be6b502e0260f8ee1c7eccf471ac8c01eea9bac8930d9931b7da7f1c/elasticsearch-8.16.0-py3-none-any.whl", hash = "sha256:83d9fe09e8e95880559da43e44976c1e11cc63fe96bc0c0592f3d64f371772bf", size = 543113, upload-time = "2024-11-13T11:25:25.685Z" },
+    { url = "https://files.pythonhosted.org/packages/33/62/f62e8a5c7c6f7b27481c9ffc248fb32078ad88878aa4f3731a83a14cc797/elasticsearch-8.18.1-py3-none-any.whl", hash = "sha256:1a8c8b5ec3ce5be88f96d2f898375671648e96272978bce0dee3137d9326aabb", size = 906320, upload-time = "2025-04-29T09:32:12.527Z" },
 ]
 
 [package.optional-dependencies]
@@ -4778,7 +4780,7 @@ requires-dist = [
     { name = "datasets", specifier = ">2.14.7" },
     { name = "dspy-ai", specifier = "==2.5.41" },
     { name = "duckduckgo-search", specifier = "==7.2.1" },
-    { name = "elasticsearch", specifier = "==8.16.0" },
+    { name = "elasticsearch", specifier = "==8.18.1" },
     { name = "faiss-cpu", specifier = "==1.9.0.post1" },
     { name = "fake-useragent", specifier = "==1.5.1" },
     { name = "fastavro", marker = "python_full_version < '3.13'", specifier = "==1.9.7" },

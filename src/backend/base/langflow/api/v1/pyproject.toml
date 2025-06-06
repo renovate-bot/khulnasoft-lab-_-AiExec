@@ -185,7 +185,7 @@ vdb = [
     "chromadb==0.5.20",
     "clickhouse-connect~=0.7.16",
     "couchbase~=4.3.0",
-    "elasticsearch==8.14.0",
+    "elasticsearch==8.18.1",
     "opensearch-py==2.4.0",
     "oracledb==3.0.0",
     "pgvecto-rs[sqlalchemy]~=0.2.1",
