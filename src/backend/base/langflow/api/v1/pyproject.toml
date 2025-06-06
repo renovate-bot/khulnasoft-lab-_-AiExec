@@ -21,7 +21,7 @@ dependencies = [
     "flask-sqlalchemy~=3.1.1",
     "gevent~=24.11.1",
     "gmpy2~=2.2.1",
-    "google-api-core==2.18.0",
+    "google-api-core==2.25.0",
     "google-api-python-client==2.90.0",
     "google-auth==2.29.0",
     "google-auth-httplib2==0.2.0",
