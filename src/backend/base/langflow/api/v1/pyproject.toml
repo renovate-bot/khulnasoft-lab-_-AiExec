@@ -159,7 +159,7 @@ dev = [
 # Required for storage clients
 ############################################################
 storage = [
-    "azure-storage-blob==12.13.0",
+    "azure-storage-blob==12.25.1",
     "bce-python-sdk~=0.9.23",
     "cos-python-sdk-v5==1.9.30",
     "esdk-obs-python==3.24.6.1",
