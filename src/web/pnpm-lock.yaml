@@ -490,8 +490,8 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2(eslint@9.24.0(jiti@1.21.7))
       eslint-plugin-storybook:
-        specifier: ^0.11.2
-        version: 0.11.6(eslint@9.24.0(jiti@1.21.7))(typescript@4.9.5)
+        specifier: ^0.12.0
+        version: 0.12.0(eslint@9.24.0(jiti@1.21.7))(typescript@4.9.5)
       eslint-plugin-tailwindcss:
         specifier: ^3.18.0
         version: 3.18.0(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@18.15.0)(typescript@4.9.5)))
@@ -4926,8 +4926,8 @@ packages:
     peerDependencies:
       eslint: ^8.0.0 || ^9.0.0
 
-  eslint-plugin-storybook@0.11.6:
-    resolution: {integrity: sha512-3WodYD6Bs9ACqnB+TP2TuLh774c/nacAjxSKOP9bHJ2c8rf+nrhocxjjeAWNmO9IPkFIzTKlcl0vNXI2yYpVOw==}
+  eslint-plugin-storybook@0.12.0:
+    resolution: {integrity: sha512-Lg5I0+npTgiYgZ4KSvGWGDFZi3eOCNJPaWX0c9rTEEXC5wvooOClsP9ZtbI4hhFKyKgYR877KiJxbRTSJq9gWA==}
     engines: {node: '>= 18'}
     peerDependencies:
       eslint: '>=8'
@@ -14021,7 +14021,7 @@ snapshots:
       semver: 7.7.1
       typescript: 5.8.3
 
-  eslint-plugin-storybook@0.11.6(eslint@9.24.0(jiti@1.21.7))(typescript@4.9.5):
+  eslint-plugin-storybook@0.12.0(eslint@9.24.0(jiti@1.21.7))(typescript@4.9.5):
     dependencies:
       '@storybook/csf': 0.1.13
       '@typescript-eslint/utils': 8.29.1(eslint@9.24.0(jiti@1.21.7))(typescript@4.9.5)
