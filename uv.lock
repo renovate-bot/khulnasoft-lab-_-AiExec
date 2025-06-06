@@ -4444,15 +4444,16 @@ wheels = [
 
 [[package]]
 name = "langchain-nvidia-ai-endpoints"
-version = "0.3.8"
+version = "0.3.10"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
+    { name = "filetype" },
     { name = "langchain-core" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/fb/6c/d37194e5c0a80029076799f1e092c779d8dae5d789aa914d2a57be404ed2/langchain_nvidia_ai_endpoints-0.3.8.tar.gz", hash = "sha256:b5af7e500557c398146c5963535901119d0a8722fb2174b56248a522d7569b5e", size = 37135, upload-time = "2025-01-28T17:24:17.571Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b9/e7/7ed2e9e35a877eb78246652a7c8873dafb7892f6fb049dbd3f60e58250eb/langchain_nvidia_ai_endpoints-0.3.10.tar.gz", hash = "sha256:b72074763f8cb1244358fe33683b286f3ab07b8e09b20871d4d5cc72ee2be9c9", size = 37387, upload-time = "2025-05-05T13:04:13.699Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9d/d3/ff83cc127fc7360ce5ada9e315436474eda24998a6b72cc28b3b7c076a88/langchain_nvidia_ai_endpoints-0.3.8-py3-none-any.whl", hash = "sha256:3e4a97b635c548e4d3a7e042ea6dd46f4cb618ec44190b761b26c5841931a0be", size = 41291, upload-time = "2025-01-28T17:24:16.31Z" },
+    { url = "https://files.pythonhosted.org/packages/6c/eb/c133e34e870ef29e82a7c412bfe31ec1e7e1bdd44f8d3679d5ed008c827b/langchain_nvidia_ai_endpoints-0.3.10-py3-none-any.whl", hash = "sha256:715ee71a3152f2811bff8ef5b2cec7edbd2e299377da6155a7f6448e87e3784d", size = 41573, upload-time = "2025-05-05T13:04:12.666Z" },
 ]
 
 [[package]]
@@ -4811,7 +4812,7 @@ requires-dist = [
     { name = "langchain-milvus", specifier = "==0.1.7" },
     { name = "langchain-mistralai", specifier = "==0.2.3" },
     { name = "langchain-mongodb", specifier = "==0.2.0" },
-    { name = "langchain-nvidia-ai-endpoints", specifier = "==0.3.8" },
+    { name = "langchain-nvidia-ai-endpoints", specifier = "==0.3.10" },
     { name = "langchain-ollama", specifier = "==0.2.1" },
     { name = "langchain-openai", specifier = "==0.2.12" },
     { name = "langchain-pinecone", specifier = "==0.2.2" },
