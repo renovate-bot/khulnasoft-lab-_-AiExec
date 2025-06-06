@@ -203,7 +203,7 @@ local = [
     "ctransformers>=0.2.10"
 ]
 clickhouse-connect = [
-    "clickhouse-connect==0.7.19"
+    "clickhouse-connect==0.8.17"
 ]
 
 nv-ingest = [
