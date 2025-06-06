@@ -1847,14 +1847,14 @@ wheels = [
 
 [[package]]
 name = "dspy-ai"
-version = "2.5.41"
+version = "2.6.27"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dspy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d6/25/94659c581e69fe11237294aeadf55785abec09361aa2d3a63bd0abc39d82/dspy-ai-2.5.41.tar.gz", hash = "sha256:a2804434eb3354d6e41f59a448938886914fed0c502eb42503569776a3f2f002", size = 258174, upload-time = "2024-11-29T03:17:24.301Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d8/86/bd275fd5e779749ec65ba8f40893b9f2501b4eb1f4be78615895b63af2c6/dspy_ai-2.6.27.tar.gz", hash = "sha256:93d363e2ceb3745554133c8849e3eea356653707a6760eadfb9533d7d9e5f330", size = 1112, upload-time = "2025-06-03T17:47:22.669Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e5/50/f715b62acfe29718c3575dde16eb35e3ab6a5642652b13fb229bd758c040/dspy_ai-2.5.41-py3-none-any.whl", hash = "sha256:4f366a6b610ee93fd04b92b0dff2f78b24e23ee74c71d20bcf9fedcbf0d7aa97", size = 339737, upload-time = "2024-11-29T03:17:22.8Z" },
+    { url = "https://files.pythonhosted.org/packages/fb/3e/47ae39dca48913b755c8ae4ffabd9c9ecc92365065a4461f2bdc3a81e603/dspy_ai-2.6.27-py3-none-any.whl", hash = "sha256:e7d4d3328dd05098efbedbd72d1c324a2317e4693638eb8755926c9ff0f64861", size = 1107, upload-time = "2025-06-03T17:47:21.399Z" },
 ]
 
 [[package]]
@@ -4776,7 +4776,7 @@ requires-dist = [
     { name = "crewai", specifier = "==0.102.0" },
     { name = "ctransformers", marker = "extra == 'local'", specifier = ">=0.2.10" },
     { name = "datasets", specifier = ">2.14.7" },
-    { name = "dspy-ai", specifier = "==2.5.41" },
+    { name = "dspy-ai", specifier = "==2.6.27" },
     { name = "duckduckgo-search", specifier = "==7.2.1" },
     { name = "elasticsearch", specifier = "==8.16.0" },
     { name = "faiss-cpu", specifier = "==1.9.0.post1" },

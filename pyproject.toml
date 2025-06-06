@@ -50,7 +50,7 @@ dependencies = [
     "langchain==0.3.21",
     "elasticsearch==8.16.0",
     "pytube==15.0.0",
-    "dspy-ai==2.5.41",
+    "dspy-ai==2.6.27",
     "datasets>2.14.7",
     "assemblyai==0.35.1",
     "litellm==1.60.2",
