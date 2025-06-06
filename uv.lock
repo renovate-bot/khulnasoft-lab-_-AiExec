@@ -384,7 +384,7 @@ wheels = [
 
 [[package]]
 name = "astra-assistants"
-version = "2.2.12"
+version = "2.5.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
@@ -392,6 +392,7 @@ dependencies = [
     { name = "httpx" },
     { name = "litellm" },
     { name = "lsprotocol" },
+    { name = "mcp" },
     { name = "openai" },
     { name = "python-dotenv" },
     { name = "python-lsp-jsonrpc" },
@@ -399,9 +400,9 @@ dependencies = [
     { name = "tree-sitter" },
     { name = "tree-sitter-python" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/39/59/b9cb94dc9ea9fe8d978d2710c45e83c4e6ba179f3c4447022e23f51d01dd/astra_assistants-2.2.12.tar.gz", hash = "sha256:1b26331e7bebeccac4929b168ec2179a3c09496a2715d2b3e702317af2549b27", size = 66278, upload-time = "2025-04-09T16:55:16.724Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/da/e0/44a066faca8ff5ab1959e54ee48805c2c8fd5f65b58e18bb201b994acbb4/astra_assistants-2.5.5.tar.gz", hash = "sha256:3eb6272aa6e022e30a28b3df34273db51fb33d507ba4e4dd83f81c02f6f0ac49", size = 69900, upload-time = "2025-04-19T06:49:48.236Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8e/4c/4b9769885fb74c30dd80d40e8cab03aaa1bc9d075b2d727ab07c8adf5887/astra_assistants-2.2.12-py3-none-any.whl", hash = "sha256:126cda7b40028a76c12fec63a1268b47cc3cc95a4b270165e67fe9e35d59f77f", size = 78578, upload-time = "2025-04-09T16:55:15.308Z" },
+    { url = "https://files.pythonhosted.org/packages/34/e3/9dd1b6276e26c41ecb230ed7eacd792cea0d0dae8db6617b283be714e82e/astra_assistants-2.5.5-py3-none-any.whl", hash = "sha256:e69f8d6372c8edf11381f77d3b36ec7e4722c27d6cddff4a6dc03b5861fd0f03", size = 82663, upload-time = "2025-04-19T06:49:46.799Z" },
 ]
 
 [package.optional-dependencies]
@@ -4761,7 +4762,7 @@ requires-dist = [
     { name = "apify-client", specifier = ">=1.8.1" },
     { name = "arize-phoenix-otel", specifier = ">=0.6.1" },
     { name = "assemblyai", specifier = "==0.35.1" },
-    { name = "astra-assistants", extras = ["tools"], specifier = "~=2.2.12" },
+    { name = "astra-assistants", extras = ["tools"], specifier = "~=2.5.5" },
     { name = "atlassian-python-api", specifier = "==3.41.16" },
     { name = "beautifulsoup4", specifier = "==4.12.3" },
     { name = "boto3", specifier = "==1.34.162" },
