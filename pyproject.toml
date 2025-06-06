@@ -94,7 +94,7 @@ dependencies = [
     "langchain-nvidia-ai-endpoints==0.3.8",
     "langchain-google-calendar-tools==0.0.1",
     "langchain-google-community==2.0.3",
-    "langchain-elasticsearch==0.3.0",
+    "langchain-elasticsearch==0.3.2",
     "langchain-ollama==0.2.1",
     "langchain-sambanova==0.1.0",
     "langchain-community~=0.3.20",

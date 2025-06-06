@@ -4266,15 +4266,15 @@ wheels = [
 
 [[package]]
 name = "langchain-elasticsearch"
-version = "0.3.0"
+version = "0.3.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "elasticsearch", extra = ["vectorstore-mmr"] },
     { name = "langchain-core" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/fe/87/ee20cee9d255b8f8c9e34d84eb7b040cabc7bd8499c61b3886dd2a1c2e3f/langchain_elasticsearch-0.3.0.tar.gz", hash = "sha256:36c2963c432777e05b6613f57ee477de4b6e4be4ac4c1306601ab64de004a297", size = 22873, upload-time = "2024-09-14T02:05:36.201Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/40/19/b53995433281025cd1e57cda94264dffcc0c2a85fac0626f77d3a6d51d61/langchain_elasticsearch-0.3.2.tar.gz", hash = "sha256:25be786325eaac6ba517b53ea074b701d465ad4ac8908fa065df3dfc365432e2", size = 38185, upload-time = "2025-01-20T14:33:36.766Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d4/0c/3d9330f0c1c6e6aba285279f4048a3cda1af30fd8a05ddaf242d59110175/langchain_elasticsearch-0.3.0-py3-none-any.whl", hash = "sha256:83d26d2a29f7628bcf2c655fe988930c90249e78e6f326c0be218ad4fa96f1f4", size = 24608, upload-time = "2024-09-14T02:05:35.272Z" },
+    { url = "https://files.pythonhosted.org/packages/32/9d/3bd4d2ac53b5733eb634189bf97e0c2f997d200ad7f2d7587f5d13f0c684/langchain_elasticsearch-0.3.2-py3-none-any.whl", hash = "sha256:556b6cdb559f1587d595c6b09a77a25c669dc512c3dec6c485238504ec5d7e35", size = 45996, upload-time = "2025-01-20T14:33:35.692Z" },
 ]
 
 [[package]]
@@ -4800,7 +4800,7 @@ requires-dist = [
     { name = "langchain-chroma", specifier = "==0.1.4" },
     { name = "langchain-cohere", specifier = "==0.3.3" },
     { name = "langchain-community", specifier = "~=0.3.20" },
-    { name = "langchain-elasticsearch", specifier = "==0.3.0" },
+    { name = "langchain-elasticsearch", specifier = "==0.3.2" },
     { name = "langchain-google-calendar-tools", specifier = "==0.0.1" },
     { name = "langchain-google-community", specifier = "==2.0.3" },
     { name = "langchain-google-genai", specifier = "==2.0.6" },
