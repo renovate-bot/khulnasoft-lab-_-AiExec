@@ -54,8 +54,8 @@ importers:
         specifier: ^0.30.0
         version: 0.30.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(yjs@13.6.24)
       '@lexical/selection':
-        specifier: ^0.30.0
-        version: 0.30.0
+        specifier: ^0.32.0
+        version: 0.32.1
       '@lexical/text':
         specifier: ^0.30.0
         version: 0.30.0
@@ -2034,6 +2034,9 @@ packages:
 
   '@lexical/selection@0.30.0':
     resolution: {integrity: sha512-Ys2XfSmIV/Irg6Xo663YtR4jozIv/7sDemArkEGHT0fxZn2py5qftowPF5IBqFYxKTigAdv5vVPwusBvAnLIEg==}
+
+  '@lexical/selection@0.32.1':
+    resolution: {integrity: sha512-X1aXJdq/5EOuSuMOqK3t+rEVmpqLf+vc2Kl5YuP8+gGWUbXuxR6iryrQuy1mAViZpF/5qw4HO/Sb+9JjubaZEg==}
 
   '@lexical/table@0.30.0':
     resolution: {integrity: sha512-XPCIMIGnZLKTa5/4cP16bXbmzvMndPR273HNl7ZaF35ky7UjZxdj42HBbE7q9zw2zbRPDiO77EyhYA0p20cbdw==}
@@ -6103,6 +6106,9 @@ packages:
 
   lexical@0.30.0:
     resolution: {integrity: sha512-6gxYeXaJiAcreJD0whCofvO0MuJmnWoIgIl1w7L5FTigfhnEohuCx2SoI/oywzfzXE9gzZnyr3rVvZrMItPL8A==}
+
+  lexical@0.32.1:
+    resolution: {integrity: sha512-Rvr9p00zUwzjXIqElIjMDyl/24QHw68yaqmXUWIT3lSdSAr8OpjSJK3iWBLZwVZwwpVhwShZRckomc+3vSb/zw==}
 
   lib0@0.2.102:
     resolution: {integrity: sha512-g70kydI0I1sZU0ChO8mBbhw0oUW/8U0GHzygpvEIx8k+jgOpqnTSb/E+70toYVqHxBhrERD21TwD5QcZJQ40ZQ==}
@@ -10450,6 +10456,10 @@ snapshots:
   '@lexical/selection@0.30.0':
     dependencies:
       lexical: 0.30.0
+
+  '@lexical/selection@0.32.1':
+    dependencies:
+      lexical: 0.32.1
 
   '@lexical/table@0.30.0':
     dependencies:
@@ -15557,6 +15567,8 @@ snapshots:
       type-check: 0.4.0
 
   lexical@0.30.0: {}
+
+  lexical@0.32.1: {}
 
   lib0@0.2.102:
     dependencies:
