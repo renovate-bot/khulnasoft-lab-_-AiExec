@@ -1,5 +1,5 @@
-from langflow.components.input_output import TextInputComponent
-from langflow.schema.message import Message
+from aiexec.components.input_output import TextInputComponent
+from aiexec.schema.message import Message
 
 from tests.integration.utils import run_single_component
 

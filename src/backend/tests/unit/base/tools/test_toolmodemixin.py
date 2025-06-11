@@ -1,8 +1,8 @@
-from langflow.base.tools.component_tool import ComponentToolkit
-from langflow.custom import Component
+from aiexec.base.tools.component_tool import ComponentToolkit
+from aiexec.custom import Component
 
 # Import all input types
-from langflow.io import (
+from aiexec.io import (
     BoolInput,
     DataFrameInput,
     DataInput,
@@ -20,14 +20,14 @@ from langflow.io import (
     StrInput,
     TableInput,
 )
-from langflow.schema import Data
+from aiexec.schema import Data
 from pydantic import BaseModel
 
 
 class AllInputsComponent(Component):
     display_name = "All Inputs Component"
-    description = "A component with all input types available in Langflow."
-    documentation: str = "http://docs.langflow.org/components/all_inputs"
+    description = "A component with all input types available in Aiexec."
+    documentation: str = "http://docs.aiexec.org/components/all_inputs"
     icon = "code"
     name = "AllInputsComponent"
 

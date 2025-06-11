@@ -1,23 +1,23 @@
 networks:
-  dev-langflow:
+  dev-aiexec:
 
 services:
-  langflow:
+  aiexec:
     build:
       context: ..
       dockerfile: docker/dev.Dockerfile
-    image: dev-langflow
-    container_name: dev-langflow
+    image: dev-aiexec
+    container_name: dev-aiexec
     restart: always
     ports:
       - "7860:7860"
       - "3000:3000"
     environment:
       - PYTHONDONTWRITEBYTECODE=1
-      - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
-      - LANGFLOW_SUPERUSER=langflow
-      - LANGFLOW_SUPERUSER_PASSWORD=langflow
-      - LANGFLOW_CONFIG_DIR=/var/lib/langflow
+      - AIEXEC_DATABASE_URL=postgresql://aiexec:aiexec@postgres:5432/aiexec
+      - AIEXEC_SUPERUSER=aiexec
+      - AIEXEC_SUPERUSER_PASSWORD=aiexec
+      - AIEXEC_CONFIG_DIR=/var/lib/aiexec
     env_file:
       - ../.env
     volumes:
@@ -25,18 +25,18 @@ services:
     depends_on:
       - postgres
     networks:
-      -  dev-langflow
+      -  dev-aiexec
 
 
   postgres:
     container_name: postgres
     image: pgvector/pgvector:pg16
     environment:
-      POSTGRES_USER: langflow
-      POSTGRES_PASSWORD: langflow
-      POSTGRES_DB: langflow
+      POSTGRES_USER: aiexec
+      POSTGRES_PASSWORD: aiexec
+      POSTGRES_DB: aiexec
     ports:
       - "5432:5432"
     networks:
-      -  dev-langflow
+      -  dev-aiexec
 

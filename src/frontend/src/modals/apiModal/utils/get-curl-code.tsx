@@ -1,4 +1,4 @@
-import { ENABLE_DATASTAX_LANGFLOW } from "@/customization/feature-flags";
+import { ENABLE_DATASTAX_AIEXEC } from "@/customization/feature-flags";
 import { customGetHostProtocol } from "@/customization/utils/custom-get-host-protocol";
 import { GetCodeType } from "@/types/tweaks";
 
@@ -32,7 +32,7 @@ export function getCurlWebhookCode({
   -H 'Content-Type: application/json' \\${
     isAuth ? `\n  -H 'x-api-key: <your api key>' \\` : ""
   }${
-    ENABLE_DATASTAX_LANGFLOW
+    ENABLE_DATASTAX_AIEXEC
       ? `\n  -H 'Authorization: Bearer <YOUR_APPLICATION_TOKEN>' \\`
       : ""
   }
@@ -78,8 +78,8 @@ export function getNewCurlCode({
   return `${
     isAuthenticated
       ? `# Get API key from environment variable
-if [ -z "$LANGFLOW_API_KEY" ]; then
-  echo "Error: LANGFLOW_API_KEY environment variable not found. Please set your API key in the environment variables."
+if [ -z "$AIEXEC_API_KEY" ]; then
+  echo "Error: AIEXEC_API_KEY environment variable not found. Please set your API key in the environment variables."
 fi
 `
       : ""
@@ -88,7 +88,7 @@ fi
   --header 'Content-Type: application/json' \\${
     isAuthenticated
       ? `
-  --header "x-api-key: $LANGFLOW_API_KEY" \\`
+  --header "x-api-key: $AIEXEC_API_KEY" \\`
       : ""
   }
   --data '${JSON.stringify(payload, null, 2)}'`;

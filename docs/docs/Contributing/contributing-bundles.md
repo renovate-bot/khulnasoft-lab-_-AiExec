@@ -3,29 +3,29 @@ title: Contribute bundles
 slug: /contributing-bundles
 ---
 
-Follow these steps to add new component bundles to the Langflow sidebar.
+Follow these steps to add new component bundles to the Aiexec sidebar.
 
 This example adds a new bundle named `DarthVader`.
 
 ## Add the bundle to the backend folder
 
-1. Navigate to the backend directory in the Langflow project and create a new folder for your bundle.
-The path for your new component is `src > backend > base > langflow > components > darth_vader`.
-You can view the [components folder](https://github.com/langflow-ai/langflow/tree/main/src/backend/base/langflow/components) in the Langflow repository.
+1. Navigate to the backend directory in the Aiexec project and create a new folder for your bundle.
+The path for your new component is `src > backend > base > aiexec > components > darth_vader`.
+You can view the [components folder](https://github.com/khulnasoft-lab/aiexec/tree/main/src/backend/base/aiexec/components) in the Aiexec repository.
 
 2. Within the newly created `darth_vader` folder, add the following files:
 
 * `darth_vader_component.py` — This file contains the backend logic for the new bundle. Create multiple `.py` files for multiple components.
 * `__init__.py` — This file initializes the bundle components. You can use any existing `__init__.py` as an example to see how it should be structured.
 
-For an example of adding multiple components in a bundle, see the [Notion](https://github.com/langflow-ai/langflow/tree/main/src/backend/base/langflow/components/Notion) bundle.
+For an example of adding multiple components in a bundle, see the [Notion](https://github.com/khulnasoft-lab/aiexec/tree/main/src/backend/base/aiexec/components/Notion) bundle.
 
 
 ## Add the bundle to the frontend folder
 
-1. Navigate to the frontend directory in the Langflow project to add your bundle's icon.
+1. Navigate to the frontend directory in the Aiexec project to add your bundle's icon.
 The path for your new component icon is `src > frontend > src > icons > DarthVader`
-You can view the [icons folder](https://github.com/langflow-ai/langflow/tree/main/src/frontend/src/icons) in the Langflow repository.
+You can view the [icons folder](https://github.com/khulnasoft-lab/aiexec/tree/main/src/frontend/src/icons) in the Aiexec repository.
 To add your icon, create **three** files inside the `icons/darth_vader` folder.
 
 2. In the `icons/darth_vader` folder, add the raw SVG file of your icon, such as `darth_vader-icon.svg`.
@@ -82,7 +82,7 @@ export default DarthVaderIcon;
 ```
 
 6. To link your new bundle to the frontend, open `/src/frontend/src/icons/lazyIconImports.ts`.
-You can view the [lazyIconImports.ts](https://github.com/langflow-ai/langflow/blob/main/src/frontend/src/icons/lazyIconImports.ts) in the Langflow repository.
+You can view the [lazyIconImports.ts](https://github.com/khulnasoft-lab/aiexec/blob/main/src/frontend/src/icons/lazyIconImports.ts) in the Aiexec repository.
 7. Add the name of your icon, which should match the icon name you used in the `.tsx` file.
 For example:
 ```typescript
@@ -95,8 +95,8 @@ For example:
 ```
 
 8. To update the bundles sidebar, add the new icon to the `SIDEBAR_BUNDLES` array in `src > frontend > src > utils > styleUtils.ts`.
-You can view the [SIDEBAR_BUNDLES array](https://github.com/langflow-ai/langflow/blob/main/src/frontend/src/utils/styleUtils.ts#L231) in the Langflow repository.\
-The `name` must point to the folder you created within the `src > backend > base > langflow > components` directory.
+You can view the [SIDEBAR_BUNDLES array](https://github.com/khulnasoft-lab/aiexec/blob/main/src/frontend/src/utils/styleUtils.ts#L231) in the Aiexec repository.\
+The `name` must point to the folder you created within the `src > backend > base > aiexec > components` directory.
 For example:
 ```typescript
 { display_name: "AssemblyAI", name: "assemblyai", icon: "AssemblyAI" },
@@ -121,7 +121,7 @@ class DarthVaderAPIComponent(LCToolComponent):
 
 ## Ensure the application builds your component bundle
 
-1. To rebuild the backend and frontend, run `make install_frontend && make build_frontend && make install_backend && uv run langflow run --port 7860`.
+1. To rebuild the backend and frontend, run `make install_frontend && make build_frontend && make install_backend && uv run aiexec run --port 7860`.
 
 2. Refresh the frontend application.
 Your new bundle called `DarthVader` is available in the sidebar.

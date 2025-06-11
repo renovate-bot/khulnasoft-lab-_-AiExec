@@ -1,5 +1,5 @@
 import pytest
-from langflow.components.processing import PythonREPLComponent
+from aiexec.components.processing import PythonREPLComponent
 
 from tests.base import DID_NOT_EXIST, ComponentTestBaseWithoutClient
 

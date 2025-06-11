@@ -1,17 +1,17 @@
-import { ENABLE_LANGFLOW_STORE } from "@/customization/feature-flags";
+import { ENABLE_AIEXEC_STORE } from "@/customization/feature-flags";
 import { create } from "zustand";
 import { checkHasApiKey, checkHasStore } from "../controllers/API";
 import { StoreStoreType } from "../types/zustand/store";
 
 export const useStoreStore = create<StoreStoreType>((set) => ({
-  hasStore: ENABLE_LANGFLOW_STORE,
+  hasStore: ENABLE_AIEXEC_STORE,
   validApiKey: false,
   hasApiKey: false,
   loadingApiKey: true,
   checkHasStore: () => {
     checkHasStore().then((res) => {
       set({
-        hasStore: ENABLE_LANGFLOW_STORE && (res?.enabled ?? false),
+        hasStore: ENABLE_AIEXEC_STORE && (res?.enabled ?? false),
       });
     });
   },

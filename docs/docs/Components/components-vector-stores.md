@@ -5,7 +5,7 @@ slug: /components-vector-stores
 
 import Icon from "@site/src/components/icon";
 
-# Vector store components in Langflow
+# Vector store components in Aiexec
 
 Vector databases store vector data, which backs AI workloads like chatbots and Retrieval Augmented Generation.
 
@@ -73,7 +73,7 @@ For more information, see the [DataStax documentation](https://docs.datastax.com
 
 The **Astra DB Vector Store** component offers two methods for generating embeddings.
 
-1. **Embedding Model**: Use your own embedding model by connecting an [Embeddings](/components-embedding-models) component in Langflow.
+1. **Embedding Model**: Use your own embedding model by connecting an [Embeddings](/components-embedding-models) component in Aiexec.
 
 2. **Astra Vectorize**: Use Astra DB's built-in embedding generation service. When creating a new collection, choose the embeddings provider and models, including NVIDIA's `NV-Embed-QA` model hosted by Datastax.
 
@@ -263,7 +263,7 @@ This example splits text from a [URL](/components-data#url) component, and compu
 
 2. In the **Chroma DB** component, in the **Collection** field, enter a name for your embeddings collection.
 3. Optionally, to persist the Chroma database, in the **Persist** field, enter a directory to store the `chroma.sqlite3` file.
-This example uses `./chroma-db` to create a directory relative to where Langflow is running.
+This example uses `./chroma-db` to create a directory relative to where Aiexec is running.
 4. To load data and embeddings into your Chroma database, in the **Chroma DB** component, click <Icon name="Play" aria-label="Play icon" />.
 :::tip
 When loading duplicate documents, enable the **Allow Duplicates** option in Chroma DB if you want to store multiple copies of the same content, or disable it to automatically deduplicate your data.
@@ -281,7 +281,7 @@ For more information, see the [Chroma documentation](https://docs.trychroma.com/
 
 | Name                         | Type          | Description                                      |
 |------------------------------|---------------|--------------------------------------------------|
-| collection_name               | String        | The name of the Chroma collection. Default: "langflow". |
+| collection_name               | String        | The name of the Chroma collection. Default: "aiexec". |
 | persist_directory             | String        | The directory to persist the Chroma database.     |
 | search_query                  | String        | The query to search for in the vector store.      |
 | ingest_data                   | Data          | The data to ingest into the vector store (list of `Data` objects). |
@@ -377,13 +377,13 @@ For more information, see the [Couchbase documentation](https://docs.couchbase.c
 
 ## Local DB
 
-The **Local DB** component is Langflow's enhanced version of Chroma DB.
+The **Local DB** component is Aiexec's enhanced version of Chroma DB.
 
-The component adds a user-friendly interface with two modes (Ingest and Retrieve), automatic collection management, and built-in persistence in Langflow's cache directory.
+The component adds a user-friendly interface with two modes (Ingest and Retrieve), automatic collection management, and built-in persistence in Aiexec's cache directory.
 
 Local DB includes **Ingest** and **Retrieve** modes.
 
-The **Ingest** mode works similarly to [ChromaDB](#chroma-db), and persists your database to the Langflow cache directory. The Langflow cache directory location is specified in `LANGFLOW_CONFIG_DIR`. For more information, see [Environment variables](/environment-variables).
+The **Ingest** mode works similarly to [ChromaDB](#chroma-db), and persists your database to the Aiexec cache directory. The Aiexec cache directory location is specified in `AIEXEC_CONFIG_DIR`. For more information, see [Environment variables](/environment-variables).
 
 The **Retrieve** mode can query your **Chroma DB** collections.
 
@@ -398,7 +398,7 @@ For more information, see the [Chroma documentation](https://docs.trychroma.com/
 
 | Name | Type | Description |
 |------|------|-------------|
-| collection_name | String | The name of the Chroma collection. Default: "langflow". |
+| collection_name | String | The name of the Chroma collection. Default: "aiexec". |
 | persist_directory | String | Custom base directory to save the vector store. Collections are stored under `{directory}/vector_stores/{collection_name}`. If not specified, it will use your system's cache folder. |
 | existing_collections | String | Select a previously created collection to search through its stored data. |
 | embedding | Embeddings | The embedding function to use for the vector store. |
@@ -462,8 +462,8 @@ For more information, see the [FAISS documentation](https://faiss.ai/index.html)
 
 | Name                      | Type          | Description                                      |
 |---------------------------|---------------|--------------------------------------------------|
-| index_name                 | String        | The name of the FAISS index. Default: "langflow_index". |
-| persist_directory          | String        | Path to save the FAISS index. It is relative to where Langflow is running. |
+| index_name                 | String        | The name of the FAISS index. Default: "aiexec_index". |
+| persist_directory          | String        | Path to save the FAISS index. It is relative to where Aiexec is running. |
 | search_query               | String        | The query to search for in the vector store.     |
 | ingest_data                | Data          | The list of data to ingest into the vector store. |
 | allow_dangerous_deserialization | Boolean  | Set to True to allow loading pickle files from untrusted sources. Default: True. |

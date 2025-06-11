@@ -5,19 +5,19 @@ slug: /concepts-file-management
 
 import Icon from "@site/src/components/icon";
 
-Upload, store, and manage files in Langflow's **File management** system.
+Upload, store, and manage files in Aiexec's **File management** system.
 
 Uploading files to the **File management** system keeps your files in a central location, and allows you to re-use files across flows without repeated manual uploads.
 
 ## Upload a file
 
-The **File management** system is available at the `/files` URL. For example, if you're running Langflow at the default `http://127.0.0.1:7860` address, the **File management** system is located at `http://127.0.0.1:7860/files`.
+The **File management** system is available at the `/files` URL. For example, if you're running Aiexec at the default `http://127.0.0.1:7860` address, the **File management** system is located at `http://127.0.0.1:7860/files`.
 
 To upload a file from your local machine:
 
 1. From the **My Files** window at `http://127.0.0.1:7860/files`, click **Upload**.
 2. Select the file to upload.
-   The file is uploaded to Langflow.
+   The file is uploaded to Aiexec.
 
 You can upload multiple files in a single action.
 Files are available to flows stored in different projects.

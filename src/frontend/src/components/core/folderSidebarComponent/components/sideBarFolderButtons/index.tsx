@@ -24,7 +24,7 @@ import { useGetDownloadFolders } from "@/controllers/API/queries/folders/use-get
 import { CustomStoreButton } from "@/customization/components/custom-store-button";
 import {
   ENABLE_CUSTOM_PARAM,
-  ENABLE_DATASTAX_LANGFLOW,
+  ENABLE_DATASTAX_AIEXEC,
   ENABLE_FILE_MANAGEMENT,
   ENABLE_MCP_NOTICE,
 } from "@/customization/feature-flags";
@@ -473,7 +473,7 @@ const SideBarFoldersButtonsComponent = ({
       {ENABLE_FILE_MANAGEMENT && (
         <SidebarFooter className="border-t">
           <div className="grid w-full items-center gap-2 p-2">
-            {!ENABLE_DATASTAX_LANGFLOW && <CustomStoreButton />}
+            {!ENABLE_DATASTAX_AIEXEC && <CustomStoreButton />}
             <SidebarMenuButton
               isActive={checkPathFiles}
               onClick={() => handleFilesClick?.()}

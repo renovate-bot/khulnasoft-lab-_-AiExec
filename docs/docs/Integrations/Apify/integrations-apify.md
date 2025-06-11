@@ -3,11 +3,11 @@ title: Apify
 slug: /integrations-apify
 ---
 
-# Integrate Apify with Langflow
+# Integrate Apify with Aiexec
 
 [Apify](https://apify.com/) is a web scraping and data extraction platform. It provides an [Actor Store](https://apify.com/store) with more than 3,000 ready-made cloud tools called **Actors**.
 
-Apify components in Langflow run **Actors** to accomplish tasks like data extraction, content analysis, and SQL operations.
+Apify components in Aiexec run **Actors** to accomplish tasks like data extraction, content analysis, and SQL operations.
 
 ## Prerequisites
 

@@ -14,7 +14,7 @@ export const addNewUserAndLogin = async (page: Page) => {
   await page.addInitScript(() => {
     window.process = window.process || {};
 
-    const newEnv = { ...window.process.env, LANGFLOW_AUTO_LOGIN: "false" };
+    const newEnv = { ...window.process.env, AIEXEC_AUTO_LOGIN: "false" };
 
     Object.defineProperty(window.process, "env", {
       value: newEnv,
@@ -30,10 +30,10 @@ export const addNewUserAndLogin = async (page: Page) => {
 
   await page.goto("/");
 
-  await page.waitForSelector("text=sign in to langflow", { timeout: 30000 });
+  await page.waitForSelector("text=sign in to aiexec", { timeout: 30000 });
 
-  await page.getByPlaceholder("Username").fill("langflow");
-  await page.getByPlaceholder("Password").fill("langflow");
+  await page.getByPlaceholder("Username").fill("aiexec");
+  await page.getByPlaceholder("Password").fill("aiexec");
 
   await page.evaluate(() => {
     sessionStorage.removeItem("testMockAutoLogin");
@@ -86,7 +86,7 @@ export const addNewUserAndLogin = async (page: Page) => {
 
   await page.getByText("Logout", { exact: true }).click();
 
-  await page.waitForSelector("text=sign in to langflow", { timeout: 30000 });
+  await page.waitForSelector("text=sign in to aiexec", { timeout: 30000 });
 
   await page.getByPlaceholder("Username").fill(randomName);
   await page.getByPlaceholder("Password").fill(randomPassword);

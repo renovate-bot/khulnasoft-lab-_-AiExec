@@ -1,8 +1,8 @@
 import {
-  LANGFLOW_ACCESS_TOKEN,
-  LANGFLOW_API_TOKEN,
-  LANGFLOW_AUTO_LOGIN_OPTION,
-  LANGFLOW_REFRESH_TOKEN,
+  AIEXEC_ACCESS_TOKEN,
+  AIEXEC_API_TOKEN,
+  AIEXEC_AUTO_LOGIN_OPTION,
+  AIEXEC_REFRESH_TOKEN,
 } from "@/constants/constants";
 import { useGetUserData } from "@/controllers/API/queries/auth";
 import { useGetGlobalVariablesMutation } from "@/controllers/API/queries/variables/use-get-mutation-global-variables";
@@ -31,11 +31,11 @@ export const AuthContext = createContext<AuthContextType>(initialValue);
 export function AuthProvider({ children }): React.ReactElement {
   const cookies = new Cookies();
   const [accessToken, setAccessToken] = useState<string | null>(
-    cookies.get(LANGFLOW_ACCESS_TOKEN) ?? null,
+    cookies.get(AIEXEC_ACCESS_TOKEN) ?? null,
   );
   const [userData, setUserData] = useState<Users | null>(null);
   const [apiKey, setApiKey] = useState<string | null>(
-    cookies.get(LANGFLOW_API_TOKEN),
+    cookies.get(AIEXEC_API_TOKEN),
   );
 
   const checkHasStore = useStoreStore((state) => state.checkHasStore);
@@ -46,14 +46,14 @@ export function AuthProvider({ children }): React.ReactElement {
   const { mutate: mutateGetGlobalVariables } = useGetGlobalVariablesMutation();
 
   useEffect(() => {
-    const storedAccessToken = cookies.get(LANGFLOW_ACCESS_TOKEN);
+    const storedAccessToken = cookies.get(AIEXEC_ACCESS_TOKEN);
     if (storedAccessToken) {
       setAccessToken(storedAccessToken);
     }
   }, []);
 
   useEffect(() => {
-    const apiKey = cookies.get(LANGFLOW_API_TOKEN);
+    const apiKey = cookies.get(AIEXEC_API_TOKEN);
     if (apiKey) {
       setApiKey(apiKey);
     }
@@ -82,12 +82,12 @@ export function AuthProvider({ children }): React.ReactElement {
     autoLogin: string,
     refreshToken?: string,
   ) {
-    cookies.set(LANGFLOW_ACCESS_TOKEN, newAccessToken, { path: "/" });
-    cookies.set(LANGFLOW_AUTO_LOGIN_OPTION, autoLogin, { path: "/" });
-    setLocalStorage(LANGFLOW_ACCESS_TOKEN, newAccessToken);
+    cookies.set(AIEXEC_ACCESS_TOKEN, newAccessToken, { path: "/" });
+    cookies.set(AIEXEC_AUTO_LOGIN_OPTION, autoLogin, { path: "/" });
+    setLocalStorage(AIEXEC_ACCESS_TOKEN, newAccessToken);
 
     if (refreshToken) {
-      cookies.set(LANGFLOW_REFRESH_TOKEN, refreshToken, { path: "/" });
+      cookies.set(AIEXEC_REFRESH_TOKEN, refreshToken, { path: "/" });
     }
     setAccessToken(newAccessToken);
     setIsAuthenticated(true);

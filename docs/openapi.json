@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Langflow",
+    "title": "Aiexec",
     "version": "1.4.2"
   },
   "paths": {
@@ -971,7 +971,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__v1__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/aiexec__api__v1__schemas__UploadFileResponse"
                 }
               }
             }
@@ -3193,7 +3193,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__v1__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/aiexec__api__v1__schemas__UploadFileResponse"
                 }
               }
             }
@@ -5049,7 +5049,7 @@
               "application/json": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/langflow__services__database__models__file__model__File"
+                    "$ref": "#/components/schemas/aiexec__services__database__models__file__model__File"
                   },
                   "type": "array",
                   "title": "Response List Files Api V2 Files  Get"
@@ -5091,7 +5091,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/aiexec__api__schemas__UploadFileResponse"
                 }
               }
             }
@@ -5160,7 +5160,7 @@
               "application/json": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/langflow__services__database__models__file__model__File"
+                    "$ref": "#/components/schemas/aiexec__services__database__models__file__model__File"
                   },
                   "type": "array",
                   "title": "Response List Files Api V2 Files Get"
@@ -5202,7 +5202,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/aiexec__api__schemas__UploadFileResponse"
                 }
               }
             }
@@ -5457,7 +5457,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/aiexec__api__schemas__UploadFileResponse"
                 }
               }
             }
@@ -6257,7 +6257,7 @@
           },
           "files": {
             "items": {
-              "$ref": "#/components/schemas/langflow__utils__schemas__File"
+              "$ref": "#/components/schemas/aiexec__utils__schemas__File"
             },
             "type": "array",
             "title": "Files",
@@ -11016,7 +11016,7 @@
         "required": ["x", "y", "zoom"],
         "title": "ViewPort"
       },
-      "langflow__api__schemas__UploadFileResponse": {
+      "aiexec__api__schemas__UploadFileResponse": {
         "properties": {
           "id": {
             "type": "string",
@@ -11053,7 +11053,7 @@
         "title": "UploadFileResponse",
         "description": "File upload response schema."
       },
-      "langflow__api__v1__schemas__UploadFileResponse": {
+      "aiexec__api__v1__schemas__UploadFileResponse": {
         "properties": {
           "flowId": {
             "type": "string",
@@ -11070,7 +11070,7 @@
         "title": "UploadFileResponse",
         "description": "Upload file response schema."
       },
-      "langflow__services__database__models__file__model__File": {
+      "aiexec__services__database__models__file__model__File": {
         "properties": {
           "id": {
             "type": "string",
@@ -11120,7 +11120,7 @@
         "required": ["user_id", "name", "path", "size"],
         "title": "File"
       },
-      "langflow__utils__schemas__File": {
+      "aiexec__utils__schemas__File": {
         "properties": {
           "path": {
             "type": "string",

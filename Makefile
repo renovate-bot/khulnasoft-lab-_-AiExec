@@ -16,7 +16,7 @@ host ?= 0.0.0.0
 port ?= 7860
 env ?= .env
 open_browser ?= true
-path = src/backend/base/langflow/frontend
+path = src/backend/base/aiexec/frontend
 workers ?= 1
 async ?= true
 lf ?= false
@@ -71,9 +71,9 @@ build_frontend: ## build the frontend static files
 	@echo 'Building frontend static files...'
 	@cd src/frontend && CI='' npm run build 2>&1 || { echo "\nBuild failed! Error output above ☝️"; exit 1; }
 	@echo 'Clearing destination directory...'
-	$(call CLEAR_DIRS,src/backend/base/langflow/frontend)
+	$(call CLEAR_DIRS,src/backend/base/aiexec/frontend)
 	@echo 'Copying build files...'
-	@cp -r src/frontend/build/. src/backend/base/langflow/frontend
+	@cp -r src/frontend/build/. src/backend/base/aiexec/frontend
 	@echo '==== Frontend build complete ===='
 
 init: check_tools clean_python_cache clean_npm_cache ## initialize the project
@@ -81,7 +81,7 @@ init: check_tools clean_python_cache clean_npm_cache ## initialize the project
 	@make install_frontend
 	@make build_frontend
 	@echo "$(GREEN)All requirements are installed.$(NC)"
-	@uv run langflow run
+	@uv run aiexec run
 
 ######################
 # CLEAN PROJECT
@@ -99,7 +99,7 @@ clean_python_cache:
 clean_npm_cache:
 	@echo "Cleaning npm cache..."
 	cd src/frontend && npm cache clean --force
-	$(call CLEAR_DIRS,src/frontend/node_modules src/frontend/build src/backend/base/langflow/frontend)
+	$(call CLEAR_DIRS,src/frontend/node_modules src/frontend/build src/backend/base/aiexec/frontend)
 	rm -f src/frontend/package-lock.json
 	@echo "$(GREEN)NPM cache and frontend directories cleaned.$(NC)"
 
@@ -200,7 +200,7 @@ unsafe_fix:
 	@uv run ruff check . --fix --unsafe-fixes
 
 lint: install_backend ## run linters
-	@uv run mypy --namespace-packages -p "langflow"
+	@uv run mypy --namespace-packages -p "aiexec"
 
 install_frontendci:
 	@cd src/frontend && npm ci > /dev/null 2>&1
@@ -221,7 +221,7 @@ endif
 
 run_cli: install_frontend install_backend build_frontend ## run the CLI
 	@echo 'Running the CLI'
-	@uv run langflow run \
+	@uv run aiexec run \
 		--frontend-path $(path) \
 		--log-level $(log_level) \
 		--host $(host) \
@@ -247,7 +247,7 @@ setup_devcontainer: ## set up the development container
 	make install_backend
 	make install_frontend
 	make build_frontend
-	uv run langflow --frontend-path src/frontend/build
+	uv run aiexec --frontend-path src/frontend/build
 
 setup_env: ## set up the environment
 	@sh ./scripts/setup/setup_env.sh
@@ -263,8 +263,8 @@ backend: setup_env install_backend ## run the backend in development mode
 	@-kill -9 $$(lsof -t -i:7860) || true
 ifdef login
 	@echo "Running backend autologin is $(login)";
-	LANGFLOW_AUTO_LOGIN=$(login) uv run uvicorn \
-		--factory langflow.main:create_app \
+	AIEXEC_AUTO_LOGIN=$(login) uv run uvicorn \
+		--factory aiexec.main:create_app \
 		--host 0.0.0.0 \
 		--port $(port) \
 		$(if $(filter-out 1,$(workers)),, --reload) \
@@ -274,7 +274,7 @@ ifdef login
 else
 	@echo "Running backend respecting the $(env) file";
 	uv run uvicorn \
-		--factory langflow.main:create_app \
+		--factory aiexec.main:create_app \
 		--host 0.0.0.0 \
 		--port $(port) \
 		$(if $(filter-out 1,$(workers)),, --reload) \
@@ -287,7 +287,7 @@ build_and_run: setup_env ## build the project and run it
 	$(call CLEAR_DIRS,dist src/backend/base/dist)
 	make build
 	uv run pip install dist/*.tar.gz
-	uv run langflow run
+	uv run aiexec run
 
 build_and_install: ## build the project and install it
 	@echo 'Removing dist folder'
@@ -298,23 +298,23 @@ build: setup_env ## build the frontend static files and package the project
 ifdef base
 	make install_frontendci
 	make build_frontend
-	make build_langflow_base args="$(args)"
+	make build_aiexec_base args="$(args)"
 endif
 
 ifdef main
 	make install_frontendci
 	make build_frontend
-	make build_langflow_base args="$(args)"
-	make build_langflow args="$(args)"
+	make build_aiexec_base args="$(args)"
+	make build_aiexec args="$(args)"
 endif
 
-build_langflow_base:
+build_aiexec_base:
 	cd src/backend/base && uv build $(args)
 
-build_langflow_backup:
+build_aiexec_backup:
 	uv lock && uv build
 
-build_langflow:
+build_aiexec:
 	uv lock --no-upgrade
 	uv build $(args)
 ifdef restore
@@ -333,21 +333,21 @@ dockerfile_build:
 	@echo 'BUILDING DOCKER IMAGE: ${DOCKERFILE}'
 	@docker build --rm \
 		-f ${DOCKERFILE} \
-		-t langflow:${VERSION} .
+		-t aiexec:${VERSION} .
 
 dockerfile_build_be: dockerfile_build
 	@echo 'BUILDING DOCKER IMAGE BACKEND: ${DOCKERFILE_BACKEND}'
 	@docker build --rm \
-		--build-arg LANGFLOW_IMAGE=langflow:${VERSION} \
+		--build-arg AIEXEC_IMAGE=aiexec:${VERSION} \
 		-f ${DOCKERFILE_BACKEND} \
-		-t langflow_backend:${VERSION} .
+		-t aiexec_backend:${VERSION} .
 
 dockerfile_build_fe: dockerfile_build
 	@echo 'BUILDING DOCKER IMAGE FRONTEND: ${DOCKERFILE_FRONTEND}'
 	@docker build --rm \
-		--build-arg LANGFLOW_IMAGE=langflow:${VERSION} \
+		--build-arg AIEXEC_IMAGE=aiexec:${VERSION} \
 		-f ${DOCKERFILE_FRONTEND} \
-		-t langflow_frontend:${VERSION} .
+		-t aiexec_frontend:${VERSION} .
 
 clear_dockerimage:
 	@echo 'Clearing the docker build'
@@ -371,7 +371,7 @@ dcdev_up:
 lock_base:
 	cd src/backend/base && uv lock
 
-lock_langflow:
+lock_aiexec:
 	uv lock
 
 lock: ## lock dependencies
@@ -387,14 +387,14 @@ update: ## update dependencies
 publish_base:
 	cd src/backend/base && uv publish
 
-publish_langflow:
+publish_aiexec:
 	uv publish
 
 publish_base_testpypi:
 	# TODO: update this to use the test-pypi repository
 	cd src/backend/base && uv publish -r test-pypi
 
-publish_langflow_testpypi:
+publish_aiexec_testpypi:
 	# TODO: update this to use the test-pypi repository
 	uv publish -r test-pypi
 
@@ -405,7 +405,7 @@ ifdef base
 endif
 
 ifdef main
-	make publish_langflow
+	make publish_aiexec
 endif
 
 publish_testpypi: ## build the frontend static files and package the project and publish it to PyPI
@@ -414,32 +414,32 @@ publish_testpypi: ## build the frontend static files and package the project and
 # example make alembic-revision message="Add user table"
 alembic-revision: ## generate a new migration
 	@echo 'Generating a new Alembic revision'
-	cd src/backend/base/langflow/ && uv run alembic revision --autogenerate -m "$(message)"
+	cd src/backend/base/aiexec/ && uv run alembic revision --autogenerate -m "$(message)"
 
 
 alembic-upgrade: ## upgrade database to the latest version
 	@echo 'Upgrading database to the latest version'
-	cd src/backend/base/langflow/ && uv run alembic upgrade head
+	cd src/backend/base/aiexec/ && uv run alembic upgrade head
 
 alembic-downgrade: ## downgrade database by one version
 	@echo 'Downgrading database by one version'
-	cd src/backend/base/langflow/ && uv run alembic downgrade -1
+	cd src/backend/base/aiexec/ && uv run alembic downgrade -1
 
 alembic-current: ## show current revision
 	@echo 'Showing current Alembic revision'
-	cd src/backend/base/langflow/ && uv run alembic current
+	cd src/backend/base/aiexec/ && uv run alembic current
 
 alembic-history: ## show migration history
 	@echo 'Showing Alembic migration history'
-	cd src/backend/base/langflow/ && uv run alembic history --verbose
+	cd src/backend/base/aiexec/ && uv run alembic history --verbose
 
 alembic-check: ## check migration status
 	@echo 'Running alembic check'
-	cd src/backend/base/langflow/ && uv run alembic check
+	cd src/backend/base/aiexec/ && uv run alembic check
 
 alembic-stamp: ## stamp the database with a specific revision
 	@echo 'Stamping the database with revision $(revision)'
-	cd src/backend/base/langflow/ && uv run alembic stamp $(revision)
+	cd src/backend/base/aiexec/ && uv run alembic stamp $(revision)
 
 ######################
 # LOAD TESTING
@@ -468,7 +468,7 @@ locust: ## run locust load tests (options: locust_users=10 locust_spawn_rate=1 l
 	@echo "Using locustfile: $(locust_file)"
 	@export API_KEY=$(locust_api_key) && \
 	export FLOW_ID=$(locust_flow_id) && \
-	export LANGFLOW_HOST=$(locust_host) && \
+	export AIEXEC_HOST=$(locust_host) && \
 	export MIN_WAIT=$(locust_min_wait) && \
 	export MAX_WAIT=$(locust_max_wait) && \
 	export REQUEST_TIMEOUT=$(locust_request_timeout) && \

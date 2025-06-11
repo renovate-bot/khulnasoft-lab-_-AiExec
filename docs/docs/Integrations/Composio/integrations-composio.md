@@ -1,9 +1,9 @@
 ---
-title: Integrate Composio with Langflow
+title: Integrate Composio with Aiexec
 slug: /integrations-composio
 ---
 
-Langflow integrates with [Composio](https://docs.composio.dev/introduction/intro/overview) as a toolset for your **Agent** component.
+Aiexec integrates with [Composio](https://docs.composio.dev/introduction/intro/overview) as a toolset for your **Agent** component.
 
 Instead of juggling multiple integrations and components in your flow, connect the Composio component to an **Agent** component to use all of Composio's supported APIs and actions as **Tools** for your agent.
 
@@ -13,9 +13,9 @@ Instead of juggling multiple integrations and components in your flow, connect t
 - [An OpenAI API key](https://platform.openai.com/)
 - [A Gmail account](https://mail.google.com)
 
-## Connect Langflow to a Composio tool
+## Connect Aiexec to a Composio tool
 
-1. In the Langflow **Workspace**, add an **Agent** component.
+1. In the Aiexec **Workspace**, add an **Agent** component.
 2. In the **Workspace**, add the **Composio Tools** component.
 3. Connect the **Agent** component's **Tools** port to the **Composio Tools** component's **Tools** port.
 4. In the **Composio API Key** field, paste your Composio API key.
@@ -100,5 +100,5 @@ The draft email with the subject "Greetings from Composio" and body "Hello from 
 7. To confirm further, navigate to the Gmail account you authenticated with Composio.
 Your email is visible in **Drafts**.
 
-You have successfully integrated your Langflow component with Composio.
+You have successfully integrated your Aiexec component with Composio.
 To add more tools, add another Composio component.

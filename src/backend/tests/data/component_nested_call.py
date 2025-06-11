@@ -1,8 +1,8 @@
 from random import randint
 
-from langflow.custom import Component
-from langflow.inputs.inputs import IntInput, MessageTextInput
-from langflow.template.field.base import Output
+from aiexec.custom import Component
+from aiexec.inputs.inputs import IntInput, MessageTextInput
+from aiexec.template.field.base import Output
 
 
 class MultipleOutputsComponent(Component):

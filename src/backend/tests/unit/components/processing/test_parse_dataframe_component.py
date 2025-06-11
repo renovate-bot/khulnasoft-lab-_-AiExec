@@ -2,9 +2,9 @@ import asyncio
 
 import pandas as pd
 import pytest
-from langflow.components.processing.parse_dataframe import ParseDataFrameComponent
-from langflow.schema import DataFrame
-from langflow.schema.message import Message
+from aiexec.components.processing.parse_dataframe import ParseDataFrameComponent
+from aiexec.schema import DataFrame
+from aiexec.schema.message import Message
 
 from tests.base import ComponentTestBaseWithoutClient
 

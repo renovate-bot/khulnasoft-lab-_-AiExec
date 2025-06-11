@@ -10,4 +10,4 @@ SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 cd "$SCRIPT_DIR/.."
 
 # check uv.lock in sync with pyproject.toml
-uv lock --project src/backend/base/langflow/api
+uv lock --project src/backend/base/aiexec/api

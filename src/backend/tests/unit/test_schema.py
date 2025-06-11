@@ -3,12 +3,12 @@ from types import NoneType
 from typing import Union
 
 import pytest
-from langflow.inputs.inputs import BoolInput, DictInput, FloatInput, InputTypes, IntInput, MessageTextInput
-from langflow.io.schema import schema_to_langflow_inputs
-from langflow.schema.data import Data
-from langflow.template import Input, Output
-from langflow.template.field.base import UNDEFINED
-from langflow.type_extraction.type_extraction import post_process_type
+from aiexec.inputs.inputs import BoolInput, DictInput, FloatInput, InputTypes, IntInput, MessageTextInput
+from aiexec.io.schema import schema_to_aiexec_inputs
+from aiexec.schema.data import Data
+from aiexec.template import Input, Output
+from aiexec.template.field.base import UNDEFINED
+from aiexec.type_extraction.type_extraction import post_process_type
 from pydantic import BaseModel, Field, ValidationError
 
 
@@ -183,7 +183,7 @@ class TestPostProcessType:
         assert set(post_process_type(Union[CustomType, int])) == {CustomType, int}  # noqa: UP007
 
 
-def test_schema_to_langflow_inputs():
+def test_schema_to_aiexec_inputs():
     # Define a test Pydantic model with various field types
     class TestSchema(BaseModel):
         text_field: str = Field(title="Custom Text Title", description="A text field")
@@ -192,8 +192,8 @@ def test_schema_to_langflow_inputs():
         dict_field: dict = Field(description="A dictionary field")
         list_field: list[str] = Field(description="A list of strings")
 
-    # Convert schema to Langflow inputs
-    inputs = schema_to_langflow_inputs(TestSchema)
+    # Convert schema to Aiexec inputs
+    inputs = schema_to_aiexec_inputs(TestSchema)
 
     # Verify the number of inputs matches the schema fields
     assert len(inputs) == 5
@@ -231,7 +231,7 @@ def test_schema_to_langflow_inputs():
     assert isinstance(list_input, MessageTextInput)
 
 
-def test_schema_to_langflow_inputs_invalid_type():
+def test_schema_to_aiexec_inputs_invalid_type():
     # Define a schema with an unsupported type
     class CustomType:
         pass
@@ -242,4 +242,4 @@ def test_schema_to_langflow_inputs_invalid_type():
 
     # Test that attempting to convert an unsupported type raises TypeError
     with pytest.raises(TypeError, match="Unsupported field type:"):
-        schema_to_langflow_inputs(InvalidSchema)
+        schema_to_aiexec_inputs(InvalidSchema)

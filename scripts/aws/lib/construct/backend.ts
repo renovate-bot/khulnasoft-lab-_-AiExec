@@ -52,15 +52,15 @@ export class BackEndCluster extends Construct {
     );
     backendTaskDefinition.addContainer('backendContainer', {
       image: ecs.ContainerImage.fromEcrRepository(props.ecrBackEndRepository, "latest"),
-      containerName:'langflow-back-container',
+      containerName:'aiexec-back-container',
       logging: ecs.LogDriver.awsLogs({
         streamPrefix: 'my-stream',
         logGroup: props.backendLogGroup,
       }),
       environment:{
-        "LANGFLOW_AUTO_LOGIN" : process.env.LANGFLOW_AUTO_LOGIN ?? 'false',
-        "LANGFLOW_SUPERUSER" : process.env.LANGFLOW_SUPERUSER ?? "admin",
-        "LANGFLOW_SUPERUSER_PASSWORD" : process.env.LANGFLOW_SUPERUSER_PASSWORD ?? "123456"
+        "AIEXEC_AUTO_LOGIN" : process.env.AIEXEC_AUTO_LOGIN ?? 'false',
+        "AIEXEC_SUPERUSER" : process.env.AIEXEC_SUPERUSER ?? "admin",
+        "AIEXEC_SUPERUSER_PASSWORD" : process.env.AIEXEC_SUPERUSER_PASSWORD ?? "123456"
       },
       portMappings: [
           {

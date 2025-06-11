@@ -1,12 +1,12 @@
 ---
-title: Deploy the Langflow development environment on Kubernetes
+title: Deploy the Aiexec development environment on Kubernetes
 slug: /deployment-kubernetes-dev
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [Langflow Integrated Development Environment (IDE)](https://github.com/langflow-ai/langflow-helm-charts/tree/main/charts/langflow-ide) Helm chart is designed to provide a complete environment for developers to create, test, and debug their flows. It includes both the API and the UI.
+The [Aiexec Integrated Development Environment (IDE)](https://github.com/khulnasoft-lab/aiexec-helm-charts/tree/main/charts/aiexec-ide) Helm chart is designed to provide a complete environment for developers to create, test, and debug their flows. It includes both the API and the UI.
 
 ### Prerequisites
 
@@ -30,53 +30,53 @@ This example uses [Minikube](https://minikube.sigs.k8s.io/docs/start/), but you 
 	kubectl config use-context minikube
 	```
 
-### Install the Langflow IDE Helm chart
+### Install the Aiexec IDE Helm chart
 
 1. Add the repository to Helm and update it.
 
 	```shell
-	helm repo add langflow https://langflow-ai.github.io/langflow-helm-charts
+	helm repo add aiexec https://khulnasoft-lab.github.io/aiexec-helm-charts
 	helm repo update
 	```
 
-2. Install Langflow with the default options in the `langflow` namespace.
+2. Install Aiexec with the default options in the `aiexec` namespace.
 
 	```shell
-	helm install langflow-ide langflow/langflow-ide -n langflow --create-namespace
+	helm install aiexec-ide aiexec/aiexec-ide -n aiexec --create-namespace
 	```
 
 3. Check the status of the pods.
 
 	```shell
-	kubectl get pods -n langflow
+	kubectl get pods -n aiexec
 	```
 
-### Access the Langflow IDE
+### Access the Aiexec IDE
 
-Enable local port forwarding to access Langflow from your local machine.
+Enable local port forwarding to access Aiexec from your local machine.
 
-1. To make the Langflow API accessible from your local machine at port 7860:
+1. To make the Aiexec API accessible from your local machine at port 7860:
 ```shell
-kubectl port-forward -n langflow svc/langflow-service-backend 7860:7860
+kubectl port-forward -n aiexec svc/aiexec-service-backend 7860:7860
 ```
 
-2. To make the Langflow UI accessible from your local machine at port 8080:
+2. To make the Aiexec UI accessible from your local machine at port 8080:
 ```shell
-kubectl port-forward -n langflow svc/langflow-service 8080:8080
+kubectl port-forward -n aiexec svc/aiexec-service 8080:8080
 ```
 
 Now you can do the following:
-- Access the Langflow API at `http://localhost:7860`.
-- Access the Langflow UI at `http://localhost:8080`.
+- Access the Aiexec API at `http://localhost:7860`.
+- Access the Aiexec UI at `http://localhost:8080`.
 
-### Configure the Langflow version
+### Configure the Aiexec version
 
-Langflow is deployed with the `latest` version by default.
+Aiexec is deployed with the `latest` version by default.
 
-To specify a different Langflow version, set the `langflow.backend.image.tag` and `langflow.frontend.image.tag` values in the [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-ide/values.yaml) file.
+To specify a different Aiexec version, set the `aiexec.backend.image.tag` and `aiexec.frontend.image.tag` values in the [values.yaml](https://github.com/khulnasoft-lab/aiexec-helm-charts/blob/main/charts/aiexec-ide/values.yaml) file.
 
 ```yaml
-langflow:
+aiexec:
   backend:
     image:
       tag: "1.0.0a59"
@@ -94,9 +94,9 @@ By default, the chart deploys a SQLite database stored in a local persistent dis
 postgresql:
   enabled: true
   auth:
-    username: "langflow"
-    password: "langflow-postgres"
-    database: "langflow-db"
+    username: "aiexec"
+    password: "aiexec-postgres"
+    database: "aiexec-db"
 ```
 
 * Use an external database:
@@ -104,7 +104,7 @@ postgresql:
 postgresql:
   enabled: false
 
-langflow:
+aiexec:
   backend:
     externalDatabase:
       enabled: true
@@ -113,14 +113,14 @@ langflow:
       port:
         value: "5432"
       user:
-        value: "langflow"
+        value: "aiexec"
       password:
         valueFrom:
           secretKeyRef:
             key: "password"
             name: "your-secret-name"
       database:
-        value: "langflow-db"
+        value: "aiexec-db"
     sqlite:
       enabled: false
 ```
@@ -130,7 +130,7 @@ langflow:
 Scale the number of replicas and resources for both frontend and backend services:
 
 ```yaml
-langflow:
+aiexec:
   backend:
     replicaCount: 1
     resources:
@@ -157,4 +157,4 @@ langflow:
 If your flow relies on a shared state, such as built-in chat memory, you need to set up a shared database when scaling horizontally.
 :::
 
-For more examples of `langflow-ide` deployment, see the [Langflow Helm Charts repository](https://github.com/langflow-ai/langflow-helm-charts/tree/main/examples/langflow-ide).
+For more examples of `aiexec-ide` deployment, see the [Aiexec Helm Charts repository](https://github.com/khulnasoft-lab/aiexec-helm-charts/tree/main/examples/aiexec-ide).

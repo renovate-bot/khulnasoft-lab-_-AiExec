@@ -5,7 +5,7 @@ slug: /components-tools
 
 import Icon from "@site/src/components/icon";
 
-# Tool components in Langflow
+# Tool components in Aiexec
 
 Tools are typically connected to agent components at the **Tools** port. Agents use LLMs as a reasoning engine to decide which of the connected tool components to use to solve a problem.
 
@@ -95,7 +95,7 @@ If you want to apply filters regardless of the LLM's input, use the **Static Fil
 | Name | The name of the parameter that is exposed to the LLM. It can be the same as the underlying field name or a more descriptive label. The LLM uses this name, along with the description, to infer what value to provide during execution. |
 | Attribute Name | When the parameter name shown to the LLM differs from the actual field or property in the database, use this setting to map the user-facing name to the correct attribute. For example, to apply a range filter to the timestamp field, define two separate parameters, such as `start_date` and `end_date`, that both reference the same timestamp attribute. |
 | Description | Provides instructions to the LLM on how the parameter should be used. Clear and specific guidance helps the LLM provide valid input. For example, if a field such as `specialty` is stored in lowercase, the description should indicate that the input must be lowercase. |
-| Is Metadata | When loading data using LangChain or Langflow, additional attributes may be stored under a metadata object. If the target attribute is stored this way, enable this option. It adjusts the query by generating a filter in the format: `{"metadata.<attribute_name>": "<value>"}` |
+| Is Metadata | When loading data using LangChain or Aiexec, additional attributes may be stored under a metadata object. If the target attribute is stored this way, enable this option. It adjusts the query by generating a filter in the format: `{"metadata.<attribute_name>": "<value>"}` |
 | Is Timestamp | For date or time-based filters, enable this option to automatically convert values to the timestamp format that the Astrapy client expects. This ensures compatibility with the underlying API without requiring manual formatting. |
 | Operator | Defines the filtering logic applied to the attribute. You can use any valid [Data API filter operator](https://docs.datastax.com/en/astra-db-serverless/api-reference/filter-operator-collections.html). For example, to filter a time range on the timestamp attribute, use two parameters: one with the `$gt` operator for "greater than", and another with the `$lt` operator for "less than". |
 
@@ -311,9 +311,9 @@ This component allows you to call the Serper.dev Google Search API.
 
 ## MCP connection
 
-The **MCP connection** component connects to a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server and exposes the MCP server's tools as tools for Langflow agents.
+The **MCP connection** component connects to a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server and exposes the MCP server's tools as tools for Aiexec agents.
 
-In addition to being an MCP client that can leverage MCP servers, the **MCP connection** component's [SSE mode](#mcp-sse-mode) allows you to connect your flow to the Langflow MCP server at the `/api/v1/mcp/sse` API endpoint, exposing all flows within your [project](/concepts-overview#projects) as tools within a flow.
+In addition to being an MCP client that can leverage MCP servers, the **MCP connection** component's [SSE mode](#mcp-sse-mode) allows you to connect your flow to the Aiexec MCP server at the `/api/v1/mcp/sse` API endpoint, exposing all flows within your [project](/concepts-overview#projects) as tools within a flow.
 
 To use the **MCP connection** component with an agent component, follow these steps:
 
@@ -325,9 +325,9 @@ To use the **MCP connection** component with an agent component, follow these st
     uvx mcp-server-fetch
     ```
 
-    `uvx` is included with `uv` in the Langflow package.
+    `uvx` is included with `uv` in the Aiexec package.
     To use `npx` server commands, you must first install an LTS release of [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-    For an example of starting `npx` MCP servers, see [Connect an Astra DB MCP server to Langflow](/mcp-component-astra).
+    For an example of starting `npx` MCP servers, see [Connect an Astra DB MCP server to Aiexec](/mcp-component-astra).
 
     To include environment variables with your server command, add them to the **Env** field like this:
 
@@ -336,8 +336,8 @@ To use the **MCP connection** component with an agent component, follow these st
     ```
 
     :::important
-    Langflow passes environment variables from the `.env` file to MCP, but not global variables declared in the UI.
-    To add a value for an environment variable as a global variable, add it to Langflow's `.env` file at startup.
+    Aiexec passes environment variables from the `.env` file to MCP, but not global variables declared in the UI.
+    To add a value for an environment variable as a global variable, add it to Aiexec's `.env` file at startup.
     For more information, see [global variables](/configuration-global-variables).
     :::
 
@@ -355,22 +355,22 @@ Connect the **MCP connection** component's **Toolset** port to an **Agent** comp
 
 6. Open the **Playground**.
 Ask the agent to summarize recent tech news. The agent calls the MCP server function `fetch` and returns the summary.
-This confirms the MCP server is connected, and its tools are being used in Langflow.
+This confirms the MCP server is connected, and its tools are being used in Aiexec.
 
 For more information, see [MCP server](/mcp-server).
 
 ### MCP Server-Sent Events (SSE) mode {#mcp-sse-mode}
 
 :::important
-If you're using **Langflow for Desktop**, the default address is `http://127.0.0.1:7868/`.
+If you're using **Aiexec for Desktop**, the default address is `http://127.0.0.1:7868/`.
 :::
 
-The MCP component's SSE mode connects your flow to the Langflow MCP server through the component.
+The MCP component's SSE mode connects your flow to the Aiexec MCP server through the component.
 This allows you to use all flows within your [project](/concepts-overview#projects) as tools within a flow.
 
 1. In the **MCP connection** component, select **SSE**.
 A default address appears in the **MCP SSE URL** field.
-2. In the **MCP SSE URL** field, modify the default address to point at the SSE endpoint of the Langflow server you're currently running.
+2. In the **MCP SSE URL** field, modify the default address to point at the SSE endpoint of the Aiexec server you're currently running.
 The default value is `http://localhost:7860/api/v1/mcp/sse`.
 3. In the **MCP connection** component, click <Icon name="RefreshCw" aria-label="Refresh"/> to retrieve the server's list of **Tools**.
 4. Click the **Tools** field.
@@ -627,14 +627,14 @@ Deprecated components have been replaced by newer alternatives and should not be
 
 ### MCP Tools (stdio)
 :::important
-This component is deprecated as of Langflow version 1.3.
+This component is deprecated as of Aiexec version 1.3.
 Instead, use the [MCP connection component](/components-tools#mcp-connection)
 :::
 
 
 ### MCP Tools (SSE)
 :::important
-This component is deprecated as of Langflow version 1.3.
+This component is deprecated as of Aiexec version 1.3.
 Instead, use the [MCP connection component](/components-tools#mcp-connection)
 :::
 

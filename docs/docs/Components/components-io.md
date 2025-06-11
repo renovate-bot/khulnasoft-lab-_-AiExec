@@ -5,7 +5,7 @@ slug: /components-io
 
 import Icon from "@site/src/components/icon";
 
-# Input and output components in Langflow
+# Input and output components in Aiexec
 
 Input and output components define where data enters and exits your flow.
 
@@ -164,7 +164,7 @@ The flow looks like this:
 3. To send a message to your flow, open the **Playground**, and then enter a message.
 The **OpenAI** model component responds.
 Optionally, in the **OpenAI** model component, enter a **System Message** to control the model's response.
-4. In the Langflow UI, click your flow name, and then click **Logs**.
+4. In the Aiexec UI, click your flow name, and then click **Logs**.
 The **Logs** pane opens.
 Here, you can inspect your component logs.
 ![Logs pane](/img/logs.png)
@@ -203,10 +203,10 @@ Optionally, to view the outputs of each component in the flow, click <Icon name=
 
 ### Send chat messages with the API
 
-The **Chat Input** component is often the entry point for passing messages to the Langflow API.
-To send the same example messages programmatically to your Langflow server, do the following:
+The **Chat Input** component is often the entry point for passing messages to the Aiexec API.
+To send the same example messages programmatically to your Aiexec server, do the following:
 
-1. To get your Langflow endpoint, click **Publish**, and then click **API access**.
+1. To get your Aiexec endpoint, click **Publish**, and then click **API access**.
 2. Copy the command from the **cURL** tab, and then paste it in your terminal.
 It looks similar to this:
 ```text
@@ -235,7 +235,7 @@ curl --request POST \
   "input_type": "chat"
 }'
 ```
-The custom `session_id` value starts a new chat session between your client and the Langflow server, and can be useful in keeping conversations and AI context separate.
+The custom `session_id` value starts a new chat session between your client and the Aiexec server, and can be useful in keeping conversations and AI context separate.
 
 5. Send the POST request.
 Your request is answered.

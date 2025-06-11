@@ -25,23 +25,23 @@ export class Network extends Construct {
 
     // VPC等リソースの作成
     this.vpc = new ec2.Vpc(scope, 'VPC', {
-      vpcName: 'langflow-vpc',
+      vpcName: 'aiexec-vpc',
       ipAddresses: ec2.IpAddresses.cidr('10.0.0.0/16'),
       maxAzs: 3,
       subnetConfiguration: [
         {
           cidrMask: 24,
-          name: 'langflow-Isolated',
+          name: 'aiexec-Isolated',
           subnetType: ec2.SubnetType.PRIVATE_ISOLATED,
         },
         {
           cidrMask: 24,
-          name: 'langflow-Public',
+          name: 'aiexec-Public',
           subnetType: ec2.SubnetType.PUBLIC,
         },
         {
           cidrMask: 24,
-          name: 'langflow-Private',
+          name: 'aiexec-Private',
           subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS
         },
       ],
@@ -55,9 +55,9 @@ export class Network extends Construct {
       vpc: this.vpc,
     })
 
-    this.alb = new elb.ApplicationLoadBalancer(this,'langflow-alb',{
+    this.alb = new elb.ApplicationLoadBalancer(this,'aiexec-alb',{
       internetFacing: true, //インターネットからのアクセスを許可するかどうか指定
-      loadBalancerName: 'langflow-alb',
+      loadBalancerName: 'aiexec-alb',
       securityGroup: this.albSG, //作成したセキュリティグループを割り当てる
       vpc:this.vpc,   
     })
@@ -80,15 +80,15 @@ export class Network extends Construct {
 
     // Cluster
     this.cluster = new ecs.Cluster(this, 'EcsCluster', {
-      clusterName: 'langflow-cluster',
+      clusterName: 'aiexec-cluster',
       vpc: this.vpc,
       enableFargateCapacityProviders: true,
     });
 
     // ECS BackEndに設定するセキュリティグループ
     this.ecsBackSG = new ec2.SecurityGroup(scope, 'ECSBackEndSecurityGroup', {
-      securityGroupName: 'langflow-ecs-back-sg',
-      description: 'for langflow-back-ecs',
+      securityGroupName: 'aiexec-ecs-back-sg',
+      description: 'for aiexec-back-ecs',
       vpc: this.vpc,
     })
     this.ecsBackSG.addIngressRule(this.albSG,ec2.Port.tcp(back_service_port))
@@ -96,16 +96,16 @@ export class Network extends Construct {
     // RDSに設定するセキュリティグループ
     this.dbSG = new ec2.SecurityGroup(scope, 'DBSecurityGroup', {
       allowAllOutbound: true,
-      securityGroupName: 'langflow-db',
-      description: 'for langflow-db',
+      securityGroupName: 'aiexec-db',
+      description: 'for aiexec-db',
       vpc: this.vpc,
     })
-    // langflow-ecs-back-sg からのポート3306:mysql(5432:postgres)のインバウンドを許可
+    // aiexec-ecs-back-sg からのポート3306:mysql(5432:postgres)のインバウンドを許可
     this.dbSG.addIngressRule(this.ecsBackSG, ec2.Port.tcp(3306))
 
     // Create CloudWatch Log Group
     this.backendLogGroup = new logs.LogGroup(this, 'backendLogGroup', {
-      logGroupName: 'langflow-backend-logs',
+      logGroupName: 'aiexec-backend-logs',
       removalPolicy: RemovalPolicy.DESTROY,
     });
 

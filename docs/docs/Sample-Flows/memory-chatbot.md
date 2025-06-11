@@ -13,12 +13,12 @@ This flow extends the [basic prompting flow](/starter-projects-basic-prompting) 
 
 ## Prerequisites
 
-- [A running Langflow instance](/get-started-installation)
+- [A running Aiexec instance](/get-started-installation)
 - [An OpenAI API key](https://platform.openai.com/)
 
 ## Create the memory chatbot flow
 
-1. From the Langflow dashboard, click **New Flow**.
+1. From the Aiexec dashboard, click **New Flow**.
 2. Select **Memory Chatbot**.
 3. The **Memory Chatbot** flow is created.
 
@@ -64,7 +64,7 @@ The **Message Logs** pane displays all previous messages, with each conversation
 
 ## Use Session ID with the memory chatbot flow
 
-`session_id` is a unique identifier in Langflow that stores conversation sessions between the AI and a user. A `session_id` is created when a conversation is initiated, and then associated with all subsequent messages during that session.
+`session_id` is a unique identifier in Aiexec that stores conversation sessions between the AI and a user. A `session_id` is created when a conversation is initiated, and then associated with all subsequent messages during that session.
 
 In the **Memory Chatbot** flow you created, the **Message history** component references past interactions by **Session ID**. You can demonstrate this by modifying the **Session ID** value to switch between conversation histories.
 

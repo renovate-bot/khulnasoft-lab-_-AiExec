@@ -1,10 +1,10 @@
 ---
-title: Develop an application in Langflow
+title: Develop an application in Aiexec
 slug: /develop-application
 ---
 
-Follow this guide to learn how to build an application using Langflow.
-You'll learn how to set up a project directory, manage dependencies, configure environment variables, and package your Langflow application in a Docker image.
+Follow this guide to learn how to build an application using Aiexec.
+You'll learn how to set up a project directory, manage dependencies, configure environment variables, and package your Aiexec application in a Docker image.
 
 To deploy your application to Docker or Kubernetes, see [Deployment](/deployment-docker).
 
@@ -13,11 +13,11 @@ To deploy your application to Docker or Kubernetes, see [Deployment](/deployment
 Create a project directory similar to this one.
 
 ```text
-LANGFLOW-APPLICATION/
+AIEXEC-APPLICATION/
 ├── flows/
 │   ├── flow1.json
 │   └── flow2.json
-├── langflow-config-dir/
+├── aiexec-config-dir/
 ├── docker.env
 ├── Dockerfile
 ├── README.md
@@ -25,15 +25,15 @@ LANGFLOW-APPLICATION/
 
 The `/flows` folder holds the flows you want to host.
 
-The `langflow-config-dir` is referenced in the Dockerfile as the location for Langflow's configuration files, database, and logs. For more information, see [Environment variables](/environment-variables).
+The `aiexec-config-dir` is referenced in the Dockerfile as the location for Aiexec's configuration files, database, and logs. For more information, see [Environment variables](/environment-variables).
 
-The `docker.env` file is copied to the Docker image as a `.env` file in the container root. This file controls Langflow's behavior, holds secrets, and configures runtime settings like authentication, database storage, API keys, and server configurations.
+The `docker.env` file is copied to the Docker image as a `.env` file in the container root. This file controls Aiexec's behavior, holds secrets, and configures runtime settings like authentication, database storage, API keys, and server configurations.
 
 The `Dockerfile` controls how your image is built. This file copies your flows and `docker.env` files to your image.
 
 ### Package management
 
-The base Docker image includes the Langflow core dependencies by using `langflowai/langflow:latest` as the parent image.
+The base Docker image includes the Aiexec core dependencies by using `aiexecai/aiexec:latest` as the parent image.
 
 If your application requires additional dependencies, create a `pyproject.toml` file and add the dependencies to the file. For more information, see [Install custom dependencies](/install-custom-dependencies).
 
@@ -50,15 +50,15 @@ The `docker.env` file is a `.env` file loaded into your Docker image.
 The following example `docker.env` file defines auto-login behavior and which port to expose. Your environment may vary. For more information, see [Environment variables](/environment-variables).
 
 ```text
-LANGFLOW_AUTO_LOGIN=true
-LANGFLOW_SAVE_DB_IN_CONFIG_DIR=true
-LANGFLOW_BASE_URL=http://0.0.0.0:7860
+AIEXEC_AUTO_LOGIN=true
+AIEXEC_SAVE_DB_IN_CONFIG_DIR=true
+AIEXEC_BASE_URL=http://0.0.0.0:7860
 OPENAI_API_KEY=sk-...
 ```
 
-This example uses Langflow's default [SQLite](https://www.sqlite.org/) database for storage, and configures no authentication.
+This example uses Aiexec's default [SQLite](https://www.sqlite.org/) database for storage, and configures no authentication.
 
-To modify Langflow's default memory behavior, see [Memory](/memory).
+To modify Aiexec's default memory behavior, see [Memory](/memory).
 
 To add authentication to your server, see [Authentication](/configuration-authentication).
 
@@ -66,58 +66,58 @@ To add authentication to your server, see [Authentication](/configuration-authen
 
 Add your flow's `.JSON` files to the `/flows` folder.
 
-To export your flows from Langflow, see [Flows](/concepts-flows).
+To export your flows from Aiexec, see [Flows](/concepts-flows).
 
 Optionally, add any custom components to a `/components` folder, and specify the path in your `docker.env`.
 
-## Package your Langflow project in a Docker image
+## Package your Aiexec project in a Docker image
 
 1. Add the following commands to your Dockerfile.
 
 ```dockerfile
-# Use the latest version of langflow
-FROM langflowai/langflow:latest
+# Use the latest version of aiexec
+FROM aiexecai/aiexec:latest
 
 # Create accessible folders and set the working directory in the container
 RUN mkdir /app/flows
-RUN mkdir /app/langflow-config-dir
+RUN mkdir /app/aiexec-config-dir
 WORKDIR /app
 
-# Copy the flows, optional components, and langflow-config-dir folders to the container
+# Copy the flows, optional components, and aiexec-config-dir folders to the container
 COPY flows /app/flows
 COPY components /app/components
-COPY langflow-config-dir /app/langflow-config-dir
+COPY aiexec-config-dir /app/aiexec-config-dir
 
 # copy docker.env file
 COPY docker.env /app/.env
 
 # Set environment variables
 ENV PYTHONPATH=/app
-ENV LANGFLOW_LOAD_FLOWS_PATH=/app/flows
-ENV LANGFLOW_CONFIG_DIR=/app/langflow-config-dir
-ENV LANGFLOW_COMPONENTS_PATH=/app/components
-ENV LANGFLOW_LOG_ENV=container
+ENV AIEXEC_LOAD_FLOWS_PATH=/app/flows
+ENV AIEXEC_CONFIG_DIR=/app/aiexec-config-dir
+ENV AIEXEC_COMPONENTS_PATH=/app/components
+ENV AIEXEC_LOG_ENV=container
 
 # Command to run the server
 EXPOSE 7860
-CMD ["langflow", "run", "--backend-only", "--env-file","/app/.env","--host", "0.0.0.0", "--port", "7860"]
+CMD ["aiexec", "run", "--backend-only", "--env-file","/app/.env","--host", "0.0.0.0", "--port", "7860"]
 ```
 
-The environment variables set in the Dockerfile specify resource paths and allow Langflow to access them. Values from `docker.env` override the values set in the Dockerfile. Additionally, logging behavior is set here with `ENV LANGFLOW_LOG_ENV=container` for serialized JSON to `stdout`, for tracking your application's behavior in a containerized environment. For more information on configuring logs, see [Logging](/logging).
+The environment variables set in the Dockerfile specify resource paths and allow Aiexec to access them. Values from `docker.env` override the values set in the Dockerfile. Additionally, logging behavior is set here with `ENV AIEXEC_LOG_ENV=container` for serialized JSON to `stdout`, for tracking your application's behavior in a containerized environment. For more information on configuring logs, see [Logging](/logging).
 
 :::note
-Optionally, remove the `--backend-only` flag from the startup command to start Langflow with the frontend enabled.
-For more on `--backend-only` mode and the Langflow Docker image, see [Docker](/deployment-docker).
+Optionally, remove the `--backend-only` flag from the startup command to start Aiexec with the frontend enabled.
+For more on `--backend-only` mode and the Aiexec Docker image, see [Docker](/deployment-docker).
 :::
 
 2. Save your Dockerfile.
 3. Build the Docker image:
 ```bash
-docker build -t langflow-pokedex:1.2.0 .
+docker build -t aiexec-pokedex:1.2.0 .
 ```
 4. Run the Docker container:
 ```bash
-docker run -p 7860:7860 langflow-pokedex:1.2.0
+docker run -p 7860:7860 aiexec-pokedex:1.2.0
 ```
 
 :::note
@@ -162,4 +162,4 @@ The test application returns a large amount of text, so the example command used
 
 For instructions on building and pushing your image to Docker Hub, see [Docker](/deployment-docker).
 
-To deploy your application to Kubernetes, see [Deploy the Langflow production environment to Kubernetes](/deployment-kubernetes-prod).
+To deploy your application to Kubernetes, see [Deploy the Aiexec production environment to Kubernetes](/deployment-kubernetes-prod).

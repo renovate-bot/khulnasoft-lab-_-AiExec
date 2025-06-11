@@ -2,8 +2,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from composio import Action
-from langflow.components.composio.outlook_composio import ComposioOutlookAPIComponent
-from langflow.schema.dataframe import DataFrame
+from aiexec.components.composio.outlook_composio import ComposioOutlookAPIComponent
+from aiexec.schema.dataframe import DataFrame
 
 from tests.base import DID_NOT_EXIST, ComponentTestBaseWithoutClient
 
@@ -18,7 +18,7 @@ class MockAction:
 class TestOutlookComponent(ComponentTestBaseWithoutClient):
     @pytest.fixture(autouse=True)
     def mock_composio_toolset(self):
-        with patch("langflow.base.composio.composio_base.ComposioToolSet", MockComposioToolSet):
+        with patch("aiexec.base.composio.composio_base.ComposioToolSet", MockComposioToolSet):
             yield
 
     @pytest.fixture

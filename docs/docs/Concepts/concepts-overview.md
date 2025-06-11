@@ -1,11 +1,11 @@
 ---
-title: Langflow overview
+title: Aiexec overview
 slug: /concepts-overview
 ---
 
 import Icon from "@site/src/components/icon";
 
-This page explores the fundamental building blocks of Langflow, beginning with the question, **"What is a flow?"**
+This page explores the fundamental building blocks of Aiexec, beginning with the question, **"What is a flow?"**
 
 ## What is a flow?
 
@@ -23,20 +23,20 @@ A flow can be as simple as the [basic prompting flow](/get-started-quickstart), 
 
 If you're familiar with [React Flow](https://reactflow.dev/learn), a **flow** is a node-based application, a **component** is a node, and the connections between components are **edges**.
 
-When a flow is run, Langflow builds a Directed Acyclic Graph (DAG) graph object from the nodes (components) and edges (connections between components), with the nodes sorted to determine the order of execution. The graph build calls the individual components' `def_build` functions to validate and prepare the nodes. This graph is then processed in dependency order. Each node is built and executed sequentially, with results from each built node being passed to nodes that are dependent on the previous node's results.
+When a flow is run, Aiexec builds a Directed Acyclic Graph (DAG) graph object from the nodes (components) and edges (connections between components), with the nodes sorted to determine the order of execution. The graph build calls the individual components' `def_build` functions to validate and prepare the nodes. This graph is then processed in dependency order. Each node is built and executed sequentially, with results from each built node being passed to nodes that are dependent on the previous node's results.
 
 Flows are stored on local disk at the following default locations:
 
-- **Linux and WSL**: `home/<username>/.cache/langflow/`
-- **macOS**: `/Users/<username>/Library/Caches/langflow/`
+- **Linux and WSL**: `home/<username>/.cache/aiexec/`
+- **macOS**: `/Users/<username>/Library/Caches/aiexec/`
 
-The flow storage location can be customized with the [LANGFLOW_CONFIG_DIR](/environment-variables#LANGFLOW_CONFIG_DIR) environment variable.
+The flow storage location can be customized with the [AIEXEC_CONFIG_DIR](/environment-variables#AIEXEC_CONFIG_DIR) environment variable.
 
 ## Find your way around
 
-If you're new to Langflow, it's OK to feel a bit lost at first. We’ll take you on a tour, so you can orient yourself and start creating applications quickly.
+If you're new to Aiexec, it's OK to feel a bit lost at first. We’ll take you on a tour, so you can orient yourself and start creating applications quickly.
 
-Langflow has four distinct regions: the [workspace](#workspace) is the main area where you build your flows. The components sidebar is on the left, and lists the available [components](#components). The [playground](#playground) and [publish pane](#publish-pane) are available in the upper right corner.
+Aiexec has four distinct regions: the [workspace](#workspace) is the main area where you build your flows. The components sidebar is on the left, and lists the available [components](#components). The [playground](#playground) and [publish pane](#publish-pane) are available in the upper right corner.
 
 ## Workspace
 
@@ -48,7 +48,7 @@ The **workspace** is where you create AI applications by connecting and running 
 - Click <Icon name="LockOpen" aria-hidden="true"/> **Lock** to lock the workspace in place, preventing accidental movement.
 - Click <Icon name="StickyNote" aria-hidden="true"/> **Add Note** to add a note to your flow, similar to commenting in code.
 
-![Empty langflow workspace](/img/workspace.png)
+![Empty aiexec workspace](/img/workspace.png)
 
 ## Components
 
@@ -90,24 +90,24 @@ To access the **Logs** pane, click your **Flow Name**, and then select **Logs**.
 
 ![](/img/logs.png)
 
-Langflow stores logs at the location specified in the `LANGFLOW_CONFIG_DIR` environment variable.
+Aiexec stores logs at the location specified in the `AIEXEC_CONFIG_DIR` environment variable.
 
 This directory's default location depends on your operating system.
 
-- **Linux and WSL**: `~/.cache/langflow/`
-- **macOS**: `/Users/<username>/Library/Caches/langflow/`
-- **Windows**: `%LOCALAPPDATA%\langflow\langflow\Cache`
+- **Linux and WSL**: `~/.cache/aiexec/`
+- **macOS**: `/Users/<username>/Library/Caches/aiexec/`
+- **Windows**: `%LOCALAPPDATA%\aiexec\aiexec\Cache`
 
 To modify the location of your log file:
 
-1. Add `LANGFLOW_LOG_FILE=path/to/logfile.log` in your `.env` file.
-2. To start Langflow with the values from your `.env` file, start Langflow with `uv run langflow run --env-file .env`.
+1. Add `AIEXEC_LOG_FILE=path/to/logfile.log` in your `.env` file.
+2. To start Aiexec with the values from your `.env` file, start Aiexec with `uv run aiexec run --env-file .env`.
 
-An example `.env` file is available in the [project repository](https://github.com/langflow-ai/langflow/blob/main/.env.example).
+An example `.env` file is available in the [project repository](https://github.com/khulnasoft-lab/aiexec/blob/main/.env.example).
 
 ## Projects
 
-The **Projects** page displays all the flows you've created in the Langflow workspace.
+The **Projects** page displays all the flows you've created in the Aiexec workspace.
 
 ![](/img/my-projects.png)
 
@@ -121,13 +121,13 @@ You can select multiple flows in a single action.
 
 ## File management
 
-Upload, store, and manage files in Langflow's **File management** system.
+Upload, store, and manage files in Aiexec's **File management** system.
 
 For more on managing your files, see [Manage files](/concepts-file-management).
 
 ## Options menu
 
-The dropdown menu labeled with the project name offers several management and customization options for the current flow in the Langflow workspace:
+The dropdown menu labeled with the project name offers several management and customization options for the current flow in the Aiexec workspace:
 
 - <Icon name="Plus" aria-hidden="true"/> **New**: Create a new flow from scratch.
 - <Icon name="SquarePen" aria-hidden="true"/> **Edit Details**: Adjust settings specific to the current flow, such as its name, description, and endpoint name.
@@ -140,4 +140,4 @@ The dropdown menu labeled with the project name offers several management and cu
 
 ## Settings
 
-Click <Icon name="Settings" aria-hidden="true"/> **Settings** to access **Global variables**, **Langflow API keys**, **Shortcuts**, and **Messages**.
+Click <Icon name="Settings" aria-hidden="true"/> **Settings** to access **Global variables**, **Aiexec API keys**, **Shortcuts**, and **Messages**.

@@ -1,7 +1,7 @@
 import pytest
-from langflow.components.processing.parser import ParserComponent
-from langflow.schema import Data, DataFrame
-from langflow.schema.message import Message
+from aiexec.components.processing.parser import ParserComponent
+from aiexec.schema import Data, DataFrame
+from aiexec.schema.message import Message
 
 from tests.base import ComponentTestBaseWithoutClient
 

@@ -4,4 +4,4 @@ set -x
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 cd "$SCRIPT_DIR/../.."
 
-pytest src/backend/base/langflow/api/tests/artifact_tests/
+pytest src/backend/base/aiexec/api/tests/artifact_tests/

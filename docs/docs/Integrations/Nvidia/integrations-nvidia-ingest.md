@@ -1,5 +1,5 @@
 ---
-title:  Integrate NVIDIA Retriever Extraction with Langflow
+title:  Integrate NVIDIA Retriever Extraction with Aiexec
 slug: /integrations-nvidia-ingest
 ---
 
@@ -17,20 +17,20 @@ The **NVIDIA Retriever Extraction** component imports the NVIDIA `Ingestor` clie
 
 * An NVIDIA Ingest endpoint. For more information on setting up an NVIDIA Ingest endpoint, see the [NVIDIA Ingest quickstart](https://github.com/NVIDIA/nv-ingest?tab=readme-ov-file#quickstart).
 
-* The **NVIDIA Retriever Extraction** component requires the installation of additional dependencies to your Langflow environment. To install the dependencies in a virtual environment, run the following commands.
+* The **NVIDIA Retriever Extraction** component requires the installation of additional dependencies to your Aiexec environment. To install the dependencies in a virtual environment, run the following commands.
 
-  * If you have the Langflow repository cloned and installed from source:
+  * If you have the Aiexec repository cloned and installed from source:
   ```bash
-  source **YOUR_LANGFLOW_VENV**/bin/activate
+  source **YOUR_AIEXEC_VENV**/bin/activate
   uv sync --extra nv-ingest
-  uv run langflow run
+  uv run aiexec run
   ```
 
-  * If you are installing Langflow from the Python Package Index:
+  * If you are installing Aiexec from the Python Package Index:
   ```bash
-  source **YOUR_LANGFLOW_VENV**/bin/activate
-  uv pip install --prerelease=allow 'langflow[nv-ingest]'
-  uv run langflow run
+  source **YOUR_AIEXEC_VENV**/bin/activate
+  uv pip install --prerelease=allow 'aiexec[nv-ingest]'
+  uv run aiexec run
   ```
 
 ## Use the NVIDIA Retriever Extraction component in a flow

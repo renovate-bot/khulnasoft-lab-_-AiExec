@@ -1,6 +1,6 @@
 import pytest
-from langflow.serialization.constants import MAX_TEXT_LENGTH
-from langflow.utils.util_strings import truncate_long_strings
+from aiexec.serialization.constants import MAX_TEXT_LENGTH
+from aiexec.utils.util_strings import truncate_long_strings
 
 
 @pytest.mark.parametrize(

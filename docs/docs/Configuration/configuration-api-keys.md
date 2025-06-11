@@ -7,25 +7,25 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Icon from "@site/src/components/icon";
 
-Langflow provides an API key functionality that allows users to access their individual components and flows without traditional login authentication.
+Aiexec provides an API key functionality that allows users to access their individual components and flows without traditional login authentication.
 
-## Generate a Langflow API key
+## Generate a Aiexec API key
 
-Generate a user-specific token to use with Langflow.
+Generate a user-specific token to use with Aiexec.
 
-### Generate an API key with the Langflow UI
+### Generate an API key with the Aiexec UI
 
 1. Click your user icon, and then select **Settings**.
-2. Click **Langflow API**, and then click **Add New**.
+2. Click **Aiexec API**, and then click **Add New**.
 3. Name your key, and then click **Create Secret Key**.
 4. Copy the API key and store it in a secure location.
 
-### Generate an API key with the Langflow CLI
+### Generate an API key with the Aiexec CLI
 
 ```shell
-langflow api-key
+aiexec api-key
 # or
-python -m langflow api-key
+python -m aiexec api-key
 ╭─────────────────────────────────────────────────────────────────────╮
 │ API Key Created Successfully:                                       │
 │                                                                     │
@@ -39,9 +39,9 @@ python -m langflow api-key
 
 ```
 
-## Authenticate requests with the Langflow API key
+## Authenticate requests with the Aiexec API key
 
-Include your API key in API requests to authenticate requests to Langflow.
+Include your API key in API requests to authenticate requests to Aiexec.
 
 API keys allow access only to the flows and components of the specific user to whom the key was issued.
 
@@ -68,27 +68,27 @@ curl -X POST \
   -d '{"inputs": {"text":""}, "tweaks": {}}'
 ```
 
-## Generate a Langflow secret key
+## Generate a Aiexec secret key
 
-Langflow uses the [Fernet](https://pypi.org/project/cryptography/) library for encrypting sensitive data.
+Aiexec uses the [Fernet](https://pypi.org/project/cryptography/) library for encrypting sensitive data.
 
-If no `LANGFLOW_SECRET_KEY` is provided, Langflow automatically generates one.
+If no `AIEXEC_SECRET_KEY` is provided, Aiexec automatically generates one.
 
-For more information, see [Authentication](/configuration-authentication#langflow_secret_key).
+For more information, see [Authentication](/configuration-authentication#aiexec_secret_key).
 
 ## Revoke an API key
 
 To revoke an API key, delete it from the list of keys in the **Settings** menu.
 
 1. Click your user icon, and then select **Settings**.
-2. Click **Langflow API**.
+2. Click **Aiexec API**.
 3. Select the keys you want to delete, and then click <Icon name="Trash2" aria-hidden="true"/> **Delete**.
 
 This action immediately invalidates the key and prevents it from being used again.
 
-## Add component API keys to Langflow
+## Add component API keys to Aiexec
 
-These are credentials for external services like OpenAI. They can be added to Langflow with the `.env` file or in the Langflow UI.
+These are credentials for external services like OpenAI. They can be added to Aiexec with the `.env` file or in the Aiexec UI.
 
 Component API keys that are set in the UI override those that are set in the environment variables.
 
@@ -102,12 +102,12 @@ ANTHROPIC_API_KEY=sk-...
 GOOGLE_API_KEY=...
 ```
 
-### Add component API keys with the Langflow UI
+### Add component API keys with the Aiexec UI
 
-To add component API keys as **Global variables** with the Langflow UI:
+To add component API keys as **Global variables** with the Aiexec UI:
 
 1. Click your user icon, and then select **Settings**.
-2. Click **Langflow API**.
+2. Click **Aiexec API**.
 3. Add new API keys as **Credential** type variables.
 4. Apply them to specific component fields.
 

@@ -9,24 +9,24 @@ import ChatWidget from '@site/src/components/ChatWidget';
 
 On the [Publish pane](/concepts-publish), the **Embed into site** tab displays code that can be inserted in the `<body>` of your HTML to interact with your flow.
 
-The chat widget is implemented as a web component called `langflow-chat` and is loaded from a CDN. For more information, see the [langflow-embedded-chat repository](https://github.com/langflow-ai/langflow-embedded-chat).
+The chat widget is implemented as a web component called `aiexec-chat` and is loaded from a CDN. For more information, see the [aiexec-embedded-chat repository](https://github.com/khulnasoft-lab/aiexec-embedded-chat).
 
-For a sandbox example, see the [Langflow embedded chat CodeSandbox](https://codesandbox.io/p/sandbox/langflow-embedded-chat-example-dv9zpx).
+For a sandbox example, see the [Aiexec embedded chat CodeSandbox](https://codesandbox.io/p/sandbox/aiexec-embedded-chat-example-dv9zpx).
 
 The following example includes the minimum required inputs, called [props](https://react.dev/learn/passing-props-to-a-component) in React, for using the chat widget in your HTML code, which are `host_url` and `flow_id`.
 The `host_url` value must be `HTTPS`, and may not include a `/` after the URL.
-The `flow_id` value is found in your Langflow URL.
-For a Langflow server running the [Basic prompting flow](/starter-projects-basic-prompting) at `https://c822-73-64-93-151.ngrok-free.app/flow/dcbed533-859f-4b99-b1f5-16fce884f28f`, your chat widget code is similar to the following:
+The `flow_id` value is found in your Aiexec URL.
+For a Aiexec server running the [Basic prompting flow](/starter-projects-basic-prompting) at `https://c822-73-64-93-151.ngrok-free.app/flow/dcbed533-859f-4b99-b1f5-16fce884f28f`, your chat widget code is similar to the following:
 ```html
 <html>
   <head>
-    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/aiexec-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
   </head>
   <body>
-    <langflow-chat
+    <aiexec-chat
       host_url="https://c822-73-64-93-151.ngrok-free.app"
       flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
-    ></langflow-chat>
+    ></aiexec-chat>
   </body>
 </html>
 ```
@@ -37,11 +37,11 @@ When this code is embedded within HTML, it becomes a responsive chatbot, powered
 
 To configure your chat widget further, include additional props.
 
-All props and their types are listed in [index.tsx](https://github.com/langflow-ai/langflow-embedded-chat/blob/main/src/index.tsx).
+All props and their types are listed in [index.tsx](https://github.com/khulnasoft-lab/aiexec-embedded-chat/blob/main/src/index.tsx).
 
 To add some styling to the chat widget, customize its elements with JSON:
 ```html
-  <langflow-chat
+  <aiexec-chat
     host_url="https://c822-73-64-93-151.ngrok-free.app"
     flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
     chat_window_style='{
@@ -56,29 +56,29 @@ To add some styling to the chat widget, customize its elements with JSON:
     window_title="Custom Styled Chat"
     height="600"
     width="400"
-  ></langflow-chat>
+  ></aiexec-chat>
 ```
 
-To add a custom [session ID](/session-id) value and an API key for authentication to your Langflow server:
+To add a custom [session ID](/session-id) value and an API key for authentication to your Aiexec server:
 ```html
 <html>
   <head>
-    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/aiexec-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
   </head>
   <body>
-    <langflow-chat
+    <aiexec-chat
       host_url="https://c822-73-64-93-151.ngrok-free.app"
       flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
       api_key="YOUR_API_KEY"
       session_id="YOUR_SESSION_ID"
-    ></langflow-chat>
+    ></aiexec-chat>
   </body>
 </html>
 ```
 
 The chat widget requires your flow to contain **Chat Input** and **Chat Output** components for the widget to communicate with it.
-Sending a message to Langflow without a **Chat Input** still triggers the flow, but the LLM warns you the message is empty.
-**Text Input** and **Text Output** components can send and receive messages with Langflow, but without the ongoing LLM "chat" context.
+Sending a message to Aiexec without a **Chat Input** still triggers the flow, but the LLM warns you the message is empty.
+**Text Input** and **Text Output** components can send and receive messages with Aiexec, but without the ongoing LLM "chat" context.
 
 ## Embed the chat widget with React
 
@@ -90,7 +90,7 @@ To use the chat widget in your React application, create a component that loads 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "langflow-chat": any;
+      "aiexec-chat": any;
     }
   }
 }
@@ -98,10 +98,10 @@ declare global {
 export default function ChatWidget({ className }) {
   return (
     <div className={className}>
-      <langflow-chat
+      <aiexec-chat
         host_url="https://c822-73-64-93-151.ngrok-free.app"
         flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
-      ></langflow-chat>
+      ></aiexec-chat>
     </div>
   );
 }
@@ -109,16 +109,16 @@ export default function ChatWidget({ className }) {
 2. Place the component anywhere in your code to display the chat widget.
 
 For example, in this docset, the React widget component is located at `docs > src > components > ChatWidget > index.tsx`.
-`index.tsx` includes a script to load the chat widget code from CDN and initialize the `ChatWidget` component with props pointing to a Langflow server.
+`index.tsx` includes a script to load the chat widget code from CDN and initialize the `ChatWidget` component with props pointing to a Aiexec server.
 ```javascript
 import React, { useEffect } from 'react';
 
 // Component to load the chat widget script
 const ChatScriptLoader = () => {
   useEffect(() => {
-    if (!document.querySelector('script[src*="langflow-embedded-chat"]')) {
+    if (!document.querySelector('script[src*="aiexec-embedded-chat"]')) {
       const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/gh/langflow-ai/langflow-embedded-chat@main/dist/build/static/js/bundle.min.js';
+      script.src = 'https://cdn.jsdelivr.net/gh/khulnasoft-lab/aiexec-embedded-chat@main/dist/build/static/js/bundle.min.js';
       script.async = true;
       document.body.appendChild(script);
     }
@@ -130,7 +130,7 @@ const ChatScriptLoader = () => {
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "langflow-chat": any;
+      "aiexec-chat": any;
     }
   }
 }
@@ -139,10 +139,10 @@ export default function ChatWidget({ className }) {
   return (
     <div className={className}>
       <ChatScriptLoader />
-      <langflow-chat
+      <aiexec-chat
         host_url="https://c822-73-64-93-151.ngrok-free.app"
         flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
-      ></langflow-chat>
+      ></aiexec-chat>
     </div>
   );
 }
@@ -158,11 +158,11 @@ import ChatWidget from '@site/src/components/ChatWidget';
 
 To use the chat widget in your [Angular](https://angular.dev/overview) application, create a component that loads the widget script and renders the chat interface.
 
-Angular requires you to explicitly allow custom web components like `langflow-chat` in components, so you must add the `<langflow-chat>` element to your Angular template and configure Angular to recognize it. Add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration to enable this.
+Angular requires you to explicitly allow custom web components like `aiexec-chat` in components, so you must add the `<aiexec-chat>` element to your Angular template and configure Angular to recognize it. Add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration to enable this.
 
 To add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration, do the following:
 
-1. Open the module file `.module.ts` where you want to add the `langflow-chat` web component.
+1. Open the module file `.module.ts` where you want to add the `aiexec-chat` web component.
 2. Import `CUSTOM_ELEMENTS_SCHEMA` at the top of the `.module.ts` file:
 
 `import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';`
@@ -188,7 +188,7 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 
-4. Add the chat widget to your component's template by including the `langflow-chat` element in your component's `.component.ts` file:
+4. Add the chat widget to your component's template by including the `aiexec-chat` element in your component's `.component.ts` file:
 
 For style properties that accept `JSON` objects like `chat_window_style` and `bot_message_style`, use Angular's property binding syntax `[propertyName]` to pass them as JavaScript objects.
 
@@ -199,8 +199,8 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="container">
-      <h1>Langflow Chat Test</h1>
-      <langflow-chat
+      <h1>Aiexec Chat Test</h1>
+      <aiexec-chat
         host_url="https://c822-73-64-93-151.ngrok-free.app"
         flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
         [chat_window_style]='{"backgroundColor": "#ffffff"}'
@@ -211,7 +211,7 @@ import { Component } from '@angular/core';
         height="600"
         width="400"
         chat_position="bottom-right"
-      ></langflow-chat>
+      ></aiexec-chat>
     </div>
   `,
   styles: [`
@@ -222,7 +222,7 @@ import { Component } from '@angular/core';
   `]
 })
 export class AppComponent {
-  title = 'Langflow Chat Test';
+  title = 'Aiexec Chat Test';
 }
 ```
 
@@ -232,14 +232,14 @@ Use the widget API to customize your chat widget.
 
 Props with the type `JSON` need to be passed as stringified JSON, with the format \{"key":"value"\}.
 
-All props and their types are listed in [index.tsx](https://github.com/langflow-ai/langflow-embedded-chat/blob/main/src/index.tsx).
+All props and their types are listed in [index.tsx](https://github.com/khulnasoft-lab/aiexec-embedded-chat/blob/main/src/index.tsx).
 
 | Prop                  | Type    | Description                                    |
 |----------------------|---------|------------------------------------------------|
 | flow_id              | String  | Required. Identifier for the flow associated with the component. |
 | host_url             | String  | Required. URL of the host for communication with the chat component. |
-| api_key              | String  | X-API-Key header to send to Langflow. |
-| additional_headers   | JSON    | Additional headers to be sent to the Langflow server. |
+| api_key              | String  | X-API-Key header to send to Aiexec. |
+| additional_headers   | JSON    | Additional headers to be sent to the Aiexec server. |
 | session_id           | String  | Custom session id to override the random session id. |
 | height               | Number  | Height of the chat window in pixels. |
 | width                | Number  | Width of the chat window in pixels. |

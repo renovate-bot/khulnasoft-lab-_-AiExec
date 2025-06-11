@@ -1,5 +1,5 @@
 ---
-title: Connect an Astra DB MCP server to Langflow
+title: Connect an Astra DB MCP server to Aiexec
 slug: /mcp-component-astra
 ---
 
@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Icon from "@site/src/components/icon";
 
-Use the [MCP connection component](/components-tools#mcp-connection) to connect Langflow to a [Datastax Astra DB MCP server](https://github.com/datastax/astra-db-mcp).
+Use the [MCP connection component](/components-tools#mcp-connection) to connect Aiexec to a [Datastax Astra DB MCP server](https://github.com/datastax/astra-db-mcp).
 
 1. Install an LTS release of [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
@@ -33,8 +33,8 @@ The flow should look like this:
 8. In the **MCP connection** component, in the **Env** fields, add variables for `ASTRA_DB_APPLICATION_TOKEN` and `ASTRA_DB_API_ENDPOINT` with the values from your Astra database.
 
     :::important
-    Langflow passes environment variables from the `.env` file to MCP, but not global variables declared in the UI.
-    To add the values for `ASTRA_DB_APPLICATION_TOKEN` and `ASTRA_DB_API_ENDPOINT` as global variables, add them to Langflow's `.env` file at startup.
+    Aiexec passes environment variables from the `.env` file to MCP, but not global variables declared in the UI.
+    To add the values for `ASTRA_DB_APPLICATION_TOKEN` and `ASTRA_DB_API_ENDPOINT` as global variables, add them to Aiexec's `.env` file at startup.
     For more information, see [global variables](/configuration-global-variables).
     :::
 
@@ -52,7 +52,7 @@ The flow should look like this:
 
 11. Open the **Playground**, and then ask the agent, `What collections are available?`
 
-    Since Langflow is connected to your Astra DB database through the MCP, the agent chooses the correct tool and connects to your database to retrieve the answer.
+    Since Aiexec is connected to your Astra DB database through the MCP, the agent chooses the correct tool and connects to your database to retrieve the answer.
 
     ```text
     The available collections in your database are:

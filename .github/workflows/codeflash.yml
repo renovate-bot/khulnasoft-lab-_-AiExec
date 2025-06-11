@@ -3,7 +3,7 @@ name: Codeflash
 on:
   pull_request:
     paths:
-      - "src/backend/base/langflow/**"
+      - "src/backend/base/aiexec/**"
   workflow_dispatch:
 
 concurrency:

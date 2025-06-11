@@ -1,10 +1,10 @@
 ---
-title: Integrate NVIDIA System-Assist with Langflow
+title: Integrate NVIDIA System-Assist with Aiexec
 slug: /integrations-nvidia-system-assist
 ---
 
 :::important
-This component is only available for Langflow users with NVIDIA GPUs on Windows systems.
+This component is only available for Aiexec users with NVIDIA GPUs on Windows systems.
 :::
 
 The **NVIDIA System-Assist** component enables interaction with NVIDIA GPU drivers through natural language prompts.
@@ -17,7 +17,7 @@ For more information, see the [NVIDIA G-assist project repository](https://githu
 
 * Windows operating system
 * NVIDIA GPU
-* `gassist.rise` package installed. This package is already installed with Langflow.
+* `gassist.rise` package installed. This package is already installed with Aiexec.
 
 ## Use the System-Assist component in a flow
 1. Create a flow with a **Chat input** component, a **System-Assist** component, and a **Chat output** component.
@@ -34,4 +34,4 @@ The **NVIDIA System-Assist** component accepts a single input:
 
 The **NVIDIA System-Assist** component outputs a [Message](/concepts-objects#message-object) object that contains:
 - `text`: The response from NVIDIA System-Assist containing the completed operation result.
-- The NVIDIA System-Assist message response is wrapped in a Langflow [Message](/concepts-objects#message-object) object.
+- The NVIDIA System-Assist message response is wrapped in a Aiexec [Message](/concepts-objects#message-object) object.

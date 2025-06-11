@@ -1,13 +1,13 @@
 ---
-title: Deploy Langflow on a remote server
+title: Deploy Aiexec on a remote server
 slug: /deployment-caddyfile
 ---
 
-Learn how to deploy Langflow on your own remote server with secure web access.
-This guide walks you through setting up Langflow on a remote server using [Docker](https://docs.docker.com/) and configuring secure web access with [Caddy](https://caddyserver.com/docs/).
+Learn how to deploy Aiexec on your own remote server with secure web access.
+This guide walks you through setting up Aiexec on a remote server using [Docker](https://docs.docker.com/) and configuring secure web access with [Caddy](https://caddyserver.com/docs/).
 
 :::tip
-The [host-langflow](https://github.com/datastax/host-langflow) repository offers pre-built copies of this `docker-compose.yml` and `Caddyfile`, if you prefer to fork the repository to your server.
+The [host-aiexec](https://github.com/datastax/host-aiexec) repository offers pre-built copies of this `docker-compose.yml` and `Caddyfile`, if you prefer to fork the repository to your server.
 :::
 
 ## Prerequisites
@@ -49,7 +49,7 @@ You are connected to your server.
   Swap usage:   0%                IPv6 address for eth0: 2a01:4ff:f0:4de7::1
 ```
 
-## Deploy Langflow on your server
+## Deploy Aiexec on your server
 
 Now that you're connected to your server, install Docker, create a `docker-compose.yml` file, and serve it publicly with Caddy as a reverse proxy.
 
@@ -62,22 +62,22 @@ snap install docker
 ```bash
 touch docker-compose.yml && nano docker-compose.yml
 ```
-This file defines the Langflow service from the `langflow:latest` image, and a Caddy service to expose Langflow through a reverse proxy.
+This file defines the Aiexec service from the `aiexec:latest` image, and a Caddy service to expose Aiexec through a reverse proxy.
 :::tip
-The [host-langflow](https://github.com/datastax/host-langflow) repository offers pre-built copies of this `docker-compose.yml` and `Caddyfile`, if you prefer to fork the repository to your server.
+The [host-aiexec](https://github.com/datastax/host-aiexec) repository offers pre-built copies of this `docker-compose.yml` and `Caddyfile`, if you prefer to fork the repository to your server.
 :::
 3. Add the following values to `docker-compose.yml`, and then save the file.
 ```yml
 version: "3.8"
 
 services:
-  langflow:
-    image: langflowai/langflow:latest
+  aiexec:
+    image: aiexecai/aiexec:latest
     ports:
       - "7860:7860"
     environment:
-      - LANGFLOW_HOST=0.0.0.0
-      - LANGFLOW_PORT=7860
+      - AIEXEC_HOST=0.0.0.0
+      - AIEXEC_PORT=7860
 
   caddy:
     image: caddy:latest
@@ -89,7 +89,7 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     depends_on:
-      - langflow
+      - aiexec
 
 volumes:
   caddy_data:
@@ -100,21 +100,21 @@ volumes:
 touch Caddyfile && nano Caddyfile
 ```
 5. Add the following values to `Caddyfile`, and then save the file.
-The Caddyfile configures Caddy to listen on port `80`, and forward all incoming requests to the Langflow service at port `7860`.
+The Caddyfile configures Caddy to listen on port `80`, and forward all incoming requests to the Aiexec service at port `7860`.
 ```
 :80 {
-    reverse_proxy langflow:7860
+    reverse_proxy aiexec:7860
 }
 ```
 6. To deploy your server, enter `docker-compose up`.
-When the `Welcome to Langflow` message appears, Langflow is running and accessible internally at http://0.0.0.0:7860 inside the Docker network.
-7. To open Langflow, navigate to your server's public IP address, such as `http://5.161.250.132`.
+When the `Welcome to Aiexec` message appears, Aiexec is running and accessible internally at http://0.0.0.0:7860 inside the Docker network.
+7. To open Aiexec, navigate to your server's public IP address, such as `http://5.161.250.132`.
 Your address must use `http`, because you haven't enabled HTTPS.
 8. To enable HTTPS, modify your domain's A record to point to your server's IP address.
 For example:
 ```
 Type: A
-Name: langflow
+Name: aiexec
 Value: 5.161.250.132  (your server's IP address)
 ```
 9. Stop your server.
@@ -122,7 +122,7 @@ Value: 5.161.250.132  (your server's IP address)
 
 ```
 :80, :443 {
-    reverse_proxy langflow:7860
+    reverse_proxy aiexec:7860
 }
 ```
 11. Start your server.
@@ -132,4 +132,4 @@ To exit your SSH session, type `exit`.
 
 ## Step-by-step video guide
 
-For a step-by-step guide to deploying Langflow, including deployments to [fly.io](https://fly.io/) and [Flightcontrol.dev](https://www.flightcontrol.dev/), see [How to Host Langflow Anywhere](https://www.youtube.com/watch?v=q4qt5hSnte4).
+For a step-by-step guide to deploying Aiexec, including deployments to [fly.io](https://fly.io/) and [Flightcontrol.dev](https://www.flightcontrol.dev/), see [How to Host Aiexec Anywhere](https://www.youtube.com/watch?v=q4qt5hSnte4).

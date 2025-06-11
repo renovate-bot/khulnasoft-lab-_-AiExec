@@ -1,12 +1,12 @@
 ---
-title: Integrate Google BigQuery with Langflow
+title: Integrate Google BigQuery with Aiexec
 slug: /integrations-google-big-query
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Langflow integrates with [Google BigQuery](https://cloud.google.com/bigquery) through the BigQuery component, allowing you to execute SQL queries and retrieve data from your BigQuery datasets.
+Aiexec integrates with [Google BigQuery](https://cloud.google.com/bigquery) through the BigQuery component, allowing you to execute SQL queries and retrieve data from your BigQuery datasets.
 
 ## Prerequisites
 
@@ -21,20 +21,20 @@ For more information, see [Create a Google Cloud project](https://developers.goo
 2. Create a service account in your Google Cloud project.
 For more information, see [Create a service account](https://developers.google.com/workspace/guides/create-credentials#service-account).
 3. Assign the **BigQuery Job User** role to your new account.
-This role allows Langflow to access BigQuery resources with the service account.
+This role allows Aiexec to access BigQuery resources with the service account.
 You may also need to allow access to your BigQuery dataset.
 For more information, see [BigQuery access control with IAM](https://cloud.google.com/bigquery/docs/access-control).
 4. To generate a new JSON key for the service account, navigate to your service account.
 5. Click **Add Key**, and then click **Create new key**.
 6. Under **Key type**, select **JSON**, and then click **Create**.
 A JSON private key file is downloaded to your machine.
-Now that you have a service account and a JSON private key, you need to configure the credentials in the Langflow BigQuery component.
+Now that you have a service account and a JSON private key, you need to configure the credentials in the Aiexec BigQuery component.
 
-## Configure credentials in the Langflow component
+## Configure credentials in the Aiexec component
 
-With your service account configured and your credentials JSON file created, follow these steps to authenticate the Langflow application.
+With your service account configured and your credentials JSON file created, follow these steps to authenticate the Aiexec application.
 
-1. Create a new project in Langflow.
+1. Create a new project in Aiexec.
 2. From the components sidebar, drag and drop the BigQuery component to your workspace.
 3. In the BigQuery component's **Upload Service Account JSON** field, click **Select file**.
 4. In the **My Files** pane, select **Click or drag files here**.
@@ -57,7 +57,7 @@ This example queries a table of Oscar winners stored within a BigQuery dataset c
 
     ```sql
     SELECT film, category, year_film
-    FROM `big-query-langflow-project.the_oscar_award.oscar_winners`
+    FROM `big-query-aiexec-project.the_oscar_award.oscar_winners`
     WHERE winner = TRUE
     LIMIT 10
     ```

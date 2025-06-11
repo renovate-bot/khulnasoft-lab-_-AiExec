@@ -6,9 +6,9 @@ slug: /api-reference-api-examples
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page provides examples and practices for managing Langflow using the Langflow API.
+This page provides examples and practices for managing Aiexec using the Aiexec API.
 
-The Langflow API's OpenAPI spec can be viewed and tested at your Langflow deployment's `docs` endpoint.
+The Aiexec API's OpenAPI spec can be viewed and tested at your Aiexec deployment's `docs` endpoint.
 For example, `http://127.0.0.1:7860/docs`.
 
 ## Export values
@@ -17,11 +17,11 @@ You might find it helpful to set the following environment variables in your ter
 
 The examples in this guide use environment variables for these values.
 
-- Export your Langflow URL in your terminal.
-  Langflow starts by default at `http://127.0.0.1:7860`.
+- Export your Aiexec URL in your terminal.
+  Aiexec starts by default at `http://127.0.0.1:7860`.
 
 ```bash
-export LANGFLOW_URL="http://127.0.0.1:7860"
+export AIEXEC_URL="http://127.0.0.1:7860"
 ```
 
 - Export the `flow-id` in your terminal.
@@ -32,14 +32,14 @@ export FLOW_ID="359cd752-07ea-46f2-9d3b-a4407ef618da"
 ```
 
 - Export the `project-id` in your terminal.
-To find your project ID, call the Langflow [/api/v1/projects/](#read-projects) endpoint for a list of projects.
+To find your project ID, call the Aiexec [/api/v1/projects/](#read-projects) endpoint for a list of projects.
 <Tabs>
 
   <TabItem value="curl" label="curl" default>
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/projects/" \
+  "$AIEXEC_URL/api/v1/projects/" \
   -H "accept: application/json"
 ```
 
@@ -63,14 +63,14 @@ curl -X GET \
 export project_ID="1415de42-8f01-4f36-bf34-539f23e47466"
 ```
 
-- Export the Langflow API key as an environment variable.
-  To create a Langflow API key, run the following command in the Langflow CLI.
+- Export the Aiexec API key as an environment variable.
+  To create a Aiexec API key, run the following command in the Aiexec CLI.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
 
 ```text
-langflow api-key
+aiexec api-key
 ```
 
   </TabItem>
@@ -83,30 +83,30 @@ sk-...
 </Tabs>
 Export the generated API key as an environment variable.
 ```text
-export LANGFLOW_API_KEY="sk-..."
+export AIEXEC_API_KEY="sk-..."
 ```
 
 ## Base
 
-Use the base Langflow API to run your flow and retrieve configuration information.
+Use the base Aiexec API to run your flow and retrieve configuration information.
 
 ### Get all components
 
-This operation returns a dictionary of all Langflow components.
+This operation returns a dictionary of all Aiexec components.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/all" \
+  "$AIEXEC_URL/api/v1/all" \
   -H "accept: application/json"
 ```
 
   </TabItem>
   <TabItem value="result" label="Result">
 ```text
-A dictionary of all Langflow components.
+A dictionary of all Aiexec components.
 ```
   </TabItem>
 </Tabs>
@@ -125,7 +125,7 @@ The parameters are passed in the request body. In this example, the values are t
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/run/$FLOW_ID" \
+  "$AIEXEC_URL/api/v1/run/$FLOW_ID" \
   -H "Content-Type: application/json" \
   -d '{
     "input_value": "Tell me about something interesting!",
@@ -182,7 +182,7 @@ To stream LLM token responses, append the `?stream=true` query parameter to the 
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/run/$FLOW_ID?stream=true" \
+  "$AIEXEC_URL/api/v1/run/$FLOW_ID?stream=true" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -d '{
@@ -252,7 +252,7 @@ Parameters can be passed to the `/run` endpoint in three ways:
 
 ```bash
 curl -X POST \
-  "http://$LANGFLOW_URL/api/v1/run/$FLOW_ID?stream=true" \
+  "http://$AIEXEC_URL/api/v1/run/$FLOW_ID?stream=true" \
   -H "Content-Type: application/json" \
   -H "accept: application/json" \
   -H "x-api-key: sk-..." \
@@ -283,7 +283,7 @@ To test the **Webhook** component in your flow, see the [Webhook component](/com
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/webhook/$FLOW_ID" \
+  "$AIEXEC_URL/api/v1/webhook/$FLOW_ID" \
   -H "Content-Type: application/json" \
   -d '{"data": "example-data"}'
 ```
@@ -321,7 +321,7 @@ Get the status of a task.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/task/TASK_ID" \
+  "$AIEXEC_URL/api/v1/task/TASK_ID" \
   -H "accept: application/json"
 ```
 
@@ -346,14 +346,14 @@ This endpoint is deprecated. Use the `/file` endpoint instead.
 
 ### Get version
 
-Get the version of the Langflow API.
+Get the version of the Aiexec API.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/version" \
+  "$AIEXEC_URL/api/v1/version" \
   -H "accept: application/json"
 ```
 
@@ -364,7 +364,7 @@ curl -X GET \
 {
     "version": "1.1.1",
     "main_version": "1.1.1",
-    "package": "Langflow"
+    "package": "Aiexec"
 }
 ```
 
@@ -373,14 +373,14 @@ curl -X GET \
 
 ### Get config
 
-Retrieve the Langflow configuration information.
+Retrieve the Aiexec configuration information.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/config" \
+  "$AIEXEC_URL/api/v1/config" \
   -H "accept: application/json"
 ```
 
@@ -427,7 +427,7 @@ This endpoint builds and executes a flow, returning a job ID that can be used to
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/build/$FLOW_ID/flow" \
+  "$AIEXEC_URL/api/v1/build/$FLOW_ID/flow" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -d '{
@@ -456,7 +456,7 @@ curl -X POST \
 
 ```text
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/build/123e4567-e89b-12d3-a456-426614174000/events" \
+  "$AIEXEC_URL/api/v1/build/123e4567-e89b-12d3-a456-426614174000/events" \
   -H "accept: application/json"
 ```
 
@@ -481,7 +481,7 @@ To disable streaming and get all events at once, set `stream` to `false`.
 
 ```text
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/build/123e4567-e89b-12d3-a456-426614174000/events?stream=false" \
+  "$AIEXEC_URL/api/v1/build/123e4567-e89b-12d3-a456-426614174000/events?stream=false" \
   -H "accept: application/json"
 ```
 
@@ -514,14 +514,14 @@ For example, to stop flow execution at the Open AI model component, run the foll
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/build/$FLOW_ID/flow" \
+  "$AIEXEC_URL/api/v1/build/$FLOW_ID/flow" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
-  -H "x-api-key: $LANGFLOW_API_KEY" \
+  -H "x-api-key: $AIEXEC_API_KEY" \
   -d '{"stop_component_id": "OpenAIModel-Uksag"}'
 ```
 
-The `/build` endpoint also accepts inputs for `data` directly, instead of using the values stored in the Langflow database.
+The `/build` endpoint also accepts inputs for `data` directly, instead of using the values stored in the Aiexec database.
 This is useful for running flows without having to pass custom values through the UI.
 
 <Tabs>
@@ -529,7 +529,7 @@ This is useful for running flows without having to pass custom values through th
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/build/$FLOW_ID/flow" \
+  "$AIEXEC_URL/api/v1/build/$FLOW_ID/flow" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -d '{
@@ -556,24 +556,24 @@ curl -X POST \
 
 ## Files
 
-Use the `/files` endpoint to add or delete files between your local machine and Langflow.
+Use the `/files` endpoint to add or delete files between your local machine and Aiexec.
 
 There are `/v1` and `/v2` versions of the `/files` endpoints.
 The `v2/files` version offers several improvements over `/v1`:
 
 - In `v1`, files are organized by `flow_id`. In `v2`, files are organized by `user_id`.
   This means files are accessed based on user ownership, and not tied to specific flows.
-  You can upload a file to Langflow one time, and use it with multiple flows.
-- In `v2`, files are tracked in the Langflow database, and can be added or deleted in bulk, instead of one by one.
+  You can upload a file to Aiexec one time, and use it with multiple flows.
+- In `v2`, files are tracked in the Aiexec database, and can be added or deleted in bulk, instead of one by one.
 - Responses from the `/v2` endpoint contain more descriptive metadata.
 - The `v2` endpoints require authentication by an API key or JWT.
 
 ## Files/V1 endpoints
 
-Use the `/files` endpoint to add or delete files between your local machine and Langflow.
+Use the `/files` endpoint to add or delete files between your local machine and Aiexec.
 
 - In `v1`, files are organized by `flow_id`.
-- In `v2`, files are organized by `user_id` and tracked in the Langflow database, and can be added or deleted in bulk, instead of one by one.
+- In `v2`, files are organized by `user_id` and tracked in the Aiexec database, and can be added or deleted in bulk, instead of one by one.
 
 ### Upload file (v1)
 
@@ -586,7 +586,7 @@ Replace **FILE_NAME** with the uploaded file name.
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/files/upload/$FLOW_ID" \
+  "$AIEXEC_URL/api/v1/files/upload/$FLOW_ID" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@FILE_NAME.txt"
@@ -607,16 +607,16 @@ curl -X POST \
 
 ### Upload image files (v1)
 
-Send image files to the Langflow API for AI analysis.
+Send image files to the Aiexec API for AI analysis.
 
-The default file limit is 100 MB. To configure this value, change the `LANGFLOW_MAX_FILE_SIZE_UPLOAD` environment variable.
+The default file limit is 100 MB. To configure this value, change the `AIEXEC_MAX_FILE_SIZE_UPLOAD` environment variable.
 For more information, see [Supported environment variables](/environment-variables#supported-variables).
 
 1. To send an image to your flow with the API, POST the image file to the `v1/files/upload/<YOUR-FLOW-ID>` endpoint of your flow.
    Replace **FILE_NAME** with the uploaded file name.
 
 ```bash
-curl -X POST "$LANGFLOW_URL/api/v1/files/upload/a430cc57-06bb-4c11-be39-d3d4de68d2c4" \
+curl -X POST "$AIEXEC_URL/api/v1/files/upload/a430cc57-06bb-4c11-be39-d3d4de68d2c4" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@FILE_NAME.png"
 ```
@@ -631,12 +631,12 @@ The API returns the image file path in the format `"file_path":"<YOUR-FLOW-ID>/<
 ```
 
 2. Post the image file to the **Chat Input** component of a **Basic prompting** flow.
-   Pass the file path value as an input in the **Tweaks** section of the curl call to Langflow.
+   Pass the file path value as an input in the **Tweaks** section of the curl call to Aiexec.
    To find your Chat input component's ID, use the [](#)
 
 ```bash
 curl -X POST \
-    "$LANGFLOW_URL/api/v1/run/a430cc57-06bb-4c11-be39-d3d4de68d2c4?stream=false" \
+    "$AIEXEC_URL/api/v1/run/a430cc57-06bb-4c11-be39-d3d4de68d2c4?stream=false" \
     -H 'Content-Type: application/json'\
     -d '{
     "output_type": "chat",
@@ -664,7 +664,7 @@ List all files associated with a specific flow.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/files/list/$FLOW_ID" \
+  "$AIEXEC_URL/api/v1/files/list/$FLOW_ID" \
   -H "accept: application/json"
 ```
 
@@ -689,7 +689,7 @@ Download a specific file from a flow.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/files/download/$FLOW_ID/2024-12-30_15-19-43_your_file.txt" \
+  "$AIEXEC_URL/api/v1/files/download/$FLOW_ID/2024-12-30_15-19-43_your_file.txt" \
   -H "accept: application/json" \
   --output downloaded_file.txt
 ```
@@ -713,7 +713,7 @@ Delete a specific file from a flow.
 
 ```bash
 curl -X DELETE \
-  "$LANGFLOW_URL/api/v1/files/delete/$FLOW_ID/2024-12-30_15-19-43_your_file.txt" \
+  "$AIEXEC_URL/api/v1/files/delete/$FLOW_ID/2024-12-30_15-19-43_your_file.txt" \
   -H "accept: application/json"
 ```
 
@@ -731,9 +731,9 @@ curl -X DELETE \
 
 ## Files/V2 endpoints
 
-In `v2`, files are organized by `user_id` and tracked in the Langflow database, and can be added or deleted in bulk, instead of one by one.
+In `v2`, files are organized by `user_id` and tracked in the Aiexec database, and can be added or deleted in bulk, instead of one by one.
 The `v2` endpoints require authentication by an API key or JWT.
-To create a Langflow API key and export it as an environment variable, see [Export values](#export-values).
+To create a Aiexec API key and export it as an environment variable, see [Export values](#export-values).
 
 ### Upload file (v2)
 
@@ -744,13 +744,13 @@ The file is uploaded in the format `USER_ID/FILE_ID.FILE_EXTENSION`, such as `07
 To retrieve your current `user_id`, call the `/whoami` endpoint.
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/users/whoami" \
+  "$AIEXEC_URL/api/v1/users/whoami" \
   -H "accept: application/json"
 ```
 
 Result:
 ```
-{"id":"07e5b864-e367-4f52-b647-a48035ae7e5e","username":"langflow","profile_image":null,"store_api_key":null,"is_active":true,"is_superuser":true,"create_at":"2025-05-08T17:59:07.855965","updated_at":"2025-05-28T19:00:42.556460","last_login_at":"2025-05-28T19:00:42.554338","optins":{"github_starred":false,"dialog_dismissed":true,"discord_clicked":false,"mcp_dialog_dismissed":true}}
+{"id":"07e5b864-e367-4f52-b647-a48035ae7e5e","username":"aiexec","profile_image":null,"store_api_key":null,"is_active":true,"is_superuser":true,"create_at":"2025-05-08T17:59:07.855965","updated_at":"2025-05-28T19:00:42.556460","last_login_at":"2025-05-28T19:00:42.554338","optins":{"github_starred":false,"dialog_dismissed":true,"discord_clicked":false,"mcp_dialog_dismissed":true}}
 ```
 
 In the POST request to `v2/files`, replace **@FILE_NAME.EXTENSION** with the uploaded file name and its extension.
@@ -761,10 +761,10 @@ You must include the ampersand (`@`) in the request to instruct curl to upload t
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v2/files" \
+  "$AIEXEC_URL/api/v2/files" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
-  -H "x-api-key: $LANGFLOW_API_KEY" \
+  -H "x-api-key: $AIEXEC_API_KEY" \
   -F "file=@FILE_NAME.EXTENSION"
 ```
 
@@ -788,7 +788,7 @@ The file is uploaded in the format `USER_ID/FILE_ID.FILE_EXTENSION`, and the API
 Send a file to your flow for analysis using the [File](/components-data#file) component and the API.
 Your flow must contain a [File](/components-data#file) component to receive the file.
 
-The default file limit is 100 MB. To configure this value, change the `LANGFLOW_MAX_FILE_SIZE_UPLOAD` environment variable.
+The default file limit is 100 MB. To configure this value, change the `AIEXEC_MAX_FILE_SIZE_UPLOAD` environment variable.
 For more information, see [Supported environment variables](/environment-variables#supported-variables).
 
 1. To send an image to your flow with the API, POST the image file to the `/api/v2/files` endpoint.
@@ -797,10 +797,10 @@ For more information, see [Supported environment variables](/environment-variabl
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v2/files" \
+  "$AIEXEC_URL/api/v2/files" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
-  -H "x-api-key: $LANGFLOW_API_KEY" \
+  -H "x-api-key: $AIEXEC_API_KEY" \
   -F "file=@FILE_NAME.EXTENSION"
 ```
 
@@ -823,7 +823,7 @@ In this example, the file uploaded to `/v2/files` is included with the `/v1/run`
 
 ```text
 curl --request POST \
-  --url "$LANGFLOW_URL/api/v1/run/$FLOW_ID" \
+  --url "$AIEXEC_URL/api/v1/run/$FLOW_ID" \
   --header "Content-Type: application/json" \
   --data '{
   "input_value": "what do you see?",
@@ -853,9 +853,9 @@ List all files associated with your user account.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v2/files" \
+  "$AIEXEC_URL/api/v2/files" \
   -H "accept: application/json" \
-  -H "x-api-key: $LANGFLOW_API_KEY"
+  -H "x-api-key: $AIEXEC_API_KEY"
 ```
 
   </TabItem>
@@ -889,9 +889,9 @@ You must specify the file type you expect in the `--output` value.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v2/files/c7b22c4c-d5e0-4ec9-af97-5d85b7657a34" \
+  "$AIEXEC_URL/api/v2/files/c7b22c4c-d5e0-4ec9-af97-5d85b7657a34" \
   -H "accept: application/json" \
-  -H "x-api-key: $LANGFLOW_API_KEY" \
+  -H "x-api-key: $AIEXEC_API_KEY" \
   --output downloaded_file.txt
 ```
 
@@ -914,9 +914,9 @@ Change a file name.
 
 ```bash
 curl -X PUT \
-  "$LANGFLOW_URL/api/v2/files/$FILE_ID?name=new_file_name" \
+  "$AIEXEC_URL/api/v2/files/$FILE_ID?name=new_file_name" \
   -H "accept: application/json" \
-  -H "x-api-key: $LANGFLOW_API_KEY"
+  -H "x-api-key: $AIEXEC_API_KEY"
 ```
 
   </TabItem>
@@ -943,9 +943,9 @@ Delete a specific file by its ID.
 
 ```bash
 curl -X DELETE \
-  "$LANGFLOW_URL/api/v2/files/$FILE_ID" \
+  "$AIEXEC_URL/api/v2/files/$FILE_ID" \
   -H "accept: application/json" \
-  -H "x-api-key: $LANGFLOW_API_KEY"
+  -H "x-api-key: $AIEXEC_API_KEY"
 ```
 
   </TabItem>
@@ -969,9 +969,9 @@ Delete all files associated with your user account.
 
 ```bash
 curl -X DELETE \
-  "$LANGFLOW_URL/api/v2/files" \
+  "$AIEXEC_URL/api/v2/files" \
   -H "accept: application/json" \
-  -H "x-api-key: $LANGFLOW_API_KEY"
+  -H "x-api-key: $AIEXEC_API_KEY"
 ```
 
   </TabItem>
@@ -999,7 +999,7 @@ Create a new flow.
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/flows/" \
+  "$AIEXEC_URL/api/v1/flows/" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -d '{
@@ -1054,7 +1054,7 @@ Retrieve a list of flows with pagination support.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/flows/?remove_example_flows=false&components_only=false&get_all=true&header_flows=false&page=1&size=50" \
+  "$AIEXEC_URL/api/v1/flows/?remove_example_flows=false&components_only=false&get_all=true&header_flows=false&page=1&size=50" \
   -H "accept: application/json"
 ```
 
@@ -1076,7 +1076,7 @@ To retrieve only the flows from a specific project, pass `project_id` in the que
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/flows/?remove_example_flows=true&components_only=false&get_all=false&project_id=$PROJECT_ID&header_flows=false&page=1&size=1" \
+  "$AIEXEC_URL/api/v1/flows/?remove_example_flows=true&components_only=false&get_all=false&project_id=$PROJECT_ID&header_flows=false&page=1&size=1" \
   -H "accept: application/json"
 ```
 
@@ -1100,7 +1100,7 @@ Read a specific flow by its ID.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/flows/$FLOW_ID" \
+  "$AIEXEC_URL/api/v1/flows/$FLOW_ID" \
   -H "accept: application/json"
 ```
 
@@ -1137,7 +1137,7 @@ This example changes the value for `endpoint_name` from a random UUID to `my_new
 
 ```bash
 curl -X PATCH \
-  "$LANGFLOW_URL/api/v1/flows/$FLOW_ID" \
+  "$AIEXEC_URL/api/v1/flows/$FLOW_ID" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -d '{
@@ -1187,7 +1187,7 @@ Delete a specific flow by its ID.
 
 ```bash
 curl -X DELETE \
-  "$LANGFLOW_URL/api/v1/flows/$FLOW_ID" \
+  "$AIEXEC_URL/api/v1/flows/$FLOW_ID" \
   -H "accept: application/json"
 ```
 
@@ -1213,7 +1213,7 @@ Create multiple new flows.
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/flows/batch/" \
+  "$AIEXEC_URL/api/v1/flows/batch/" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -d '{
@@ -1285,7 +1285,7 @@ This example uploads a local file named `agent-with-astra-db-tool.json`.
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/flows/upload/?project_id=$PROJECT_ID" \
+  "$AIEXEC_URL/api/v1/flows/upload/?project_id=$PROJECT_ID" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@agent-with-astra-db-tool.json;type=application/json"
@@ -1318,7 +1318,7 @@ The target `project_id` must already exist before uploading a flow. Call the [/a
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/flows/upload/?project_id=$PROJECT_ID" \
+  "$AIEXEC_URL/api/v1/flows/upload/?project_id=$PROJECT_ID" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@agent-with-astra-db-tool.json;type=application/json"
@@ -1335,14 +1335,14 @@ This endpoint downloads a ZIP file containing flows for all `flow-id` values lis
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/flows/download/" \
+  "$AIEXEC_URL/api/v1/flows/download/" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -d '[
   "e1e40c77-0541-41a9-88ab-ddb3419398b5",
   "92f9a4c5-cfc8-4656-ae63-1f0881163c28"
 ]' \
-  --output langflow-flows.zip
+  --output aiexec-flows.zip
 ```
 
   </TabItem>
@@ -1366,7 +1366,7 @@ Retrieve a list of basic example flows.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/flows/basic_examples/" \
+  "$AIEXEC_URL/api/v1/flows/basic_examples/" \
   -H "accept: application/json"
 ```
 
@@ -1388,14 +1388,14 @@ Projects store your flows and components.
 
 ### Read projects
 
-Get a list of Langflow projects.
+Get a list of Aiexec projects.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/projects/" \
+  "$AIEXEC_URL/api/v1/projects/" \
   -H "accept: application/json"
 ```
 
@@ -1425,7 +1425,7 @@ Create a new project.
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/projects/" \
+  "$AIEXEC_URL/api/v1/projects/" \
   -H "Content-Type: application/json" \
   -d '{
   "name": "new_project_name",
@@ -1456,7 +1456,7 @@ Adding a flow to a project moves the flow from its previous location. The flow i
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/projects/" \
+  "$AIEXEC_URL/api/v1/projects/" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -d '{
@@ -1482,7 +1482,7 @@ To find the UUID of your project, call the [read projects](#read-projects) endpo
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/projects/$PROJECT_ID" \
+  "$AIEXEC_URL/api/v1/projects/$PROJECT_ID" \
   -H "accept: application/json"
 ```
 
@@ -1516,7 +1516,7 @@ If you send the same values multiple times, the update is still processed, even 
 
 ```bash
 curl -X PATCH \
-  "$LANGFLOW_URL/api/v1/projects/b408ddb9-6266-4431-9be8-e04a62758331" \
+  "$AIEXEC_URL/api/v1/projects/b408ddb9-6266-4431-9be8-e04a62758331" \
   -H "accept: application/json" \
   -d '{
   "name": "string",
@@ -1555,7 +1555,7 @@ Delete a specific project.
 
 ```bash
 curl -X DELETE \
-  "$LANGFLOW_URL/api/v1/projects/$PROJECT_ID" \
+  "$AIEXEC_URL/api/v1/projects/$PROJECT_ID" \
   -H "accept: */*"
 ```
 
@@ -1580,9 +1580,9 @@ The `--output` flag is optional.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/projects/download/b408ddb9-6266-4431-9be8-e04a62758331" \
+  "$AIEXEC_URL/api/v1/projects/download/b408ddb9-6266-4431-9be8-e04a62758331" \
   -H "accept: application/json" \
-  --output langflow-project.zip
+  --output aiexec-project.zip
 ```
 
   </TabItem>
@@ -1597,17 +1597,17 @@ The project contents.
 
 ### Upload project
 
-Upload a project to Langflow.
+Upload a project to Aiexec.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
 
 ```bash
 curl -X POST \
-  "$LANGFLOW_URL/api/v1/projects/upload/" \
+  "$AIEXEC_URL/api/v1/projects/upload/" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
-  -F "file=@20241230_135006_langflow_flows.zip;type=application/zip"
+  -F "file=@20241230_135006_aiexec_flows.zip;type=application/zip"
 ```
 
   </TabItem>
@@ -1615,7 +1615,7 @@ curl -X POST \
   <TabItem value="result" label="Result">
 
 ```text
-The project contents are uploaded to Langflow.
+The project contents are uploaded to Aiexec.
 ```
 
   </TabItem>
@@ -1623,24 +1623,24 @@ The project contents are uploaded to Langflow.
 
 ## Logs
 
-Retrieve logs for your Langflow flow.
+Retrieve logs for your Aiexec flow.
 
-This endpoint requires log retrieval to be enabled in your Langflow application.
+This endpoint requires log retrieval to be enabled in your Aiexec application.
 
 To enable log retrieval, include these values in your `.env` file:
 
 ```text
-LANGFLOW_ENABLE_LOG_RETRIEVAL=true
-LANGFLOW_LOG_RETRIEVER_BUFFER_SIZE=10000
-LANGFLOW_LOG_LEVEL=DEBUG
+AIEXEC_ENABLE_LOG_RETRIEVAL=true
+AIEXEC_LOG_RETRIEVER_BUFFER_SIZE=10000
+AIEXEC_LOG_LEVEL=DEBUG
 ```
 
-For log retrieval to function, `LANGFLOW_LOG_RETRIEVER_BUFFER_SIZE` needs to be greater than 0. The default value is `10000`.
+For log retrieval to function, `AIEXEC_LOG_RETRIEVER_BUFFER_SIZE` needs to be greater than 0. The default value is `10000`.
 
-Start Langflow with this `.env`:
+Start Aiexec with this `.env`:
 
 ```text
-uv run langflow run --env-file .env
+uv run aiexec run --env-file .env
 ```
 
 ### Stream logs
@@ -1652,7 +1652,7 @@ Stream logs in real-time using Server-Sent Events (SSE).
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/logs-stream" \
+  "$AIEXEC_URL/logs-stream" \
   -H "accept: text/event-stream"
 ```
 
@@ -1698,7 +1698,7 @@ With these values, the endpoint returns the last 10 lines of logs.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/logs?lines_before=0&lines_after=0&timestamp=0" \
+  "$AIEXEC_URL/logs?lines_before=0&lines_after=0&timestamp=0" \
   -H "accept: application/json"
 ```
 
@@ -1716,7 +1716,7 @@ curl -X GET \
   "1736354770588": "2025-01-08T11:46:10.588105-0500 DEBUG Create service ServiceType.CHAT_SERVICE\n",
   "1736354771021": "2025-01-08T11:46:11.021817-0500 DEBUG Telemetry data sent successfully.\n",
   "1736354775619": "2025-01-08T11:46:15.619545-0500 DEBUG Create service ServiceType.STORE_SERVICE\n",
-  "1736354775699": "2025-01-08T11:46:15.699661-0500 DEBUG File 046-rocket.svg retrieved successfully from flow /Users/mendon.kissling/Library/Caches/langflow/profile_pictures/Space.\n"
+  "1736354775699": "2025-01-08T11:46:15.699661-0500 DEBUG File 046-rocket.svg retrieved successfully from flow /Users/mendon.kissling/Library/Caches/aiexec/profile_pictures/Space.\n"
 }
 ```
 
@@ -1725,7 +1725,7 @@ curl -X GET \
 
 ## Monitor
 
-Use the `/monitor` endpoint to monitor and modify messages passed between Langflow components, vertex builds, and transactions.
+Use the `/monitor` endpoint to monitor and modify messages passed between Aiexec components, vertex builds, and transactions.
 
 ### Get Vertex builds
 
@@ -1736,7 +1736,7 @@ Retrieve Vertex builds for a specific flow.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/monitor/builds?flow_id=$FLOW_ID" \
+  "$AIEXEC_URL/api/v1/monitor/builds?flow_id=$FLOW_ID" \
   -H "accept: application/json"
 ```
 
@@ -2115,7 +2115,7 @@ Delete Vertex builds for a specific flow.
 
 ```bash
 curl -X DELETE \
-  "$LANGFLOW_URL/api/v1/monitor/builds?flow_id=$FLOW_ID" \
+  "$AIEXEC_URL/api/v1/monitor/builds?flow_id=$FLOW_ID" \
   -H "accept: */*"
 ```
 
@@ -2138,7 +2138,7 @@ Retrieve messages with optional filters.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/monitor/messages" \
+  "$AIEXEC_URL/api/v1/monitor/messages" \
   -H "accept: application/json"
 ```
 
@@ -2162,7 +2162,7 @@ This example retrieves messages sent by `Machine` and `AI` in a given chat sessi
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/monitor/messages?flow_id=$FLOW_ID&session_id=01ce083d-748b-4b8d-97b6-33adbb6a528a&sender=Machine&sender_name=AI&order_by=timestamp" \
+  "$AIEXEC_URL/api/v1/monitor/messages?flow_id=$FLOW_ID&session_id=01ce083d-748b-4b8d-97b6-33adbb6a528a&sender=Machine&sender_name=AI&order_by=timestamp" \
   -H "accept: application/json"
 ```
 
@@ -2216,7 +2216,7 @@ This example deletes the message retrieved in the previous Get messages example.
 
 ```bash
 curl -v -X DELETE \
-  "$LANGFLOW_URL/api/v1/monitor/messages" \
+  "$AIEXEC_URL/api/v1/monitor/messages" \
   -H "accept: */*" \
   -H "Content-Type: application/json" \
   -d '["MESSAGE_ID_1", "MESSAGE_ID_2"]'
@@ -2243,7 +2243,7 @@ This example updates the `text` value of message `3ab66cc6-c048-48f8-ab07-570f5a
 
 ```bash
 curl -X PUT \
-  "$LANGFLOW_URL/api/v1/monitor/messages/3ab66cc6-c048-48f8-ab07-570f5af7b160" \
+  "$AIEXEC_URL/api/v1/monitor/messages/3ab66cc6-c048-48f8-ab07-570f5af7b160" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -d '{
@@ -2296,7 +2296,7 @@ This example updates the `session_ID` value `01ce083d-748b-4b8d-97b6-33adbb6a528
 
 ```bash
 curl -X PATCH \
-  "$LANGFLOW_URL/api/v1/monitor/messages/session/01ce083d-748b-4b8d-97b6-33adbb6a528a?new_session_id=different_session_id" \
+  "$AIEXEC_URL/api/v1/monitor/messages/session/01ce083d-748b-4b8d-97b6-33adbb6a528a?new_session_id=different_session_id" \
   -H "accept: application/json"
 ```
 
@@ -2348,7 +2348,7 @@ Delete all messages for a specific session.
 
 ```bash
 curl -X DELETE \
-  "$LANGFLOW_URL/api/v1/monitor/messages/session/different_session_id_2" \
+  "$AIEXEC_URL/api/v1/monitor/messages/session/different_session_id_2" \
   -H "accept: */*"
 ```
 
@@ -2371,7 +2371,7 @@ Retrieve all transactions (interactions between components) for a specific flow.
 
 ```bash
 curl -X GET \
-  "$LANGFLOW_URL/api/v1/monitor/transactions?flow_id=$FLOW_ID&page=1&size=50" \
+  "$AIEXEC_URL/api/v1/monitor/transactions?flow_id=$FLOW_ID&page=1&size=50" \
   -H "accept: application/json"
 ```
 

@@ -5,7 +5,7 @@ slug: /components-embedding-models
 
 import Icon from "@site/src/components/icon";
 
-# Embeddings models in Langflow
+# Embeddings models in Aiexec
 
 Embeddings models convert text into numerical vectors. These embeddings capture the semantic meaning of the input text, and allow LLMs to understand context.
 
@@ -68,7 +68,7 @@ This component is used to load embedding models from [Amazon Bedrock](https://aw
 ## Astra DB vectorize
 
 :::important
-This component is deprecated as of Langflow version 1.1.2.
+This component is deprecated as of Aiexec version 1.1.2.
 Instead, use the [Astra DB vector store component](/components-vector-stores#astra-db-vector-store).
 :::
 
@@ -220,7 +220,7 @@ This component connects to Google's generative AI embedding service using the Go
 ## Hugging Face Embeddings
 
 :::note
-This component is deprecated as of Langflow version 1.0.18.
+This component is deprecated as of Aiexec version 1.0.18.
 Instead, use the [Hugging Face Embeddings Inference component](#hugging-face-embeddings-inference).
 :::
 
@@ -417,7 +417,7 @@ This component generates embeddings using [Ollama models](https://ollama.com/).
 
 For a list of Ollama embeddings models, see the [Ollama documentation](https://ollama.com/search?c=embedding).
 
-To use this component in a flow, connect Langflow to your locally running Ollama server and select an embeddings model.
+To use this component in a flow, connect Aiexec to your locally running Ollama server and select an embeddings model.
 
 1. In the Ollama component, in the **Ollama Base URL** field, enter the address for your locally running Ollama server.
 This value is set as the `OLLAMA_HOST` environment variable in Ollama. The default base URL is `http://127.0.0.1:11434`.

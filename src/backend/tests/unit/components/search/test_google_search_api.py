@@ -2,8 +2,8 @@ from unittest.mock import patch
 
 import pandas as pd
 import pytest
-from langflow.components.search import GoogleSearchAPICore
-from langflow.schema import DataFrame
+from aiexec.components.search import GoogleSearchAPICore
+from aiexec.schema import DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 

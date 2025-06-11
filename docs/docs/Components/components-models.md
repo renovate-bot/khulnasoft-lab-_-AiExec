@@ -5,7 +5,7 @@ slug: /components-models
 
 import Icon from "@site/src/components/icon";
 
-# Model components in Langflow
+# Model components in Aiexec
 
 Model components generate text using large language models.
 
@@ -481,7 +481,7 @@ For more information, see [Mistral AI documentation](https://docs.mistral.ai/).
 
 This component generates text using Novita AI's language models.
 
-For more information, see [Novita AI documentation](https://novita.ai/docs/model-api/reference/llm/llm.html?utm_source=github_langflow&utm_medium=github_readme&utm_campaign=link).
+For more information, see [Novita AI documentation](https://novita.ai/docs/model-api/reference/llm/llm.html?utm_source=github_aiexec&utm_medium=github_readme&utm_campaign=link).
 
 <details>
 <summary>Parameters</summary>
@@ -538,7 +538,7 @@ For more information, see [NVIDIA AI documentation](https://developer.nvidia.com
 
 This component generates text using Ollama's language models.
 
-To use this component in a flow, connect Langflow to your locally running Ollama server and select a model.
+To use this component in a flow, connect Aiexec to your locally running Ollama server and select a model.
 
 1. In the Ollama component, in the **Base URL** field, enter the address for your locally running Ollama server.
 This value is set as the `OLLAMA_HOST` environment variable in Ollama.

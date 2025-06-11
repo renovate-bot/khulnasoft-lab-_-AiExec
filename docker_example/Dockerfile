@@ -1,3 +1,3 @@
-FROM langflowai/langflow:latest
+FROM aiexecai/aiexec:latest
 
-CMD ["python", "-m", "langflow", "run", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["python", "-m", "aiexec", "run", "--host", "0.0.0.0", "--port", "7860"]

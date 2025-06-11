@@ -5,13 +5,13 @@ slug: /components-helpers
 
 import Icon from "@site/src/components/icon";
 
-# Helper components in Langflow
+# Helper components in Aiexec
 
 Helper components provide utility functions to help manage data, tasks, and other components in your flow.
 
 ## Use a helper component in a flow
 
-Chat memory in Langflow is stored either in local Langflow tables with `LCBufferMemory`, or connected to an external database.
+Chat memory in Aiexec is stored either in local Aiexec tables with `LCBufferMemory`, or connected to an external database.
 
 The **Store Message** helper component stores chat memories as [Data](/concepts-objects) objects, and the **Message History** helper component retrieves chat messages as data objects or strings.
 
@@ -76,7 +76,7 @@ record_number: {batch_index}, name: {text_input}, summary: {model_response}
 
 ## Current date
 
-The Current Date component returns the current date and time in a selected timezone. This component provides a flexible way to obtain timezone-specific date and time information within a Langflow pipeline.
+The Current Date component returns the current date and time in a selected timezone. This component provides a flexible way to obtain timezone-specific date and time information within a Aiexec pipeline.
 
 <details>
 <summary>Parameters</summary>
@@ -119,16 +119,16 @@ This component generates a unique ID.
 ## Message history
 
 :::info
-Prior to Langflow 1.1, this component was known as the Chat Memory component.
+Prior to Aiexec 1.1, this component was known as the Chat Memory component.
 :::
 
-This component retrieves chat messages from Langflow tables or external memory.
+This component retrieves chat messages from Aiexec tables or external memory.
 
-In this example, the **Message Store** component stores the complete chat history in a local Langflow table, which the **Message History** component retrieves as context for the LLM to answer each question.
+In this example, the **Message Store** component stores the complete chat history in a local Aiexec table, which the **Message History** component retrieves as context for the LLM to answer each question.
 
 ![Message store and history components](/img/component-message-history-message-store.png)
 
-For more information on configuring memory in Langflow, see [Memory](/memory).
+For more information on configuring memory in Aiexec, see [Memory](/memory).
 
 <details>
 <summary>Parameters</summary>
@@ -137,7 +137,7 @@ For more information on configuring memory in Langflow, see [Memory](/memory).
 
 | Name | Type | Description |
 |------|------|-------------|
-| memory | Memory | Retrieve messages from an external memory. If empty, the Langflow tables are used. |
+| memory | Memory | Retrieve messages from an external memory. If empty, the Aiexec tables are used. |
 | sender | String | Filter by sender type. |
 | sender_name | String | Filter by sender name. |
 | n_messages | Integer | The number of messages to retrieve. |
@@ -157,13 +157,13 @@ For more information on configuring memory in Langflow, see [Memory](/memory).
 
 ## Message store
 
-This component stores chat messages or text in Langflow tables or external memory.
+This component stores chat messages or text in Aiexec tables or external memory.
 
-In this example, the **Message Store** component stores the complete chat history in a local Langflow table, which the **Message History** component retrieves as context for the LLM to answer each question.
+In this example, the **Message Store** component stores the complete chat history in a local Aiexec table, which the **Message History** component retrieves as context for the LLM to answer each question.
 
 ![Message store and history components](/img/component-message-history-message-store.png)
 
-For more information on configuring memory in Langflow, see [Memory](/memory).
+For more information on configuring memory in Aiexec, see [Memory](/memory).
 
 <details>
 <summary>Parameters</summary>
@@ -173,7 +173,7 @@ For more information on configuring memory in Langflow, see [Memory](/memory).
 | Name | Type | Description |
 |------|------|-------------|
 | message | String | The chat message to be stored. (Required) |
-| memory | Memory | The external memory to store the message. If empty, the Langflow tables are used. |
+| memory | Memory | The external memory to store the message. If empty, the Aiexec tables are used. |
 | sender | String | The sender of the message. Can be Machine or User. If empty, the current sender parameter is used. |
 | sender_name | String | The name of the sender. Can be AI or User. If empty, the current sender parameter is used. |
 | session_id | String | The session ID of the chat. If empty, the current session ID parameter is used. |

@@ -23,7 +23,7 @@ test(
 
     await page
       .getByTestId("inputlist_str_urls_0")
-      .fill("https://docs.langflow.org/");
+      .fill("https://docs.aiexec.org/");
 
     await page.getByTestId("default_slider_display_value").click();
     await page.getByTestId("slider_input").fill("4");

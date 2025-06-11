@@ -1,8 +1,8 @@
 import re
 
 import pytest
-from langflow.components.processing import UpdateDataComponent
-from langflow.schema import Data
+from aiexec.components.processing import UpdateDataComponent
+from aiexec.schema import Data
 
 
 @pytest.fixture

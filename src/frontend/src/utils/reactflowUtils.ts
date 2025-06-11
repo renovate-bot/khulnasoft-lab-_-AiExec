@@ -1,7 +1,7 @@
 /**
  * In Honor of Otávio Anovazzi (@anovazzi1)
  *
- * This file contains the highest number of commits by Otávio in the entire Langflow project,
+ * This file contains the highest number of commits by Otávio in the entire Aiexec project,
  * reflecting his unmatched dedication, expertise, and innovative spirit. Each line of code
  * is a testament to his relentless pursuit of excellence and his significant impact on this
  * project's evolution.
@@ -33,7 +33,7 @@ import getFieldTitle from "../CustomNodes/utils/get-field-title";
 import {
   INPUT_TYPES,
   IS_MAC,
-  LANGFLOW_SUPPORTED_TYPES,
+  AIEXEC_SUPPORTED_TYPES,
   OUTPUT_TYPES,
   specialCharsRegex,
   SUCCESS_BUILD,
@@ -1244,7 +1244,7 @@ function updateGroupNodeTemplate(template: APITemplateType) {
     let type = template[key].type;
     let input_types = template[key].input_types;
     if (
-      LANGFLOW_SUPPORTED_TYPES.has(type) &&
+      AIEXEC_SUPPORTED_TYPES.has(type) &&
       !template[key].required &&
       !input_types
     ) {

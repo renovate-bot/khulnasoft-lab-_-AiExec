@@ -3,15 +3,15 @@ from collections import deque
 from typing import TYPE_CHECKING
 
 import pytest
-from langflow.components.helpers.memory import MemoryComponent
-from langflow.components.input_output import ChatInput, ChatOutput
-from langflow.components.languagemodels import OpenAIModelComponent
-from langflow.components.prompts import PromptComponent
-from langflow.graph import Graph
-from langflow.graph.graph.constants import Finish
+from aiexec.components.helpers.memory import MemoryComponent
+from aiexec.components.input_output import ChatInput, ChatOutput
+from aiexec.components.languagemodels import OpenAIModelComponent
+from aiexec.components.prompts import PromptComponent
+from aiexec.graph import Graph
+from aiexec.graph.graph.constants import Finish
 
 if TYPE_CHECKING:
-    from langflow.graph.graph.schema import GraphDump
+    from aiexec.graph.graph.schema import GraphDump
 
 
 @pytest.fixture

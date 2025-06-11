@@ -125,7 +125,7 @@ test(
     await page
       .getByTestId("popover-anchor-input-message")
       .first()
-      .fill("langflow");
+      .fill("aiexec");
 
     const firstApiKeyInput = page
       .getByTestId("popover-anchor-input-openai_api_key")

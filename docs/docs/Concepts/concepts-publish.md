@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ChatWidget from '@site/src/components/ChatWidget';
 
-Langflow provides several ways to publish and integrate your flows into external applications. Whether you want to expose your flow as an API endpoint, embed it as a chat widget in your website, or share it as a public playground, this guide covers the options available for making your flows accessible to users.
+Aiexec provides several ways to publish and integrate your flows into external applications. Whether you want to expose your flow as an API endpoint, embed it as a chat widget in your website, or share it as a public playground, this guide covers the options available for making your flows accessible to users.
 
 ## API access
 
@@ -64,15 +64,15 @@ For example, changing the **Chat Input** component's `input_value` changes that 
 
 ### Send files to your flow with the API
 
-For information on sending files to the Langflow API, see [API examples](/api-reference-api-examples#upload-image-files-v1).
+For information on sending files to the Aiexec API, see [API examples](/api-reference-api-examples#upload-image-files-v1).
 
 ## Shareable playground
 
-The **Shareable playground** exposes your Langflow application's **Playground** at the `/public_flow/{flow-id}` endpoint.
+The **Shareable playground** exposes your Aiexec application's **Playground** at the `/public_flow/{flow-id}` endpoint.
 
 You can share this endpoint publicly using a sharing platform like [Ngrok](https://ngrok.com/docs/getting-started/?os=macos) or [zrok](https://docs.zrok.io/docs/getting-started).
 
-If you're using **Datastax Langflow**, you can share the URL with any users within your **Organization**.
+If you're using **Datastax Aiexec**, you can share the URL with any users within your **Organization**.
 
 ## Embed into site
 

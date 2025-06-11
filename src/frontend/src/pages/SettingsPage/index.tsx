@@ -2,7 +2,7 @@ import SideBarButtonsComponent from "@/components/core/sidebarComponent";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { CustomStoreSidebar } from "@/customization/components/custom-store-sidebar";
 import {
-  ENABLE_DATASTAX_LANGFLOW,
+  ENABLE_DATASTAX_AIEXEC,
   ENABLE_PROFILE_ICONS,
 } from "@/customization/feature-flags";
 import useAuthStore from "@/stores/authStore";
@@ -70,17 +70,17 @@ export default function SettingsPage(): JSX.Element {
     },
   );
 
-  if (!ENABLE_DATASTAX_LANGFLOW) {
-    const langflowItems = CustomStoreSidebar();
+  if (!ENABLE_DATASTAX_AIEXEC) {
+    const aiexecItems = CustomStoreSidebar();
 
-    sidebarNavItems.splice(2, 0, ...langflowItems);
+    sidebarNavItems.splice(2, 0, ...aiexecItems);
   }
 
   return (
     <PageLayout
       backTo={"/"}
       title="Settings"
-      description="Manage the general settings for Langflow."
+      description="Manage the general settings for Aiexec."
     >
       <SidebarProvider width="15rem" defaultOpen={false}>
         <SideBarButtonsComponent items={sidebarNavItems} />

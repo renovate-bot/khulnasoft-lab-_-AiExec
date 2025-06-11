@@ -8,19 +8,19 @@ from unittest.mock import AsyncMock, patch
 import pytest
 from anyio import Path
 from httpx import AsyncClient
-from langflow.custom.directory_reader.utils import abuild_custom_component_list_from_path
-from langflow.initial_setup.constants import STARTER_FOLDER_NAME
-from langflow.initial_setup.setup import (
+from aiexec.custom.directory_reader.utils import abuild_custom_component_list_from_path
+from aiexec.initial_setup.constants import STARTER_FOLDER_NAME
+from aiexec.initial_setup.setup import (
     detect_github_url,
     get_project_data,
     load_bundles_from_urls,
     load_starter_projects,
     update_projects_components_with_latest_component_versions,
 )
-from langflow.interface.components import aget_all_types_dict
-from langflow.services.database.models import Flow
-from langflow.services.database.models.folder.model import Folder
-from langflow.services.deps import get_settings_service, session_scope
+from aiexec.interface.components import aget_all_types_dict
+from aiexec.services.database.models import Flow
+from aiexec.services.database.models.folder.model import Folder
+from aiexec.services.deps import get_settings_service, session_scope
 from sqlalchemy.orm import selectinload
 from sqlmodel import select
 
@@ -140,7 +140,7 @@ def add_edge(source, target, from_output, to_input):
 
 
 async def test_refresh_starter_projects():
-    data_path = str(await Path(__file__).parent.parent.parent.absolute() / "base" / "langflow" / "components")
+    data_path = str(await Path(__file__).parent.parent.parent.absolute() / "base" / "aiexec" / "components")
     components = await abuild_custom_component_list_from_path(data_path)
 
     chat_input = find_component_by_name(components, "ChatInput")
@@ -167,48 +167,48 @@ async def test_refresh_starter_projects():
     ("url", "expected"),
     [
         (
-            "https://github.com/langflow-ai/langflow-bundles",
-            "https://github.com/langflow-ai/langflow-bundles/archive/refs/heads/main.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/refs/heads/main.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles/",
-            "https://github.com/langflow-ai/langflow-bundles/archive/refs/heads/main.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/refs/heads/main.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles.git",
-            "https://github.com/langflow-ai/langflow-bundles/archive/refs/heads/main.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles.git",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/refs/heads/main.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles/tree/some.branch-0_1",
-            "https://github.com/langflow-ai/langflow-bundles/archive/refs/heads/some.branch-0_1.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/tree/some.branch-0_1",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/refs/heads/some.branch-0_1.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles/tree/some/branch",
-            "https://github.com/langflow-ai/langflow-bundles/archive/refs/heads/some/branch.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/tree/some/branch",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/refs/heads/some/branch.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles/tree/some/branch/",
-            "https://github.com/langflow-ai/langflow-bundles/archive/refs/heads/some/branch.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/tree/some/branch/",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/refs/heads/some/branch.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles/releases/tag/v1.0.0-0_1",
-            "https://github.com/langflow-ai/langflow-bundles/archive/refs/tags/v1.0.0-0_1.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/releases/tag/v1.0.0-0_1",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/refs/tags/v1.0.0-0_1.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles/releases/tag/foo/v1.0.0",
-            "https://github.com/langflow-ai/langflow-bundles/archive/refs/tags/foo/v1.0.0.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/releases/tag/foo/v1.0.0",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/refs/tags/foo/v1.0.0.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles/releases/tag/foo/v1.0.0/",
-            "https://github.com/langflow-ai/langflow-bundles/archive/refs/tags/foo/v1.0.0.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/releases/tag/foo/v1.0.0/",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/refs/tags/foo/v1.0.0.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9",
-            "https://github.com/langflow-ai/langflow-bundles/archive/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9.zip",
         ),
         (
-            "https://github.com/langflow-ai/langflow-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9/",
-            "https://github.com/langflow-ai/langflow-bundles/archive/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9.zip",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9/",
+            "https://github.com/khulnasoft-lab/aiexec-bundles/archive/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9.zip",
         ),
         ("https://example.com/myzip.zip", "https://example.com/myzip.zip"),
     ],
@@ -234,7 +234,7 @@ async def test_detect_github_url(url, expected):
 async def test_load_bundles_from_urls():
     settings_service = get_settings_service()
     settings_service.settings.bundle_urls = [
-        "https://github.com/langflow-ai/langflow-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9"
+        "https://github.com/khulnasoft-lab/aiexec-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9"
     ]
     settings_service.auth_settings.AUTO_LOGIN = True
 
@@ -242,7 +242,7 @@ async def test_load_bundles_from_urls():
 
     try:
         assert len(components_paths) == 1
-        assert "langflow-bundles-68428ce16729a385fe1bcc0f1ec91fd5f5f420b9/components" in components_paths[0]
+        assert "aiexec-bundles-68428ce16729a385fe1bcc0f1ec91fd5f5f420b9/components" in components_paths[0]
 
         content = await (Path(components_paths[0]) / "embeddings" / "openai2.py").read_text(encoding="utf-8")
         assert "OpenAIEmbeddings2Component" in content
@@ -260,9 +260,9 @@ async def test_load_bundles_from_urls():
 
 @pytest.fixture
 def set_fs_flows_polling_interval():
-    os.environ["LANGFLOW_FS_FLOWS_POLLING_INTERVAL"] = "100"
+    os.environ["AIEXEC_FS_FLOWS_POLLING_INTERVAL"] = "100"
     yield
-    os.unsetenv("LANGFLOW_FS_FLOWS_POLLING_INTERVAL")
+    os.unsetenv("AIEXEC_FS_FLOWS_POLLING_INTERVAL")
 
 
 @pytest.mark.usefixtures("set_fs_flows_polling_interval")

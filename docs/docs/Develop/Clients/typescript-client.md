@@ -1,78 +1,78 @@
 ---
-title: Langflow TypeScript client
+title: Aiexec TypeScript client
 slug: /typescript-client
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Langflow TypeScript client allows your TypeScript applications to programmatically interact with the Langflow API.
+The Aiexec TypeScript client allows your TypeScript applications to programmatically interact with the Aiexec API.
 
-For the client code repository, see [langflow-client-ts](https://github.com/datastax/langflow-client-ts/).
+For the client code repository, see [aiexec-client-ts](https://github.com/datastax/aiexec-client-ts/).
 
-For the npm package, see [@datastax/langflow-client](https://www.npmjs.com/package/@datastax/langflow-client).
+For the npm package, see [@datastax/aiexec-client](https://www.npmjs.com/package/@datastax/aiexec-client).
 
-## Install the Langflow TypeScript package
+## Install the Aiexec TypeScript package
 
-To install the Langflow typescript client package, use one of the following commands:
+To install the Aiexec typescript client package, use one of the following commands:
 
 <Tabs groupId="package-manager">
 <TabItem value="npm" label="npm" default>
 
 ```bash
-npm install @datastax/langflow-client
+npm install @datastax/aiexec-client
 ```
 
 </TabItem>
 <TabItem value="yarn" label="yarn">
 
 ```bash
-yarn add @datastax/langflow-client
+yarn add @datastax/aiexec-client
 ```
 
 </TabItem>
 <TabItem value="pnpm" label="pnpm">
 
 ```bash
-pnpm add @datastax/langflow-client
+pnpm add @datastax/aiexec-client
 ```
 
 </TabItem>
 </Tabs>
 
-## Initialize the Langflow TypeScript client
+## Initialize the Aiexec TypeScript client
 
 1. Import the client into your code.
 
 ```tsx
-import { LangflowClient } from "@datastax/langflow-client";
+import { AiexecClient } from "@datastax/aiexec-client";
 ```
 
 2. Initialize a client object to interact with your server.
-The `LangflowClient` object allows you to interact with the Langflow API.
+The `AiexecClient` object allows you to interact with the Aiexec API.
 
 Replace `BASE_URL` and `API_KEY` with values from your deployment.
-The default Langflow base URL is `http://localhost:7860`.
+The default Aiexec base URL is `http://localhost:7860`.
 To create an API key, see [API keys](/configuration-api-keys).
 
 ```tsx
 const baseUrl = "BASE_URL";
 const apiKey = "API_KEY";
-const client = new LangflowClient({ baseUrl, apiKey });
+const client = new AiexecClient({ baseUrl, apiKey });
 ```
 
-## Langflow TypeScript client quickstart
+## Aiexec TypeScript client quickstart
 
-1. With your Langflow client initialized, submit a message to your Langflow server and receive a response.
-This example uses the minimum values for sending a message and running your flow on a Langflow server, with no API keys.
+1. With your Aiexec client initialized, submit a message to your Aiexec server and receive a response.
+This example uses the minimum values for sending a message and running your flow on a Aiexec server, with no API keys.
 Replace `baseUrl` and `flowId` with values from your deployment.
 The `input` string is the message you're sending to your flow.
 
 ```tsx
-import { LangflowClient } from "@datastax/langflow-client";
+import { AiexecClient } from "@datastax/aiexec-client";
 
 const baseUrl = "http://127.0.0.1:7860";
-const client = new LangflowClient({ baseUrl });
+const client = new AiexecClient({ baseUrl });
 
 async function runFlow() {
     const flowId = "aa5a238b-02c0-4f03-bc5c-cc3a83335cdf";
@@ -98,7 +98,7 @@ FlowResponse {
 
 </details>
 
-This confirms your client is connecting to Langflow.
+This confirms your client is connecting to Aiexec.
 * The `sessionID` value is a unique identifier for the client-server session. For more information, see [Session ID](/session-id).
 * The `outputs` array contains the results of your flow execution.
 
@@ -108,7 +108,7 @@ This confirms your client is connecting to Langflow.
 console.log(JSON.stringify(response, null, 2));
 ```
 
-The exact structure of the returned `inputs` and `outputs` depends on how your flow is configured in Langflow.
+The exact structure of the returned `inputs` and `outputs` depends on how your flow is configured in Aiexec.
 
 3. To get the first chat message returned from the chat output component, change `console.log` to use the `chatOutputText` convenience function.
 
@@ -120,7 +120,7 @@ console.log(response.chatOutputText());
 
 The TypeScript client can do more than just connect to your server and run a flow.
 
-This example builds on the quickstart with additional features for interacting with Langflow.
+This example builds on the quickstart with additional features for interacting with Aiexec.
 
 1. Pass tweaks to your code as an object with the request.
 Tweaks change values within components for all calls to your flow.
@@ -134,7 +134,7 @@ const session_id = "aa5a238b-02c0-4f03-bc5c-cc3a83335cdf";
 ```
 3. Instead of calling `run` on the Flow object, call `stream` with the same arguments.
 The response is a [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) of objects.
-For more information on streaming Langflow responses, see [Run flow](https://docs.langflow.org/api-reference-api-examples#run-flow).
+For more information on streaming Aiexec responses, see [Run flow](https://docs.aiexec.org/api-reference-api-examples#run-flow).
 ```tsx
 const response = await client.flow(flowId).stream(input);
 
@@ -146,10 +146,10 @@ for await (const event of response) {
 Replace `baseUrl` and `flowId` with values from your deployment.
 
 ```tsx
-import { LangflowClient } from "@datastax/langflow-client";
+import { AiexecClient } from "@datastax/aiexec-client";
 
 const baseUrl = "http://127.0.0.1:7860";
-const client = new LangflowClient({ baseUrl });
+const client = new AiexecClient({ baseUrl });
 
 async function runFlow() {
     const flowId = "aa5a238b-02c0-4f03-bc5c-cc3a83335cdf";
@@ -246,14 +246,14 @@ runFlow().catch(console.error);
 
 </details>
 
-## Retrieve Langflow logs with the TypeScript client
+## Retrieve Aiexec logs with the TypeScript client
 
-To retrieve Langflow logs, you must enable log retrieval on your Langflow server by including the following values in your server's `.env` file:
+To retrieve Aiexec logs, you must enable log retrieval on your Aiexec server by including the following values in your server's `.env` file:
 
 ```text
-LANGFLOW_ENABLE_LOG_RETRIEVAL=true
-LANGFLOW_LOG_RETRIEVER_BUFFER_SIZE=10000
-LANGFLOW_LOG_LEVEL=DEBUG
+AIEXEC_ENABLE_LOG_RETRIEVAL=true
+AIEXEC_LOG_RETRIEVER_BUFFER_SIZE=10000
+AIEXEC_LOG_LEVEL=DEBUG
 ```
 
 For more information, see [API examples](/api-reference-api-examples#logs).
@@ -262,19 +262,19 @@ This complete example starts streaming logs in the background, and then runs a f
 Replace `baseUrl` and `flowId` with values from your deployment.
 
 ```tsx
-import { LangflowClient } from "@datastax/langflow-client";
+import { AiexecClient } from "@datastax/aiexec-client";
 
 const baseUrl = "http://127.0.0.1:7863";
 const flowId = "86f0bf45-0544-4e88-b0b1-8e622da7a7f0";
 
-async function runFlow(client: LangflowClient) {
+async function runFlow(client: AiexecClient) {
     const input = "Is anyone there?";
     const response = await client.flow(flowId).run(input);
     console.log('Flow response:', response);
 }
 
 async function main() {
-    const client = new LangflowClient({ baseUrl: baseUrl });
+    const client = new AiexecClient({ baseUrl: baseUrl });
 
     // Start streaming logs
     console.log('Starting log stream...');
@@ -353,7 +353,7 @@ Flow response: FlowResponse {
 }
 Log: Log {
   timestamp: 2025-05-30T11:49:18.094Z,
-  message: `2025-05-30T07:49:18.094364-0400 DEBUG Vertex OpenAIModel-RtlZm, result: <langflow.graph.utils.UnbuiltResult object at 0x364d24dd0>, object: {'text_output': "Hey there! I'm here and ready to help you build something awesome with AI. What are you thinking about creating today?"}\n`
+  message: `2025-05-30T07:49:18.094364-0400 DEBUG Vertex OpenAIModel-RtlZm, result: <aiexec.graph.utils.UnbuiltResult object at 0x364d24dd0>, object: {'text_output': "Hey there! I'm here and ready to help you build something awesome with AI. What are you thinking about creating today?"}\n`
 }
 ```
 
@@ -361,8 +361,8 @@ Log: Log {
 
 The `FlowResponse` object is returned to the client, with the `outputs` array including your flow result.
 
-## Langflow TypeScript project repository
+## Aiexec TypeScript project repository
 
-You can do even more with the Langflow TypeScript client.
+You can do even more with the Aiexec TypeScript client.
 
-For more information, see the [langflow-client-ts](https://github.com/datastax/langflow-client-ts/) repository.
+For more information, see the [aiexec-client-ts](https://github.com/datastax/aiexec-client-ts/) repository.

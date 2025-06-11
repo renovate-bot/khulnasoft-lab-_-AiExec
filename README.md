@@ -1,19 +1,19 @@
 <!-- markdownlint-disable MD030 -->
 
-![Langflow logo](./docs/static/img/langflow-logo-color-black-solid.svg)
+![Aiexec logo](./docs/static/img/aiexec-logo-color-black-solid.svg)
 
 
-[![Release Notes](https://img.shields.io/github/release/langflow-ai/langflow?style=flat-square)](https://github.com/langflow-ai/langflow/releases)
+[![Release Notes](https://img.shields.io/github/release/khulnasoft-lab/aiexec?style=flat-square)](https://github.com/khulnasoft-lab/aiexec/releases)
 [![PyPI - License](https://img.shields.io/badge/license-MIT-orange)](https://opensource.org/licenses/MIT)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/langflow?style=flat-square)](https://pypistats.org/packages/langflow)
-[![GitHub star chart](https://img.shields.io/github/stars/langflow-ai/langflow?style=flat-square)](https://star-history.com/#langflow-ai/langflow)
-[![Open Issues](https://img.shields.io/github/issues-raw/langflow-ai/langflow?style=flat-square)](https://github.com/langflow-ai/langflow/issues)
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/langflow-ai.svg?style=social&label=Follow%20%40Langflow)](https://twitter.com/langflow_ai)
-[![YouTube Channel](https://img.shields.io/youtube/channel/subscribers/UCn2bInQrjdDYKEEmbpwblLQ?label=Subscribe)](https://www.youtube.com/@Langflow)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/aiexec?style=flat-square)](https://pypistats.org/packages/aiexec)
+[![GitHub star chart](https://img.shields.io/github/stars/khulnasoft-lab/aiexec?style=flat-square)](https://star-history.com/#khulnasoft-lab/aiexec)
+[![Open Issues](https://img.shields.io/github/issues-raw/khulnasoft-lab/aiexec?style=flat-square)](https://github.com/khulnasoft-lab/aiexec/issues)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/khulnasoft-lab.svg?style=social&label=Follow%20%40Aiexec)](https://twitter.com/aiexec_ai)
+[![YouTube Channel](https://img.shields.io/youtube/channel/subscribers/UCn2bInQrjdDYKEEmbpwblLQ?label=Subscribe)](https://www.youtube.com/@Aiexec)
 [![Discord Server](https://img.shields.io/discord/1116803230643527710?logo=discord&style=social&label=Join)](https://discord.gg/EqksyE2EX9)
 
 
-[Langflow](https://langflow.org) is a powerful tool for building and deploying AI-powered agents and workflows. It provides developers with both a visual authoring experience and a built-in API server that turns every agent into an API endpoint that can be integrated into applications built on any framework or stack. Langflow comes with batteries included and supports all major LLMs, vector databases and a growing library of AI tools.
+[Aiexec](https://aiexec.org) is a powerful tool for building and deploying AI-powered agents and workflows. It provides developers with both a visual authoring experience and a built-in API server that turns every agent into an API endpoint that can be integrated into applications built on any framework or stack. Aiexec comes with batteries included and supports all major LLMs, vector databases and a growing library of AI tools.
 
 ## ✨ Highlight features
 
@@ -27,45 +27,45 @@
 
 ## ⚡️ Quickstart
 
-Langflow works with Python 3.10 to 3.13.
+Aiexec works with Python 3.10 to 3.13.
 
 Install with uv **(recommended)** 
 
 ```shell
-uv pip install langflow
+uv pip install aiexec
 ```
 
 Install with pip
 
 ```shell
-pip install langflow
+pip install aiexec
 ```
 
 ## 📦 Deployment
 
 ### Self-managed
 
-Langflow is completely open source and you can deploy it to all major deployment clouds. Follow this [guide](https://docs.langflow.org/deployment-docker) to learn how to use Docker to deploy Langflow.
+Aiexec is completely open source and you can deploy it to all major deployment clouds. Follow this [guide](https://docs.aiexec.org/deployment-docker) to learn how to use Docker to deploy Aiexec.
 
 ### Fully-managed by DataStax
 
-DataStax Langflow is a full-managed environment with zero setup. Developers can [sign up for a free account](https://astra.datastax.com/signup?type=langflow) to get started.
+DataStax Aiexec is a full-managed environment with zero setup. Developers can [sign up for a free account](https://astra.datastax.com/signup?type=aiexec) to get started.
 
 ## ⭐ Stay up-to-date
 
-Star Langflow on GitHub to be instantly notified of new releases.
+Star Aiexec on GitHub to be instantly notified of new releases.
 
-![Star Langflow](https://github.com/user-attachments/assets/03168b17-a11d-4b2a-b0f7-c1cce69e5a2c)
+![Star Aiexec](https://github.com/user-attachments/assets/03168b17-a11d-4b2a-b0f7-c1cce69e5a2c)
 
 ## 👋 Contribute
 
-We welcome contributions from developers of all levels. If you'd like to contribute, please check our [contributing guidelines](./CONTRIBUTING.md) and help make Langflow more accessible.
+We welcome contributions from developers of all levels. If you'd like to contribute, please check our [contributing guidelines](./CONTRIBUTING.md) and help make Aiexec more accessible.
 
 ---
 
-[![Star History Chart](https://api.star-history.com/svg?repos=langflow-ai/langflow&type=Timeline)](https://star-history.com/#langflow-ai/langflow&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=khulnasoft-lab/aiexec&type=Timeline)](https://star-history.com/#khulnasoft-lab/aiexec&Date)
 
 ## ❤️ Contributors
 
-[![langflow contributors](https://contrib.rocks/image?repo=langflow-ai/langflow)](https://github.com/langflow-ai/langflow/graphs/contributors)
+[![aiexec contributors](https://contrib.rocks/image?repo=khulnasoft-lab/aiexec)](https://github.com/khulnasoft-lab/aiexec/graphs/contributors)
 

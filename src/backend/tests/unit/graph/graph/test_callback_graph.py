@@ -1,13 +1,13 @@
 import asyncio
 
 import pytest
-from langflow.components.input_output import ChatOutput
-from langflow.custom import Component
-from langflow.events.event_manager import EventManager
-from langflow.graph import Graph
-from langflow.inputs import IntInput
-from langflow.schema.message import Message
-from langflow.template import Output
+from aiexec.components.input_output import ChatOutput
+from aiexec.custom import Component
+from aiexec.events.event_manager import EventManager
+from aiexec.graph import Graph
+from aiexec.inputs import IntInput
+from aiexec.schema.message import Message
+from aiexec.template import Output
 
 
 class LogComponent(Component):

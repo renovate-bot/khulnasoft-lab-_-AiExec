@@ -11,12 +11,12 @@ In this example, the **Chat Input** component is pre-loaded with a sample financ
 
 ## Prerequisites
 
-- [A running Langflow instance](/get-started-installation)
+- [A running Aiexec instance](/get-started-installation)
 - [An OpenAI API key](https://platform.openai.com/)
 
 ## Create the financial report parser flow
 
-1. From the Langflow dashboard, click **New Flow**.
+1. From the Aiexec dashboard, click **New Flow**.
 2. Select **Financial Report Parser**.
 
 The **Financial Report Parser** flow is created.

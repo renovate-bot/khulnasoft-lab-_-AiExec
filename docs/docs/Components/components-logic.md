@@ -3,7 +3,7 @@ title: Logic
 slug: /components-logic
 ---
 
-# Logic components in Langflow
+# Logic components in Aiexec
 
 Logic components provide functionalities for routing, conditional processing, and flow management.
 
@@ -17,7 +17,7 @@ The **File** component loads text files from your local machine, and then the **
 The **Loop** component passes each `Data` object to a **Prompt** to be summarized.
 
 When the **Loop** component runs out of `Data`, the **Done** loop activates, which counts the number of pages and summarizes their tone with another **Prompt**.
-This is represented in Langflow by connecting the Parser component's **Data List** output to the Loop component's `Data` loop input.
+This is represented in Aiexec by connecting the Parser component's **Data List** output to the Loop component's `Data` loop input.
 
 ![Sample Flow looping summarizer](/img/loop-text-summarizer.png)
 
@@ -163,7 +163,7 @@ In this example, the data is loaded into **Chroma DB**.
 
 ![Loop CSV parser](/img/component-loop-csv.png)
 
-Follow along with this step-by-step video guide for creating this flow and adding agentic RAG: [Mastering the Loop Component & Agentic RAG in Langflow](https://www.youtube.com/watch?v=9Wx7WODSKTo).
+Follow along with this step-by-step video guide for creating this flow and adding agentic RAG: [Mastering the Loop Component & Agentic RAG in Aiexec](https://www.youtube.com/watch?v=9Wx7WODSKTo).
 
 <details>
 <summary>Parameters</summary>
@@ -230,7 +230,7 @@ This component forwards the input message, unchanged.
 
 ## Run flow
 
-This component allows you to run any flow stored in your Langflow database without opening the flow editor.
+This component allows you to run any flow stored in your Aiexec database without opening the flow editor.
 
 The Run Flow component can also be used as a tool when connected to an [Agent](/components-agents). The `name` and `description` metadata that the Agent uses to register the tool are created automatically.
 
@@ -272,7 +272,7 @@ Your flow should now look like this:
 ### Data Conditional Router
 
 :::important
-This component is in **Legacy**, which means it is no longer in active development as of Langflow version 1.3.
+This component is in **Legacy**, which means it is no longer in active development as of Aiexec version 1.3.
 :::
 
 This component routes `Data` objects based on a condition applied to a specified key, including boolean validation. It can process either a single Data object or a list of Data objects.
@@ -322,7 +322,7 @@ Deprecated components have been replaced by newer alternatives and should not be
 ### Flow as tool {#flow-as-tool}
 
 :::important
-This component is deprecated as of Langflow version 1.1.2.
+This component is deprecated as of Aiexec version 1.1.2.
 Instead, use the [Run flow component](/components-logic#run-flow)
 :::
 
@@ -346,7 +346,7 @@ This component constructs a tool from a function that runs a loaded flow.
 ### Sub flow
 
 :::important
-This component is deprecated as of Langflow version 1.1.2.
+This component is deprecated as of Aiexec version 1.1.2.
 Instead, use the [Run flow component](/components-logic#run-flow)
 :::
 

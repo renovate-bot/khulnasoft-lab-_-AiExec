@@ -12,10 +12,10 @@ The agent selects the **Calculator** tool for simple math problems and the **URL
 
 ## Prerequisites
 
-- [A running Langflow instance](/get-started-installation)
+- [A running Aiexec instance](/get-started-installation)
 - [An OpenAI API key](https://platform.openai.com/)
 
-## Open Langflow and start a new flow
+## Open Aiexec and start a new flow
 
 Click **New Flow**, and then select the **Simple Agent** flow.
 

@@ -1,10 +1,10 @@
 import re
 
 import pytest
-from langflow.components.input_output import ChatInput, ChatOutput
-from langflow.components.languagemodels import OpenAIModelComponent
-from langflow.components.prompts import PromptComponent
-from langflow.graph import Graph
+from aiexec.components.input_output import ChatInput, ChatOutput
+from aiexec.components.languagemodels import OpenAIModelComponent
+from aiexec.components.prompts import PromptComponent
+from aiexec.graph import Graph
 
 
 def test_edge_raises_error_on_invalid_target_handle():

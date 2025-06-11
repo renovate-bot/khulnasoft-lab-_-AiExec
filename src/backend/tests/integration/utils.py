@@ -5,12 +5,12 @@ from typing import Any
 
 import requests
 from astrapy.admin import parse_api_endpoint
-from langflow.api.v1.schemas import InputValueRequest
-from langflow.custom import Component
-from langflow.custom.eval import eval_custom_component_code
-from langflow.field_typing import Embeddings
-from langflow.graph import Graph
-from langflow.processing.process import run_graph_internal
+from aiexec.api.v1.schemas import InputValueRequest
+from aiexec.custom import Component
+from aiexec.custom.eval import eval_custom_component_code
+from aiexec.field_typing import Embeddings
+from aiexec.graph import Graph
+from aiexec.processing.process import run_graph_internal
 
 
 def check_env_vars(*env_vars):
@@ -98,7 +98,7 @@ class JSONFlow:
 
 def download_flow_from_github(name: str, version: str) -> JSONFlow:
     response = requests.get(
-        f"https://raw.githubusercontent.com/langflow-ai/langflow/v{version}/src/backend/base/langflow/initial_setup/starter_projects/{name}.json",
+        f"https://raw.githubusercontent.com/khulnasoft-lab/aiexec/v{version}/src/backend/base/aiexec/initial_setup/starter_projects/{name}.json",
         timeout=10,
     )
     response.raise_for_status()
@@ -109,7 +109,7 @@ def download_flow_from_github(name: str, version: str) -> JSONFlow:
 def download_component_from_github(module: str, file_name: str, version: str) -> Component:
     version_string = f"v{version}" if version != "main" else version
     response = requests.get(
-        f"https://raw.githubusercontent.com/langflow-ai/langflow/{version_string}/src/backend/base/langflow/components/{module}/{file_name}.py",
+        f"https://raw.githubusercontent.com/khulnasoft-lab/aiexec/{version_string}/src/backend/base/aiexec/components/{module}/{file_name}.py",
         timeout=10,
     )
     response.raise_for_status()

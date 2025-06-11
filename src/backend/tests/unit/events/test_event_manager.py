@@ -4,8 +4,8 @@ import time
 import uuid
 
 import pytest
-from langflow.events.event_manager import EventManager
-from langflow.schema.log import LoggableType
+from aiexec.events.event_manager import EventManager
+from aiexec.schema.log import LoggableType
 
 
 class TestEventManager:

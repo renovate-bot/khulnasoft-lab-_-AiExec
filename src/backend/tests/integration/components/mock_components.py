@@ -1,9 +1,9 @@
 import json
 
-from langflow.custom import Component
-from langflow.inputs import BoolInput, StrInput
-from langflow.schema import Data
-from langflow.template import Output
+from aiexec.custom import Component
+from aiexec.inputs import BoolInput, StrInput
+from aiexec.schema import Data
+from aiexec.template import Output
 
 
 class TextToData(Component):

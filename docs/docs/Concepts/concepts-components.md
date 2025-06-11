@@ -5,7 +5,7 @@ slug: /concepts-components
 
 import Icon from "@site/src/components/icon";
 
-# Langflow components overview
+# Aiexec components overview
 
 A component is a single building block within a flow with inputs, outputs, functions, and parameters that define its functionality. A single component is like a class within a larger application.
 
@@ -61,7 +61,7 @@ The following table lists the handle colors and their corresponding data types:
 
 A component inherits from a base `Component` class that defines its interface and behavior.
 
-For example, the [Recursive character text splitter](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/components/langchain_utilities/recursive_character.py) is a child of the [LCTextSplitterComponent](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/base/textsplitters/model.py) class.
+For example, the [Recursive character text splitter](https://github.com/khulnasoft-lab/aiexec/blob/main/src/backend/base/aiexec/components/langchain_utilities/recursive_character.py) is a child of the [LCTextSplitterComponent](https://github.com/khulnasoft-lab/aiexec/blob/main/src/backend/base/aiexec/base/textsplitters/model.py) class.
 
 <details>
 <summary>Recursive character text splitter code</summary>
@@ -71,14 +71,14 @@ from typing import Any
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter, TextSplitter
 
-from langflow.base.textsplitters.model import LCTextSplitterComponent
-from langflow.inputs.inputs import DataInput, IntInput, MessageTextInput
-from langflow.utils.util import unescape_string
+from aiexec.base.textsplitters.model import LCTextSplitterComponent
+from aiexec.inputs.inputs import DataInput, IntInput, MessageTextInput
+from aiexec.utils.util import unescape_string
 
 class RecursiveCharacterTextSplitterComponent(LCTextSplitterComponent):
     display_name: str = "Recursive Character Text Splitter"
     description: str = "Split text trying to keep all related text together."
-    documentation: str = "https://docs.langflow.org/components-processing"
+    documentation: str = "https://docs.aiexec.org/components-processing"
     name = "RecursiveCharacterTextSplitter"
     icon = "LangChain"
 
@@ -209,12 +209,12 @@ A component's initial state is stored in a database. As soon as you drag a compo
 
 A component keeps the version number it is initialized to the workspace with. If a component is at version `1.0` when it is dragged to the workspace, it will stay at version `1.0` until you update it.
 
-Langflow notifies you when a component's workspace version is behind the database version and an update is available.
+Aiexec notifies you when a component's workspace version is behind the database version and an update is available.
 
 ### Review and update components
 
 When a component's workspace version is behind the database version and an update is available, the component displays a notification.
-If there are potentially breaking changes in the component updates, Langflow notifies you with an additional dialog.
+If there are potentially breaking changes in the component updates, Aiexec notifies you with an additional dialog.
 
 Breaking changes modify component inputs and outputs, and may break your flows or require you to re-connect component edges.
 

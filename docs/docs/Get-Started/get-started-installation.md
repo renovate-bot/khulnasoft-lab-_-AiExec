@@ -1,147 +1,147 @@
 ---
-title: Install Langflow
+title: Install Aiexec
 slug: /get-started-installation
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Langflow can be installed in three ways:
+Aiexec can be installed in three ways:
 
-* As a [Python package](#install-and-run-langflow-oss) with Langflow OSS
-* As a [standalone desktop application](#install-and-run-langflow-desktop) with Langflow Desktop
-* As a [cloud-hosted service](#datastax-langflow) with DataStax Langflow
+* As a [Python package](#install-and-run-aiexec-oss) with Aiexec OSS
+* As a [standalone desktop application](#install-and-run-aiexec-desktop) with Aiexec Desktop
+* As a [cloud-hosted service](#datastax-aiexec) with DataStax Aiexec
 
-## Install and run Langflow OSS
+## Install and run Aiexec OSS
 
-Before you install and run Langflow OSS, be sure you have the following items.
+Before you install and run Aiexec OSS, be sure you have the following items.
 
 - [Python 3.10 to 3.13](https://www.python.org/downloads/release/python-3100/)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) or [pip](https://pypi.org/project/pip/)
 - A virtual environment created with [uv](https://docs.astral.sh/uv/pip/environments) or [venv](https://docs.python.org/3/library/venv.html)
 - A dual-core CPU and at least 2 GB of RAM. More intensive use requires a multi-core CPU and at least 4 GB of RAM.
 
-Install and run Langflow OSS with [uv (recommended)](https://docs.astral.sh/uv/getting-started/installation/) or [pip](https://pypi.org/project/pip/).
+Install and run Aiexec OSS with [uv (recommended)](https://docs.astral.sh/uv/getting-started/installation/) or [pip](https://pypi.org/project/pip/).
 
-1. To install Langflow, use one of the following commands:
+1. To install Aiexec, use one of the following commands:
 
 <Tabs groupId="package-manager">
 <TabItem value="uv" label="uv" default>
 
 ```bash
-uv pip install langflow
+uv pip install aiexec
 ```
 
 </TabItem>
 <TabItem value="pip" label="pip">
 
 ```bash
-pip install langflow
+pip install aiexec
 ```
 
 </TabItem>
 </Tabs>
 
-2. To run Langflow, use one of the following commands:
+2. To run Aiexec, use one of the following commands:
 
 <Tabs groupId="package-manager">
     <TabItem value="uv" label="uv">
 
 ```bash
-uv run langflow run
+uv run aiexec run
 ```
 
 </TabItem>
 <TabItem value="pip" label="pip">
 
 ```bash
-python -m langflow run
+python -m aiexec run
 ```
 
 </TabItem>
 </Tabs>
 
-3. To confirm that a local Langflow instance starts, go to the default Langflow URL at `http://127.0.0.1:7860`.
+3. To confirm that a local Aiexec instance starts, go to the default Aiexec URL at `http://127.0.0.1:7860`.
 
-After confirming that Langflow is running, create your first flow with the [Quickstart](/get-started-quickstart).
+After confirming that Aiexec is running, create your first flow with the [Quickstart](/get-started-quickstart).
 
-### Manage Langflow OSS versions
+### Manage Aiexec OSS versions
 
-To upgrade Langflow to the latest version, use one of the following commands:
+To upgrade Aiexec to the latest version, use one of the following commands:
 
 <Tabs groupId="package-manager">
 <TabItem value="uv" label="uv" default>
 
 ```bash
-uv pip install langflow -U
+uv pip install aiexec -U
 ```
 
 </TabItem>
 <TabItem value="pip" label="pip">
 
 ```bash
-pip install langflow -U
+pip install aiexec -U
 ```
 
 </TabItem>
 </Tabs>
 
-To install a specific version of the Langflow package, add the required version to the command.
+To install a specific version of the Aiexec package, add the required version to the command.
 <Tabs groupId="package-manager">
 <TabItem value="uv" label="uv" default>
 
 ```bash
-uv pip install langflow==1.3.2
+uv pip install aiexec==1.3.2
 ```
 
 </TabItem>
 <TabItem value="pip" label="pip">
 
 ```bash
-pip install langflow==1.3.2
+pip install aiexec==1.3.2
 ```
 
 </TabItem>
 </Tabs>
 
-To reinstall Langflow and all of its dependencies, add the `--force-reinstall` flag to the command.
+To reinstall Aiexec and all of its dependencies, add the `--force-reinstall` flag to the command.
 <Tabs groupId="package-manager">
 <TabItem value="uv" label="uv" default>
 
 ```bash
-uv pip install langflow --force-reinstall
+uv pip install aiexec --force-reinstall
 ```
 
 </TabItem>
 <TabItem value="pip" label="pip">
 
 ```bash
-pip install langflow --force-reinstall
+pip install aiexec --force-reinstall
 ```
 
 </TabItem>
 </Tabs>
 
-### Install optional dependencies for Langflow OSS
+### Install optional dependencies for Aiexec OSS
 
-Langflow OSS provides optional dependency groups that extend its functionality.
+Aiexec OSS provides optional dependency groups that extend its functionality.
 
-These dependencies are listed in the [pyproject.toml](https://github.com/langflow-ai/langflow/blob/main/pyproject.toml#L191) file under `[project.optional-dependencies]`.
+These dependencies are listed in the [pyproject.toml](https://github.com/khulnasoft-lab/aiexec/blob/main/pyproject.toml#L191) file under `[project.optional-dependencies]`.
 
-Install dependency groups using pip's `[extras]` syntax. For example, to install Langflow with the `postgresql` dependency group, enter one of the following commands:
+Install dependency groups using pip's `[extras]` syntax. For example, to install Aiexec with the `postgresql` dependency group, enter one of the following commands:
 
 <Tabs groupId="package-manager">
 <TabItem value="uv" label="uv" default>
 
 ```bash
-uv pip install "langflow[postgresql]"
+uv pip install "aiexec[postgresql]"
 ```
 
 </TabItem>
 <TabItem value="pip" label="pip">
 
 ```bash
-pip install "langflow[postgresql]"
+pip install "aiexec[postgresql]"
 ```
 
 </TabItem>
@@ -153,14 +153,14 @@ To install multiple extras, enter one of the following commands:
 <TabItem value="uv" label="uv" default>
 
 ```bash
-uv pip install "langflow[deploy,local,postgresql]"
+uv pip install "aiexec[deploy,local,postgresql]"
 ```
 
 </TabItem>
 <TabItem value="pip" label="pip">
 
 ```bash
-pip install "langflow[deploy,local,postgresql]"
+pip install "aiexec[deploy,local,postgresql]"
 ```
 
 </TabItem>
@@ -168,81 +168,81 @@ pip install "langflow[deploy,local,postgresql]"
 
 To add your own custom dependencies, see [Install custom dependencies](/install-custom-dependencies).
 
-### Stop Langflow OSS
+### Stop Aiexec OSS
 
-To stop Langflow, in the terminal where it's running, enter `Ctrl+C`.
+To stop Aiexec, in the terminal where it's running, enter `Ctrl+C`.
 
 To deactivate your virtual environment, enter `deactivate`.
 
 ### Common OSS installation issues
 
-This is a list of possible issues that you may encounter when installing and running Langflow.
+This is a list of possible issues that you may encounter when installing and running Aiexec.
 
-#### No `langflow.__main__` module
+#### No `aiexec.__main__` module
 
-When you try to run Langflow with the command `langflow run`, you encounter the following error:
+When you try to run Aiexec with the command `aiexec run`, you encounter the following error:
 
 ```bash
-> No module named 'langflow.__main__'
+> No module named 'aiexec.__main__'
 ```
 
-1. Run `uv run langflow run` instead of `langflow run`.
-2. If that doesn't work, reinstall the latest Langflow version with `uv pip install langflow -U`.
-3. If that doesn't work, reinstall Langflow and its dependencies with `uv pip install langflow --pre -U --force-reinstall`.
+1. Run `uv run aiexec run` instead of `aiexec run`.
+2. If that doesn't work, reinstall the latest Aiexec version with `uv pip install aiexec -U`.
+3. If that doesn't work, reinstall Aiexec and its dependencies with `uv pip install aiexec --pre -U --force-reinstall`.
 
-#### Langflow runTraceback
+#### Aiexec runTraceback
 
-When you try to run Langflow using the command `langflow run`, you encounter the following error:
+When you try to run Aiexec using the command `aiexec run`, you encounter the following error:
 
 ```bash
-> langflow runTraceback (most recent call last): File ".../langflow", line 5, in <module>  from langflow.__main__ import mainModuleNotFoundError: No module named 'langflow.__main__'
+> aiexec runTraceback (most recent call last): File ".../aiexec", line 5, in <module>  from aiexec.__main__ import mainModuleNotFoundError: No module named 'aiexec.__main__'
 ```
 
 There are two possible reasons for this error:
 
-1. You've installed Langflow using `pip install langflow` but you already had a previous version of Langflow installed in your system. In this case, you might be running the wrong executable. To solve this issue, run the correct executable by running `python -m langflow run` instead of `langflow run`. If that doesn't work, try uninstalling and reinstalling Langflow with `uv pip install langflow --pre -U`.
-2. Some version conflicts might have occurred during the installation process. Run `python -m pip install langflow --pre -U --force-reinstall` to reinstall Langflow and its dependencies.
+1. You've installed Aiexec using `pip install aiexec` but you already had a previous version of Aiexec installed in your system. In this case, you might be running the wrong executable. To solve this issue, run the correct executable by running `python -m aiexec run` instead of `aiexec run`. If that doesn't work, try uninstalling and reinstalling Aiexec with `uv pip install aiexec --pre -U`.
+2. Some version conflicts might have occurred during the installation process. Run `python -m pip install aiexec --pre -U --force-reinstall` to reinstall Aiexec and its dependencies.
 
 #### Something went wrong running migrations
 
 ```bash
-> Something went wrong running migrations. Please, run 'langflow migration --fix'
+> Something went wrong running migrations. Please, run 'aiexec migration --fix'
 ```
 
 Clear the cache by deleting the contents of the cache folder.
 
 This folder can be found at:
 
-- **Linux or WSL2 on Windows**: `home/<username>/.cache/langflow/`
-- **MacOS**: `/Users/<username>/Library/Caches/langflow/`
+- **Linux or WSL2 on Windows**: `home/<username>/.cache/aiexec/`
+- **MacOS**: `/Users/<username>/Library/Caches/aiexec/`
 
-This error can occur during Langflow upgrades when the new version can't override `langflow-pre.db` in `.cache/langflow/`. Clearing the cache removes this file but also erases your settings.
+This error can occur during Aiexec upgrades when the new version can't override `aiexec-pre.db` in `.cache/aiexec/`. Clearing the cache removes this file but also erases your settings.
 
 If you wish to retain your files, back them up before clearing the folder.
 
-#### Langflow installation freezes at pip dependency resolution
+#### Aiexec installation freezes at pip dependency resolution
 
-Installing Langflow with `pip install langflow` slowly fails with this error message:
+Installing Aiexec with `pip install aiexec` slowly fails with this error message:
 
 ```text
 pip is looking at multiple versions of <<library>> to determine which version is compatible with other requirements. This could take a while.
 ```
 
-To work around this issue, install Langflow with [`uv`](https://docs.astral.sh/uv/getting-started/installation/) instead of `pip`.
+To work around this issue, install Aiexec with [`uv`](https://docs.astral.sh/uv/getting-started/installation/) instead of `pip`.
 
 ```text
-uv pip install langflow
+uv pip install aiexec
 ```
 
-To run Langflow with uv:
+To run Aiexec with uv:
 
 ```text
-uv run langflow run
+uv run aiexec run
 ```
 
 #### Failed to build required package
 
-When you try to install Langflow on Linux, installation fails because of outdated or missing packages.
+When you try to install Aiexec on Linux, installation fails because of outdated or missing packages.
 
 ```bash
 Resolved 455 packages in 18.92s
@@ -264,44 +264,44 @@ sudo apt-get install build-essential python3-dev
 sudo apt-get install gcc
 ```
 
-## Install and run Langflow Desktop
+## Install and run Aiexec Desktop
 
 :::important
-Langflow Desktop is in **Alpha**.
+Aiexec Desktop is in **Alpha**.
 Development is ongoing, and the features and functionality are subject to change.
 :::
 
-**Langflow Desktop** is a desktop version of Langflow that includes all the features of open source Langflow, with an additional [version management](#manage-your-langflow-version-in-langflow-desktop) feature for managing your Langflow version.
+**Aiexec Desktop** is a desktop version of Aiexec that includes all the features of open source Aiexec, with an additional [version management](#manage-your-aiexec-version-in-aiexec-desktop) feature for managing your Aiexec version.
 
 :::important
-Langflow Desktop is available only for macOS.
+Aiexec Desktop is available only for macOS.
 :::
 
-To install Langflow Desktop, follow these steps:
+To install Aiexec Desktop, follow these steps:
 
-1. Navigate to [Langflow Desktop](https://www.langflow.org/desktop).
+1. Navigate to [Aiexec Desktop](https://www.aiexec.org/desktop).
 2. Enter your **Name**, **Email address**, and **Company**, and then click **Download**.
 3. Open the **Finder**, and then navigate to **Downloads**.
 4. Double-click the downloaded `*.dmg` file.
-5. To install Langflow Desktop, drag and drop the application icon to the **Applications** folder.
-6. When the installation completes, open the Langflow application.
+5. To install Aiexec Desktop, drag and drop the application icon to the **Applications** folder.
+6. When the installation completes, open the Aiexec application.
 
-The application checks [uv](https://docs.astral.sh/uv/concepts/tools/), your local environment, and the Langflow version, and then starts.
+The application checks [uv](https://docs.astral.sh/uv/concepts/tools/), your local environment, and the Aiexec version, and then starts.
 
-### Manage your Langflow version in Langflow Desktop
+### Manage your Aiexec version in Aiexec Desktop
 
-When a new version of Langflow is available, Langflow Desktop displays an upgrade message.
+When a new version of Aiexec is available, Aiexec Desktop displays an upgrade message.
 
-To manage your Langflow version in Langflow Desktop, follow these steps:
+To manage your Aiexec version in Aiexec Desktop, follow these steps:
 
-1. To access Langflow Desktop's **Version Management** pane, click your **Profile Image**, and then select **Version Management**.
-Langflow Desktop's current version is displayed, with other version options listed after it.
+1. To access Aiexec Desktop's **Version Management** pane, click your **Profile Image**, and then select **Version Management**.
+Aiexec Desktop's current version is displayed, with other version options listed after it.
 The **latest** version is always highlighted.
-2. To change your Langflow version, select another version.
+2. To change your Aiexec version, select another version.
 A confirmation pane containing the selected version's changelog appears.
 3. To change to the selected version, click **Confirm**.
 The application restarts with the new version installed.
 
-## DataStax Langflow {#datastax-langflow}
+## DataStax Aiexec {#datastax-aiexec}
 
-**DataStax Langflow** is a hosted version of Langflow integrated with [Astra DB](https://www.datastax.com/products/datastax-astra). Be up and running in minutes with no installation or setup required. [Sign up for free](https://astra.datastax.com/signup?type=langflow).
+**DataStax Aiexec** is a hosted version of Aiexec integrated with [Astra DB](https://www.datastax.com/products/datastax-astra). Be up and running in minutes with no installation or setup required. [Sign up for free](https://astra.datastax.com/signup?type=aiexec).

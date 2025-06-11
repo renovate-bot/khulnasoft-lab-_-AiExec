@@ -7,12 +7,12 @@ Build a question-and-answer chatbot with a document loaded from local memory.
 
 ## Prerequisites
 
-- [A running Langflow instance](/get-started-installation)
+- [A running Aiexec instance](/get-started-installation)
 - [An OpenAI API key](https://platform.openai.com/)
 
 ## Create the document QA flow
 
-1. From the Langflow dashboard, click **New Flow**.
+1. From the Aiexec dashboard, click **New Flow**.
 2. Select **Document QA**.
 3. The **Document QA** flow is created.
 

@@ -11,8 +11,8 @@ resolution-markers = [
 
 [manifest]
 members = [
-    "langflow",
-    "langflow-base",
+    "aiexec",
+    "aiexec-base",
 ]
 
 [[package]]
@@ -4570,7 +4570,7 @@ wheels = [
 ]
 
 [[package]]
-name = "langflow"
+name = "aiexec"
 version = "1.4.2"
 source = { editable = "." }
 dependencies = [
@@ -4630,7 +4630,7 @@ dependencies = [
     { name = "langchain-pinecone" },
     { name = "langchain-sambanova" },
     { name = "langchain-unstructured" },
-    { name = "langflow-base" },
+    { name = "aiexec-base" },
     { name = "langfuse" },
     { name = "langsmith" },
     { name = "langwatch" },
@@ -4817,7 +4817,7 @@ requires-dist = [
     { name = "langchain-pinecone", specifier = "==0.2.2" },
     { name = "langchain-sambanova", specifier = "==0.1.0" },
     { name = "langchain-unstructured", specifier = "==0.1.5" },
-    { name = "langflow-base", editable = "src/backend/base" },
+    { name = "aiexec-base", editable = "src/backend/base" },
     { name = "langfuse", specifier = "==2.53.9" },
     { name = "langsmith", specifier = ">=0.3.42,<1.0.0" },
     { name = "langwatch", specifier = "==0.1.16" },
@@ -4926,7 +4926,7 @@ dev = [
 ]
 
 [[package]]
-name = "langflow-base"
+name = "aiexec-base"
 version = "0.4.2"
 source = { editable = "src/backend/base" }
 dependencies = [

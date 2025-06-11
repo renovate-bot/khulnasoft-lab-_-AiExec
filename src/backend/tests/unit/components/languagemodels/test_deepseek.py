@@ -1,9 +1,9 @@
 from unittest.mock import MagicMock
 
 import pytest
-from langflow.components.languagemodels import DeepSeekModelComponent
-from langflow.custom import Component
-from langflow.custom.utils import build_custom_component_template
+from aiexec.components.languagemodels import DeepSeekModelComponent
+from aiexec.custom import Component
+from aiexec.custom.utils import build_custom_component_template
 
 
 def test_deepseek_initialization():

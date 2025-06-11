@@ -5,7 +5,7 @@ slug: /components-data
 
 import Icon from "@site/src/components/icon";
 
-# Data components in Langflow
+# Data components in Aiexec
 
 Data components load data from a source into your flow.
 
@@ -114,7 +114,7 @@ To load a document, follow these steps:
 The loaded file name appears in the component.
 
 The default maximum supported file size is 100 MB.
-To modify this value, see [--max-file-size-upload](/environment-variables#LANGFLOW_MAX_FILE_SIZE_UPLOAD).
+To modify this value, see [--max-file-size-upload](/environment-variables#AIEXEC_MAX_FILE_SIZE_UPLOAD).
 
 <details>
 <summary>Parameters</summary>
@@ -205,7 +205,7 @@ For example, connect the **URL** component to a **Chat Output** component.
 ![URL request into a chat output component](/img/component-url.png)
 
 2. In the URL component's **URLs** field, enter the URL for your request.
-This example uses `langflow.org`.
+This example uses `aiexec.org`.
 
 3. Optionally, in the **Max Depth** field, enter how many pages away from the initial URL you want to crawl.
 Select `1` to crawl only the page specified in the **URLs** field.

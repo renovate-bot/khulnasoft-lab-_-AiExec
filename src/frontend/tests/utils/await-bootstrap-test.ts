@@ -1,5 +1,5 @@
 import { Page } from "playwright/test";
-import { addFlowToTestOnEmptyLangflow } from "./add-flow-to-test-on-empty-langflow";
+import { addFlowToTestOnEmptyAiexec } from "./add-flow-to-test-on-empty-aiexec";
 
 export const awaitBootstrapTest = async (
   page: Page,
@@ -20,7 +20,7 @@ export const awaitBootstrapTest = async (
     .getByTestId("new_project_btn_empty_page")
     .count();
   if (countEmptyButton > 0) {
-    await addFlowToTestOnEmptyLangflow(page);
+    await addFlowToTestOnEmptyAiexec(page);
   }
 
   await page.waitForSelector('[id="new-project-btn"]', {

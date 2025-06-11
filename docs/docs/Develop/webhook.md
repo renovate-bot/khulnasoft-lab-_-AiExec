@@ -37,7 +37,7 @@ Replace **YOUR_FLOW_ID** with your flow ID.
         -d '{"id": "12345", "name": "alex", "email": "alex@email.com"}'
     ```
 
-    This response indicates Langflow received your request:
+    This response indicates Aiexec received your request:
 
     ```text
     {"message":"Task started in the background","status":"in progress"}
@@ -53,4 +53,4 @@ By passing the event trigger data payload directly into a flow, you can also par
 
 ## Trigger flows with Composio webhooks
 
-Now that you've triggered the webhook component manually, follow along with this step-by-step video guide for triggering flows with payloads from external applications: [How to Use Webhooks in Langflow](https://www.youtube.com/watch?v=IC1CAtzFRE0).
+Now that you've triggered the webhook component manually, follow along with this step-by-step video guide for triggering flows with payloads from external applications: [How to Use Webhooks in Aiexec](https://www.youtube.com/watch?v=IC1CAtzFRE0).

@@ -3,31 +3,31 @@ title: Install custom dependencies
 slug: /install-custom-dependencies
 ---
 
-To install custom dependencies in your Langflow environment, add them with your package manager.
+To install custom dependencies in your Aiexec environment, add them with your package manager.
 
 ## Create a virtual environment for local testing
 
 When testing locally, use a virtual environment to isolate your dependencies and prevent conflicts with other Python projects.
 
-For example, if you want to experiment with `matplotlib` with Langflow:
+For example, if you want to experiment with `matplotlib` with Aiexec:
 
 ```bash
 # Create and activate a virtual environment
-uv venv YOUR_LANGFLOW_VENV
-source YOUR_LANGFLOW_VENV/bin/activate
+uv venv YOUR_AIEXEC_VENV
+source YOUR_AIEXEC_VENV/bin/activate
 
-# Install langflow and your additional dependency
-uv pip install langflow matplotlib
+# Install aiexec and your additional dependency
+uv pip install aiexec matplotlib
 ```
 
-If you're working within a cloned Langflow repository, add dependencies with `uv add` because there is already a `pyproject.toml` file for uv to reference.
+If you're working within a cloned Aiexec repository, add dependencies with `uv add` because there is already a `pyproject.toml` file for uv to reference.
 ```bash
-uv add langflow matplotlib
+uv add aiexec matplotlib
 ```
 
-## Add dependencies to the Langflow project
+## Add dependencies to the Aiexec project
 
-When contributing to Langflow itself, add dependencies to the project's configuration. Langflow uses a workspace with two packages:
+When contributing to Aiexec itself, add dependencies to the project's configuration. Aiexec uses a workspace with two packages:
 
 * The `main` package (root level): For end-user features and main application code
 * The `base` package (in `src/backend/base`): For core functionality and shared code

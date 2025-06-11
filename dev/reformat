@@ -6,13 +6,13 @@ SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 cd "$SCRIPT_DIR/.."
 
 # run ruff linter
-uv run --directory src/backend/base/langflow/api --dev ruff check --fix ./
+uv run --directory src/backend/base/aiexec/api --dev ruff check --fix ./
 
 # run ruff formatter
-uv run --directory src/backend/base/langflow/api --dev ruff format ./
+uv run --directory src/backend/base/aiexec/api --dev ruff format ./
 
 # run dotenv-linter linter
-uv run --project src/backend/base/langflow/api --dev dotenv-linter ./src/backend/base/langflow/api/.env.example ./src/web/.env.example
+uv run --project src/backend/base/aiexec/api --dev dotenv-linter ./src/backend/base/aiexec/api/.env.example ./src/web/.env.example
 
 # run mypy check
 dev/mypy-check

@@ -1,29 +1,29 @@
 services:
-  langflow:
-    image: langflowai/langflow:latest # or another version tag on https://hub.docker.com/r/langflowai/langflow
+  aiexec:
+    image: aiexecai/aiexec:latest # or another version tag on https://hub.docker.com/r/aiexecai/aiexec
     pull_policy: always               # set to 'always' when using 'latest' image
     ports:
       - "7860:7860"
     depends_on:
       - postgres
     environment:
-      - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
+      - AIEXEC_DATABASE_URL=postgresql://aiexec:aiexec@postgres:5432/aiexec
       # This variable defines where the logs, file storage, monitor data and secret keys are stored.
-      - LANGFLOW_CONFIG_DIR=app/langflow
+      - AIEXEC_CONFIG_DIR=app/aiexec
     volumes:
-      - langflow-data:/app/langflow
+      - aiexec-data:/app/aiexec
 
   postgres:
     image: postgres:16
     environment:
-      POSTGRES_USER: langflow
-      POSTGRES_PASSWORD: langflow
-      POSTGRES_DB: langflow
+      POSTGRES_USER: aiexec
+      POSTGRES_PASSWORD: aiexec
+      POSTGRES_DB: aiexec
     ports:
       - "5432:5432"
     volumes:
-      - langflow-postgres:/var/lib/postgresql/data
+      - aiexec-postgres:/var/lib/postgresql/data
 
 volumes:
-  langflow-postgres:
-  langflow-data:
+  aiexec-postgres:
+  aiexec-data:

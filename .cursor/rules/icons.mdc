@@ -1,5 +1,5 @@
 ---
-description: Rules and checklist for adding and using langflow component icons.
+description: Rules and checklist for adding and using aiexec component icons.
 globs: 
 alwaysApply: false
 ---
@@ -12,7 +12,7 @@ To ensure consistent, clear, and functional icon usage for components, covering 
 
 ## 1. Backend (Python) — Setting the Icon Name
 
-- **Where:** In your component class (e.g., in `src/backend/base/langflow/components/vectorstores/astradb.py`)
+- **Where:** In your component class (e.g., in `src/backend/base/aiexec/components/vectorstores/astradb.py`)
 - **How:**  
   Set the `icon` attribute to a string matching the icon you want to use.
   ```python

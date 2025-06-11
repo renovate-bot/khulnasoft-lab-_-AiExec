@@ -203,7 +203,7 @@ This example connects a **Webhook** component to convert `text` and `data` into 
 
 3. Send a POST request to the **Webhook** containing your JSON data.
 Replace `YOUR_FLOW_ID` with your flow ID.
-This example uses the default Langflow server address.
+This example uses the default Aiexec server address.
 ```text
 curl -X POST "http://127.0.0.1:7860/api/v1/webhook/YOUR_FLOW_ID" \
 -H 'Content-Type: application/json' \
@@ -436,7 +436,7 @@ This example expects **Data** from the **Webhook**.
 3. In the **File Format** field, select the file type for your saved file.
 This example uses `.md` in one **Save to File** component, and `.xlsx` in another.
 4. In the **File Path** field, enter the path for your saved file.
-This example uses `./output/employees.xlsx` and `./output/employees.md` to save the files in a directory relative to where Langflow is running.
+This example uses `./output/employees.xlsx` and `./output/employees.md` to save the files in a directory relative to where Aiexec is running.
 The component accepts both relative and absolute paths, and creates any necessary directories if they don't exist.
 :::tip
 If you enter a format in the `file_path` that is not accepted, the component appends the proper format to the file.
@@ -444,7 +444,7 @@ For example, if the selected `file_format` is `csv`, and you enter `file_path` a
 :::
 5. Send a POST request to the **Webhook** containing your JSON data.
 Replace `YOUR_FLOW_ID` with your flow ID.
-This example uses the default Langflow server address.
+This example uses the default Aiexec server address.
 ```text
 curl -X POST "http://127.0.0.1:7860/api/v1/webhook/YOUR_FLOW_ID" \
 -H 'Content-Type: application/json' \
@@ -639,7 +639,7 @@ This component modifies metadata of input objects. It can add new metadata, upda
 
 :::important
 This component is in **Legacy**, which means it is available for use but no longer in active development.
-Prior to Langflow version 1.1.3, this component was named **Merge Data**.
+Prior to Aiexec version 1.1.3, this component was named **Merge Data**.
 :::
 
 This component combines multiple data sources into a single unified [Data](/concepts-objects#data-object) object.

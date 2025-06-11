@@ -9,17 +9,17 @@ const isProduction = process.env.NODE_ENV === "production";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Langflow Documentation",
+  title: "Aiexec Documentation",
   tagline:
-    "Langflow is a low-code app builder for RAG and multi-agent AI applications.",
+    "Aiexec is a low-code app builder for RAG and multi-agent AI applications.",
   favicon: "img/favicon.ico",
-  url: "https://docs.langflow.org",
+  url: "https://docs.aiexec.org",
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   onBrokenAnchors: "warn",
-  organizationName: "langflow-ai",
-  projectName: "langflow",
+  organizationName: "khulnasoft-lab",
+  projectName: "aiexec",
   trailingSlash: false,
   staticDirectories: ["static"],
   i18n: {
@@ -40,7 +40,7 @@ const config = {
           {
             tagName: "script",
             attributes: {},
-            innerHTML: `!function(){window.semaphore=window.semaphore||[],window.ketch=function(){window.semaphore.push(arguments)};var e=document.createElement("script");e.type="text/javascript",e.src="https://global.ketchcdn.com/web/v3/config/datastax/langflow_org_web/boot.js",e.defer=e.async=!0,document.getElementsByTagName("head")[0].appendChild(e)}();`,
+            innerHTML: `!function(){window.semaphore=window.semaphore||[],window.ketch=function(){window.semaphore.push(arguments)};var e=document.createElement("script");e.type="text/javascript",e.src="https://global.ketchcdn.com/web/v3/config/datastax/aiexec_org_web/boot.js",e.defer=e.async=!0,document.getElementsByTagName("head")[0].appendChild(e)}();`,
           },
           // Ketch jurisdiction dynamic link and GA4 consent tracking
           {
@@ -137,9 +137,9 @@ const config = {
           {
             to: "/",
             from: [
-              "/whats-new-a-new-chapter-langflow",
-              "/👋 Welcome-to-Langflow",
-              "/getting-started-welcome-to-langflow",
+              "/whats-new-a-new-chapter-aiexec",
+              "/👋 Welcome-to-Aiexec",
+              "/getting-started-welcome-to-aiexec",
               "/guides-new-to-llms",
             ],
           },
@@ -291,22 +291,22 @@ const config = {
       navbar: {
         hideOnScroll: true,
         logo: {
-          alt: "Langflow",
-          src: "img/langflow-logo-black.svg",
-          srcDark: "img/langflow-logo-white.svg",
+          alt: "Aiexec",
+          src: "img/aiexec-logo-black.svg",
+          srcDark: "img/aiexec-logo-white.svg",
         },
         items: [
           // right
           {
             position: "right",
-            href: "https://github.com/langflow-ai/langflow",
+            href: "https://github.com/khulnasoft-lab/aiexec",
             className: "header-github-link",
             target: "_blank",
             rel: null,
           },
           {
             position: "right",
-            href: "https://twitter.com/langflow_ai",
+            href: "https://twitter.com/aiexec_ai",
             className: "header-twitter-link",
             target: "_blank",
             rel: null,
@@ -345,9 +345,9 @@ const config = {
       },
       footer: {
         logo: {
-          alt: "Langflow",
-          src: "img/langflow-logo-black.svg",
-          srcDark: "img/langflow-logo-white.svg",
+          alt: "Aiexec",
+          src: "img/aiexec-logo-black.svg",
+          srcDark: "img/aiexec-logo-white.svg",
           width: 160,
           height: 40,
         },
@@ -357,8 +357,8 @@ const config = {
             items: [
               {
                 html: `<div class="footer-links">
-                  <span>© ${new Date().getFullYear()} Langflow</span>
-                  <span id="preferenceCenterContainer"> ·&nbsp; <a href="https://langflow.org/preferences">Manage Privacy Choices</a></span>
+                  <span>© ${new Date().getFullYear()} Aiexec</span>
+                  <span id="preferenceCenterContainer"> ·&nbsp; <a href="https://aiexec.org/preferences">Manage Privacy Choices</a></span>
                   </div>`,
               },
             ],
@@ -369,7 +369,7 @@ const config = {
         appId: "UZK6BDPCVY",
         // public key, safe to commit
         apiKey: "adbd7686dceb1cd510d5ce20d04bf74c",
-        indexName: "langflow",
+        indexName: "aiexec",
         contextualSearch: true,
         searchParameters: {},
         searchPagePath: "search",

@@ -1,44 +1,44 @@
 ---
-title: Langflow architecture and best practices on Kubernetes
+title: Aiexec architecture and best practices on Kubernetes
 slug: /deployment-prod-best-practices
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-While Langflow offers flexible deployment options, deploying on a Kubernetes cluster is highly recommended for production environments.
+While Aiexec offers flexible deployment options, deploying on a Kubernetes cluster is highly recommended for production environments.
 
 Deploying on Kubernetes offers the following advantages:
 
-* **Scalability**: Kubernetes allows you to scale the Langflow service to meet the demands of your workload.
-* **Availability and resilience**: Kubernetes provides built-in resilience features, such as automatic failover and self-healing, to ensure that the Langflow service is always available.
-* **Security**: Kubernetes provides security features, such as role-based access control and network isolation, to protect the Langflow service and its data.
-* **Portability**: Kubernetes is a portable platform, which means that you can deploy the Langflow service to any Kubernetes cluster, on-premises or in the cloud.
+* **Scalability**: Kubernetes allows you to scale the Aiexec service to meet the demands of your workload.
+* **Availability and resilience**: Kubernetes provides built-in resilience features, such as automatic failover and self-healing, to ensure that the Aiexec service is always available.
+* **Security**: Kubernetes provides security features, such as role-based access control and network isolation, to protect the Aiexec service and its data.
+* **Portability**: Kubernetes is a portable platform, which means that you can deploy the Aiexec service to any Kubernetes cluster, on-premises or in the cloud.
 
-Langflow can be deployed on cloud deployments like **AWS EKS, Google GKE, or Azure AKS**. For more information about deploying Langflow on AWS EKS, Google GKE, or Azure AKS, see the [Langflow Helm charts repository](https://github.com/langflow-ai/langflow-helm-charts).
+Aiexec can be deployed on cloud deployments like **AWS EKS, Google GKE, or Azure AKS**. For more information about deploying Aiexec on AWS EKS, Google GKE, or Azure AKS, see the [Aiexec Helm charts repository](https://github.com/khulnasoft-lab/aiexec-helm-charts).
 
-## Langflow deployment
+## Aiexec deployment
 
-A typical Langflow deployment includes:
+A typical Aiexec deployment includes:
 
-* **Langflow API and UI** – The Langflow service is the core component of the Langflow platform. It provides a RESTful API for executing flows.
-* **Kubernetes cluster** – The Kubernetes cluster provides a platform for deploying and managing the Langflow service and its supporting components.
-* **Persistent storage** – Persistent storage is used to store the Langflow service's data, such as models and training data.
-* **Ingress controller** – The ingress controller provides a single entry point for traffic to the Langflow service.
-* **Load balancer** – Balances traffic across multiple Langflow replicas.
-* **Vector database** – If you are using Langflow for RAG, you can integrate with the vector database in Astra Serverless.
+* **Aiexec API and UI** – The Aiexec service is the core component of the Aiexec platform. It provides a RESTful API for executing flows.
+* **Kubernetes cluster** – The Kubernetes cluster provides a platform for deploying and managing the Aiexec service and its supporting components.
+* **Persistent storage** – Persistent storage is used to store the Aiexec service's data, such as models and training data.
+* **Ingress controller** – The ingress controller provides a single entry point for traffic to the Aiexec service.
+* **Load balancer** – Balances traffic across multiple Aiexec replicas.
+* **Vector database** – If you are using Aiexec for RAG, you can integrate with the vector database in Astra Serverless.
 
-![Langflow reference architecture on Kubernetes](/img/langflow-reference-architecture.png)
+![Aiexec reference architecture on Kubernetes](/img/aiexec-reference-architecture.png)
 
 ## Environment isolation
 
-It is recommended to deploy and run two separate environments for Langflow, with one environment reserved for development use and another for production use.
+It is recommended to deploy and run two separate environments for Aiexec, with one environment reserved for development use and another for production use.
 
 
-![Langflow environments](/img/langflow-env.png)
+![Aiexec environments](/img/aiexec-env.png)
 
-* **The Langflow development environment** must include the Integrated Development Environment (IDE) for the full experience of Langflow, optimized for prototyping and testing new flows.
-* **The Langflow production environment** executes the flow logic in production and enables Langflow flows as standalone services.
+* **The Aiexec development environment** must include the Integrated Development Environment (IDE) for the full experience of Aiexec, optimized for prototyping and testing new flows.
+* **The Aiexec production environment** executes the flow logic in production and enables Aiexec flows as standalone services.
 
 ## Why is it important to have separate deployments?
 

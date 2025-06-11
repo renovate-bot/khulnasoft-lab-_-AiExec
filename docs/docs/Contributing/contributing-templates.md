@@ -3,21 +3,21 @@ title: Contribute templates
 slug: /contributing-templates
 ---
 
-Follow these best practices when submitting a template to Langflow.
+Follow these best practices when submitting a template to Aiexec.
 
-For template formatting examples, see the Langflow repository's [starter_projects](https://github.com/langflow-ai/langflow/tree/main/src/backend/base/langflow/initial_setup/starter_projects) folder.
+For template formatting examples, see the Aiexec repository's [starter_projects](https://github.com/khulnasoft-lab/aiexec/tree/main/src/backend/base/aiexec/initial_setup/starter_projects) folder.
 
 ## Create a PR to submit your template
 
 Follow these steps to submit your template:
 
-1. Fork the [Langflow repository](https://github.com/langflow-ai/langflow) on GitHub.
-2. Add your `template.json` file to the Langflow repository's [starter_projects](https://github.com/langflow-ai/langflow/tree/main/src/backend/base/langflow/initial_setup/starter_projects) folder in your fork.
+1. Fork the [Aiexec repository](https://github.com/khulnasoft-lab/aiexec) on GitHub.
+2. Add your `template.json` file to the Aiexec repository's [starter_projects](https://github.com/khulnasoft-lab/aiexec/tree/main/src/backend/base/aiexec/initial_setup/starter_projects) folder in your fork.
 3. Include the [Required items for template submission](#required-items-for-template-submission) listed below.
-4. Create a Pull Request from your fork to the main Langflow repository.
+4. Create a Pull Request from your fork to the main Aiexec repository.
 5. Include a screenshot of your template in the PR.
 
-The Langflow team will review your PR, offer feedback, and merge the template.
+The Aiexec team will review your PR, offer feedback, and merge the template.
 
 ## Required items for template submission
 
@@ -81,4 +81,4 @@ Assign the template to one of the following categories:
 - RAG
 - Agents
 
-For more information, see the Langflow repository's [template categories](https://github.com/langflow-ai/langflow/blob/main/src/frontend/src/modals/templatesModal/index.tsx#L27-L57).
+For more information, see the Aiexec repository's [template categories](https://github.com/khulnasoft-lab/aiexec/blob/main/src/frontend/src/modals/templatesModal/index.tsx#L27-L57).

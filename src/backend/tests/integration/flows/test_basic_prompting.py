@@ -1,7 +1,7 @@
-from langflow.components.input_output import ChatInput, ChatOutput
-from langflow.components.prompts import PromptComponent
-from langflow.graph import Graph
-from langflow.schema.message import Message
+from aiexec.components.input_output import ChatInput, ChatOutput
+from aiexec.components.prompts import PromptComponent
+from aiexec.graph import Graph
+from aiexec.schema.message import Message
 
 from tests.integration.utils import run_flow
 

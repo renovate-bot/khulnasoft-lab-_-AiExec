@@ -50,7 +50,7 @@ const NoInputView: React.FC<NoInputViewProps> = ({
           <a
             className="underline underline-offset-4"
             target="_blank"
-            href="https://docs.langflow.org/components-io#chat-input"
+            href="https://docs.aiexec.org/components-io#chat-input"
           >
             Chat Input
           </a>{" "}

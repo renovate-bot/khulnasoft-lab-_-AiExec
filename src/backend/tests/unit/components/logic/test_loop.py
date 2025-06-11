@@ -4,10 +4,10 @@ from uuid import UUID
 import orjson
 import pytest
 from httpx import AsyncClient
-from langflow.components.logic import LoopComponent
-from langflow.memory import aget_messages
-from langflow.schema.data import Data
-from langflow.services.database.models.flow import FlowCreate
+from aiexec.components.logic import LoopComponent
+from aiexec.memory import aget_messages
+from aiexec.schema.data import Data
+from aiexec.services.database.models.flow import FlowCreate
 
 from tests.base import ComponentTestBaseWithClient
 from tests.unit.build_utils import build_flow, get_build_events

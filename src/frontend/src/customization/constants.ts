@@ -1,2 +1,2 @@
-//Langflow Desktop Base URL
+//Aiexec Desktop Base URL
 export const baseURL = "";
